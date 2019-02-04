@@ -1,0 +1,242 @@
+@charset "UTF-8";
+
+*:focus{
+	outline: none;
+}
+
+body, html {
+	margin : 0; /* 余白の削除 */
+	padding : 0; /* 余白の削除 */
+	width : 100%;
+	height : 100%;
+}
+
+/*画像の比を維持*/
+img {
+	object-fit: contain;
+}
+
+/*-------- 中身の範囲指定 -------------------------------------*/
+#contents {
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 130px;
+}
+
+
+/* -----------------------------------------------------------------*/
+/*  	タイトル													*/
+/* -----------------------------------------------------------------*/
+h1 {
+	padding: 10px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	color: black;
+	text-align: center;
+}
+
+
+/*---------------------------------------------------------------*/
+/* 		テーブル												 */
+/*---------------------------------------------------------------*/
+/* ---------基本デザイン----------------------------------------- */
+table {
+	width: 90%;
+	margin: 0 auto;
+	border-collapse: collapse;
+	border: 1px solid rgba(200,200,200,0.7);
+}
+
+table th {
+	padding: 10px 2vw;
+	background-color: rgba(200,200,200,0.6);
+	border: 1px solid rgba(200,200,200,0.7);
+	color: black;
+}
+
+table td {
+	padding: 10px 0.5vw;
+	border: 1px solid rgba(200,200,200,0.7);
+	word-break: break-all;
+}
+
+/* -----------テーブル左詰め用------------------------------------ */
+.vertical-list-table tr th {
+	text-align: left;
+	width: 25%;
+}
+
+.vertical-list-table tr td {
+	width: 75%;
+}
+
+/*----------- テーブル中央揃え用------------------------------------- */
+.horizontal-list-table {
+	font-size: 1vw;
+}
+
+.horizontal-list-table tr th {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.horizontal-list-table tr td {
+	text-align: center;
+}
+
+
+/*----------- テーブル内入力フォームデザイン--------------------------- */
+.txt {
+	width : 99%;
+	height : 30px;
+	border: 0.5px solid #999;
+	font-size : 24px;
+	background-color: white;
+}
+
+
+/* -----------------------------------------------------------------------------*/
+/*  		ボタン																*/
+/* -----------------------------------------------------------------------------*/
+/* ------------ボタン自体のデザイン-------------------------------------------- */
+
+.submit_btn {
+	border-radius: 100px;
+	border-width: 1px;
+	width: 200px;
+	height : 35px;
+	margin-top : -5px;
+	margin-left : 10px;
+	font-size: 16px;
+	text-align: center;
+	color: black;
+	background-color: rgba(200,200,200,0);
+}
+
+
+.submit_btn:active {
+	position: relative;
+	top: 2px;
+	left: 2px;
+}
+
+.submit_btn:focus {
+	box-shadow: 0 0 10px #e5a323;
+}
+
+.submit_btn:hover {
+	cursor: pointer;
+    box-shadow: 0 0 20px #e5a323;
+}
+
+/*-------------- ボタン配置------------------------------------------------*/
+/* 縦並び */
+.submit_btn_box{
+	margin: 20px;
+	text-align: center;
+	clear: both;
+}
+
+/* -------------------------------------------------------------------- */
+/* 		メッセージ														*/
+/* -------------------------------------------------------------------- */
+
+.message {
+	font-size: 15px;
+	border: 1px solid;
+	margin: 10px 20px;
+	padding: 15px 50px;
+	text-align: center;
+}
+
+.message_nomal {
+	border-color: blue;
+	color: blue;
+	background-color: #A9D0F5;
+}
+
+.message_error {
+	border-color: red;
+	color: red;
+	background-color: #F5A9BC;
+}
+
+.message_success {
+	border-color: green;
+	color: green;
+	background-color: #A9F5BC;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 		個別指定													  */
+/* ------------------------------------------------------------------ */
+/* login.jspのチェックボックス用 */
+.box, .checkList {
+	padding: 30px;
+	padding-left: 100px;
+}
+
+/* チェックボックスのフォーカス、ホバー処理 */
+#form_savedLoginId:focus, .checkList:focus, .select_box:focus {
+	box-shadow: 0 0 10px #e5a323;
+}
+
+#form_savedLoginId:hover, .checkList:hover, .select_box:hover {
+	box-shadow: 0 0 20px #e5a323;
+}
+
+/* login.jspの入力フォーム背景 */
+.txt-yellow {
+	background-color:#fffacd;
+}
+
+.txt-yellow:focus {
+	box-shadow: 0 0 10px #e5a323;
+}
+
+/* -------------------------------------------------------------------- */
+/* 		画像サイズ設定													*/
+/* -------------------------------------------------------------------- */
+
+
+/*購入履歴、カート*/
+.item-image-box-50 {
+	width : 50px;
+	height : 50px;
+}
+
+/* 商品詳細のおすすめ商品 */
+.item-image-box-170{
+	width: 100%;
+	height: 170px;
+}
+
+/*商品一覧*/
+.item-image-box-250 {
+	width : 100%;
+	height : 250px;
+}
+
+/*商品詳細*/
+.item-image-box-320 {
+	width : 100%;
+	height : 320px;
+}
+
+
+/* 画像のホバー、アクティブアニメーション */
+.imgAnimation{
+	-webkit-transition: all 0.35s;
+	-ms-transition: all 0.35s;
+}
+
+.imgAnimation:hover{
+	border-radius: 20px;
+	box-shadow: 5px 10px 20px rgba(0,0,0,0.25);
+}
+
+.imgAnimation:active{
+	transform: scale(0.95, 0.95);
+	border-bottom: none;
+}
