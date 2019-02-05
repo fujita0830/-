@@ -3,9 +3,120 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-<!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
-<!-- 	<constant name="struts.devMode" value="true" /> -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
+	<!-- 	<constant name="struts.devMode" value="true" /> -->
+	<constant name="struts.devMode" value="true" />
 	<package name="com.internousdev.cyan.action" extends="struts-default">
+
+	<action name="CreateUserAction" class="com.internousdev.sampleweb.action.CreateUserAction" method="execute">
+		<result name="success">createUser.jsp</result>
+	</action>
+
+	<action name="CreateUserConfirmAction" class="com.internousdev.sampleweb.action.CreateUserConfirmAction" method="execute">
+		<result name="success">createUserConfirm.jsp</result>
+		<result name="error">createUser.jsp</result>
+	</action>
+
+	<action name="CreateUserCompleteAction" class="com.internousdev.sampleweb.action.CreateUserCompleteAction" method="execute">
+		<result name="success">createUserComplete.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="GoLoginAction" class="com.internousdev.sampleweb.action.GoLoginAction" method="execute">
+		<result name="success">login.jsp</result>
+	</action>
+
+	<action name="LoginAction" class="com.internousdev.sampleweb.action.LoginAction" method="execute">
+		<result name="success">home.jsp</result>
+		<result name="cart">cart.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+	<action name="ResetPasswordAction" class="com.internousdev.sampleweb.action.ResetPasswordAction" method="execute">
+		<result name="success">resetPassword.jsp</result>
+	</action>
+
+	<action name="ResetPasswordConfirmAction" class="com.internousdev.sampleweb.action.ResetPasswordConfirmAction" method="execute">
+		<result name="success">resetPasswordConfirm.jsp</result>
+		<result name="error">resetPassword.jsp</result>
+	</action>
+
+	<action name="ResetPasswordCompleteAction" class="com.internousdev.sampleweb.action.ResetPasswordCompleteAction" method="execute">
+		<result name="success">resetPasswordComplete.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="ProductListAction" class="com.internousdev.sampleweb.action.ProductListAction" method="execute">
+		<result name="success">productList.jsp</result>
+	</action>
+
+	<action name="ProductDetailsListAction" class="com.internousdev.sampleweb.action.ProductDetailsListAction" method="execute">
+		<result name="success">productDetails.jsp</result>
+	</action>
+
+	<action name="SearchItemAction" class="com.internousdev.sampleweb.action.SearchItemAction" method="execute">
+		<result name="success">productList.jsp</result>
+		<result name="error">productList.jsp</result>
+	</action>
+
+	<action name="HomeAction" class="com.internousdev.sampleweb.action.HomeAction" method="execute">
+		<result name="success">home.jsp</result>
+	</action>
+
+	<action name="AddCartAction" class="com.internousdev.sampleweb.action.AddCartAction" method="execute">
+		<result name="success">cart.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="CartAction" class="com.internousdev.sampleweb.action.CartAction" method="execute">
+		<result name="success">cart.jsp</result>
+	</action>
+
+	<action name="DeleteCartAction" class="com.internousdev.sampleweb.action.DeleteCartAction" method="execute">
+		<result name="success">cart.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="SettlementConfirmAction" class="com.internousdev.sampleweb.action.SettlementConfirmAction" method="execute">
+		<result name="success">settlementConfirm.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+	<action name="CreateDestinationAction" class="com.internousdev.sampleweb.action.CreateDestinationAction" method="execute">
+		<result name="success">createDestination.jsp</result>
+	</action>
+
+	<action name="CreateDestinationConfirmAction" class="com.internousdev.sampleweb.action.CreateDestinationConfirmAction" method="execute">
+		<result name="success">createDestinationConfirm.jsp</result>
+		<result name="error">createDestination.jsp</result>
+	</action>
+
+	<action name="CreateDestinationCompleteAction" class="com.internousdev.sampleweb.action.CreateDestinationCompleteAction" method="execute">
+		<result name="success">createDestinationComplete.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="SettlementCompleteAction" class="com.internousdev.sampleweb.action.SettlementCompleteAction" method="execute">
+		<result name="success">home.jsp</result>
+	</action>
+
+	<action name="MyPageAction" class="com.internousdev.sampleweb.action.MyPageAction" method="execute">
+		<result name="success">mypage.jsp</result>
+	</action>
+
+	<action name="PurchaseHistoryAction" class="com.internousdev.sampleweb.action.PurchaseHistoryAction" method="execute">
+		<result name="success">purchaseHistory.jsp</result>
+	</action>
+
+	<action name="DeletePurchaseHistoryAction" class="com.internousdev.sampleweb.action.DeletePurchaseHistoryAction" method="execute">
+		<result name="success">purchaseHistory.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="LogoutAction" class="com.internousdev.sampleweb.action.LogoutAction" method="execute">
+		<result name="success">index.jsp</result>
+	</action>
 
 	</package>
 </struts>
