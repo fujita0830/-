@@ -6,7 +6,9 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dao.ProductInfoDAO;
+import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -30,9 +32,9 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		productInfoDtoList = productInfoDAO.getProductInfoList();
 
-		if(session.containsKey("mCategoryList")){
+		if(!session.containsKey("mCategoryList")){
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDTO = mCategoryDAO.getMCategoryList();
+			mCategoryDtoList = mCategoryDAO.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 

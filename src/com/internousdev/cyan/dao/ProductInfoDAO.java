@@ -226,11 +226,4 @@ public class ProductInfoDAO {
 	}
 
 
-
-
-
-
-
-
-
 }
