@@ -11,7 +11,7 @@ import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.util.DBConnector;
 
 public class MCategoryDAO {
-	public List<MCategoryDTO> getMCategoryList() throws SQLException{
+	public List<MCategoryDTO> getMCategoryList() {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		String sql = "select * from m_category";
@@ -23,14 +23,16 @@ public class MCategoryDAO {
 			while(resultSet.next()){
 				MCategoryDTO mCategoryDTO = new MCategoryDTO();
 				mCategoryDTO.setId(resultSet.getString("id"));
-				mCategoryDTO.setId(resultSet.getString("category_id"));
-				mCategoryDTO.setId(resultSet.getString("category_name"));
+				mCategoryDTO.setCategoryId(resultSet.getString("category_id"));
+				mCategoryDTO.setCategoryName(resultSet.getString("category_name"));
 				mCategoryDTOList.add(mCategoryDTO);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
-		}finally{
+		}try{
 			connection.close();
+		}catch(SQLException e){
+			e.printStackTrace();
 		}
 		return mCategoryDTOList;
 	}
