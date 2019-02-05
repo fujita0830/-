@@ -25,12 +25,12 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDtoList");
 
 		@SuppressWarnings("unchecked")
-		ArrayList<DestinationInfoDTO>destinationinfoDTOList = (ArrayList<DestinationInfoDTO>)session.get("destinationInfoDTOList");
+		ArrayList<DestinationInfoDTO>destinationInfoDtoList = (ArrayList<DestinationInfoDTO>)session.get("destinationInfoDtoList");
 		for(int i=0;i<purchaseHistoryInfoDtoList.size();i++){
 			purchaseHistoryInfoDtoList.get(i).setDestinationId(destinationInfoDtoList.get(0).getId());
 		}
 
-		purchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHIistoryInfoDAO();
+		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		int count = 0;
 		for(int i=0; i<purchaseHistoryInfoDtoList.size();i++){
 			count += purchaseHistoryInfoDAO.regist(
@@ -42,18 +42,18 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 					);
 		}
 		if(count>0){
-			CartInfoDAO cartinfoDAO = new CartInfoDAO();
-			count = cartinfoDAO.deleteAll(String.valueOf(session.get("loginId")));
+			CartInfoDAO cartInfoDAO = new CartInfoDAO();
+			count = cartInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 			if(count > 0){
 				List<CartInfoDTO>cartInfoDtoList = new ArrayList<CartInfoDTO>();
-				cartInfoDtoList = cartinfoDAO.getCartInfoDtoList(String.valueOf(session.get("loginId")));
+				cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(String.valueOf(session.get("loginId")));
 				Iterator<CartInfoDTO>iterator = cartInfoDtoList.iterator();
 				if(!(iterator.hasNext())){
 					cartInfoDtoList = null;
 				}
 		    session.put("cartInfoDtoList",cartInfoDtoList);
 
-		    int totalPrice = Integer.parseInt(String.vallueOf(cartinfoDAO.getTotalPrice(String.valueOf(session.get("loginId")))));
+		    int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(String.valueOf(session.get("loginId")))));
 		    session.put("totalPrice", totalPrice);
 		    session.remove("purchaseHistoryInfoDtoList");
 		    result = SUCCESS;
