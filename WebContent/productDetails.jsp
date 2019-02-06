@@ -59,7 +59,7 @@
 	<s:hidden name="imageFileName" value="%{#session.imageFileName}"/>
 	<s:hidden name="price" value="%{#session.price}"/>
 	<s:hidden name="releaseCompany" value="%{#session.releaseCompany}"/>
-	<s:hidden name="releaseDate" value="%{#session.releaseDate"/>
+	<s:hidden name="releaseDate" value="%{#session.releaseDate}"/>
 	<s:hidden name="productDescription" value="%{#session.productDescription}"/>
 	</div>
 	<div class="submit_btn_box">
