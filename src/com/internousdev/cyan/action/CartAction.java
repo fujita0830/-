@@ -24,19 +24,19 @@ public class CartAction extends ActionSupport implements SessionAware {
 		String result = ERROR;
 		String userId = null;
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
-		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
+		List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
 		session.remove("checkListErrorMessageList");
 		if(session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
 		}else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
-		cartInfoDtoList = cartInfoDao.getCartInfoDtoList(userId);
-		Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
+		cartInfoDTOList = cartInfoDao.getCartInfoDTOList(userId);
+		Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
 		if(!(iterator.hasNext())) {
-			cartInfoDtoList = null;
+			cartInfoDTOList = null;
 		}
-		session.put("cartInfoDtoList", cartInfoDtoList);
+		session.put("cartInfoDtoList", cartInfoDTOList);
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		result = SUCCESS;

@@ -54,7 +54,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			return ERROR;
 		}else {
 			List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-			cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
+			cartInfoDtoList = cartInfoDAO.getCartInfoDTOList(userId);
 			Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
 			if(!(iterator.hasNext())) {
 				cartInfoDtoList = null;

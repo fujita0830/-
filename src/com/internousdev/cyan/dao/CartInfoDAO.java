@@ -12,10 +12,10 @@ import com.internousdev.cyan.util.DBConnector;
 
 public class CartInfoDAO {
 
-	public List<CartInfoDTO> getCartInfoDtoList(String loginId) {
+	public List<CartInfoDTO> getCartInfoDTOList(String loginId) {
         DBConnector dbConnector = new DBConnector();
         Connection connection = dbConnector.getConnection();
-        List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
+        List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
         String sql="select"
                 + " ci.id as id,"
                 + " ci.user_id as user_id,"
@@ -59,7 +59,7 @@ public class CartInfoDAO {
                 cartInfoDTO.setReleaseCompany(resultSet.getString("release_company"));
                 cartInfoDTO.setStatus(resultSet.getString("status"));
                 cartInfoDTO.setSubtotal(resultSet.getInt("subtotal"));
-                cartInfoDtoList.add(cartInfoDTO);
+                cartInfoDTOList.add(cartInfoDTO);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class CartInfoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return cartInfoDtoList;
+        return cartInfoDTOList;
     }
 
     public int getTotalPrice(String userId) {
@@ -210,5 +210,27 @@ public class CartInfoDAO {
         }
         return count;
     }
+
+    public int deleteAll(String userId) {
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		int count = 0;
+		String sql = "delete from cart_info where user_id=?";
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, userId);
+
+			count = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 
 }
