@@ -47,7 +47,7 @@ public class DestinationInfoDAO {
 	      public List<DestinationInfoDTO>getDestinationInfo(String loginId) throws SQLException{
 	    	  DBConnector dbConnector = new DBConnector();
 	    	  Connection connection = dbConnector.getConnection();
-	    	  List<DestinationInfoDTO>destinationInfoDtoList = new ArrayList<DestinationInfoDTO>();
+	    	  List<DestinationInfoDTO>destinationInfoDTOList = new ArrayList<DestinationInfoDTO>();
 
 	    	  String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id =?";
 
@@ -67,14 +67,14 @@ public class DestinationInfoDAO {
 	    			  destinationInfoDTO.setUserAddress(rs.getString("user_address"));;
 	    			  destinationInfoDTO.setEmail(rs.getString("email"));
 	    			  destinationInfoDTO.setTelNumber(rs.getString("tel_number"));
-	    			  destinationInfoDtoList.add(destinationInfoDTO);
+	    			  destinationInfoDTOList.add(destinationInfoDTO);
 	    		  }
 	    	  }catch(SQLException e){
 	    		  e.printStackTrace();
 	    	  }finally{
 	    		  connection.close();
 	    	  }
-	    	  return destinationInfoDtoList;
+	    	  return destinationInfoDTOList;
 
 	    	 }
 
