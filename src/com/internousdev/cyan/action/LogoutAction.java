@@ -43,4 +43,4 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
-}a
+}
