@@ -37,7 +37,7 @@ public class GoLoginAction extends ActionSupport implements SessionAware {
 		return mCategoryDTOList;
 	}
 
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDTOList) {
+	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
 		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
