@@ -25,40 +25,40 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		String result = ERROR;
 
 		@SuppressWarnings("unchecked")
-		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDtoList");
+		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDTOList");
 
 		@SuppressWarnings("unchecked")
-		ArrayList<DestinationInfoDTO> destinationInfoDtoList = (ArrayList<DestinationInfoDTO>)session.get("destinationInfoDtoList");
-		for(int i=0;i<purchaseHistoryInfoDtoList.size();i++) {
-			purchaseHistoryInfoDtoList.get(i).setDestinationId(destinationInfoDtoList.get(0).getId());
+		ArrayList<DestinationInfoDTO> destinationInfoDTOList = (ArrayList<DestinationInfoDTO>)session.get("destinationInfoDTOList");
+		for(int i=0;i<purchaseHistoryInfoDTOList.size();i++) {
+			purchaseHistoryInfoDTOList.get(i).setDestinationId(destinationInfoDTOList.get(0).getId());
 		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		int count = 0;
-		for(int i=0; i<purchaseHistoryInfoDtoList.size();i++) {
+		for(int i=0; i<purchaseHistoryInfoDTOList.size();i++) {
 			count += purchaseHistoryInfoDAO.regist(
 					String.valueOf(session.get("loginId")),
-					purchaseHistoryInfoDtoList.get(i).getProductId(),
-					purchaseHistoryInfoDtoList.get(i).getProductCount(),
-					purchaseHistoryInfoDtoList.get(i).getDestinationId(),
-					purchaseHistoryInfoDtoList.get(i).getSubtotal()
+					purchaseHistoryInfoDTOList.get(i).getProductId(),
+					purchaseHistoryInfoDTOList.get(i).getProductCount(),
+					purchaseHistoryInfoDTOList.get(i).getDestinationId(),
+					purchaseHistoryInfoDTOList.get(i).getSubtotal()
 					);
 		}
 		if(count > 0) {
 			CartInfoDAO cartInfoDAO = new CartInfoDAO();
 			count = cartInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 			if(count > 0) {
-				List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-				cartInfoDtoList = cartInfoDAO.getCartInfoDTOList(String.valueOf(session.get("loginId")));
-				Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
+				List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
+				cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(String.valueOf(session.get("loginId")));
+				Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
 				if(!(iterator.hasNext())) {
-					cartInfoDtoList = null;
+					cartInfoDTOList = null;
 				}
-				session.put("cartInfoDtoList", cartInfoDtoList);
+				session.put("cartInfoDTOList", cartInfoDTOList);
 
 				int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(String.valueOf(session.get("loginId")))));
 				session.put("totalPrice", totalPrice);
-				session.remove("purchaseHistoryInfoDtoList");
+				session.remove("purchaseHistoryInfoDTOList");
 				result = SUCCESS;
 			}
 		}
