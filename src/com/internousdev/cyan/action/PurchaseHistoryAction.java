@@ -16,42 +16,42 @@ import com.opensymphony.xwork2.ActionSupport;
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
-	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList;
+	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
+	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
 
 	public String execute(){
 
-		PurchaseHistoryInfoDAO purchaseHistoryInfoDao = new PurchaseHistoryInfoDAO();
-		purchaseHistoryInfoDtoList = purchaseHistoryInfoDao.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
-		Iterator<PurchaseHistoryInfoDTO> iterator=purchaseHistoryInfoDtoList.iterator();
+		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
+		purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
+		Iterator<PurchaseHistoryInfoDTO> iterator=purchaseHistoryInfoDTOList.iterator();
 
 		if(!(iterator.hasNext())){
-			purchaseHistoryInfoDtoList =null;
+			purchaseHistoryInfoDTOList =null;
 		}
 
 		if(!session.containsKey("mCategoryList")){
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			MCategoryDAO mCategoryDAO = new MCategoryDAO();
+			mCategoryDTOList = mCategoryDAO.getMCategoryList();
+			session.put("mCategoryDTOList", mCategoryDTOList);
 		}
 		return SUCCESS;
 		}
 
-public List<MCategoryDTO> getmCategoryDtoList() {
-	return mCategoryDtoList;
+public List<MCategoryDTO> getmCategoryDTOList() {
+	return mCategoryDTOList;
 }
 
-public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
-	this.mCategoryDtoList = mCategoryDtoList;
+public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
+	this.mCategoryDTOList = mCategoryDTOList;
 }
 
-public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList(){
-	return purchaseHistoryInfoDtoList;
+public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDTOList(){
+	return purchaseHistoryInfoDTOList;
 }
 
-public void setPurchaseHistoryInfoDtoList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList){
-	this.purchaseHistoryInfoDtoList = purchaseHistoryInfoDtoList;
+public void setPurchaseHistoryInfoDTOList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList){
+	this.purchaseHistoryInfoDTOList = purchaseHistoryInfoDTOList;
 }
 
 public String getCategoryId() {
