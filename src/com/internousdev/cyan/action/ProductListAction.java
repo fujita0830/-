@@ -21,8 +21,8 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String keywords;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
-	private List<ProductInfoDTO> productInfoDtoList = new ArrayList<ProductInfoDTO>();
+	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
+	private List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 
 	private Map<String, Object> session;
 
@@ -30,12 +30,12 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
-		productInfoDtoList = productInfoDAO.getProductInfoList();
+		productInfoDTOList = productInfoDAO.getProductInfoList();
 
 		if(!session.containsKey("mCategoryList")){
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			mCategoryDTOList = mCategoryDAO.getMCategoryList();
+			session.put("mCategoryDTOList", mCategoryDTOList);
 		}
 
 		result = SUCCESS;
@@ -98,20 +98,20 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		this.keywords = keywords;
 	}
 
-	public List<MCategoryDTO> getmCategoryDtoList() {
-		return mCategoryDtoList;
+	public List<MCategoryDTO> getmCategoryDTOList() {
+		return mCategoryDTOList;
 	}
 
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
-		this.mCategoryDtoList = mCategoryDtoList;
+	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
+		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
-	public List<ProductInfoDTO> getProductInfoDtoList() {
-		return productInfoDtoList;
+	public List<ProductInfoDTO> getProductInfoDTOList() {
+		return productInfoDTOList;
 	}
 
-	public void setProductInfoDtoList(List<ProductInfoDTO> productInfoDtoList) {
-		this.productInfoDtoList = productInfoDtoList;
+	public void setProductInfoDTOList(List<ProductInfoDTO> productInfoDTOList) {
+		this.productInfoDTOList = productInfoDTOList;
 	}
 
 	public Map<String, Object> getSession() {

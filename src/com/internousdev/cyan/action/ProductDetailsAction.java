@@ -15,8 +15,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware{
 	private int productId;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
-	private List<ProductInfoDTO> productInfoDtoList = new ArrayList<ProductInfoDTO>();
+	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
+	private List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 	private String categoryId;
 	private Map<String, Object> session;
 	public String execute(){
@@ -36,13 +36,13 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 		session.put("productDescription", productInfoDTO.getProductDescription());
 		List<Integer> productCountList = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
 		session.put("productCountList", productCountList);
-		productInfoDtoList = productInfoDAO.getProductInfoListByCategoryId(productInfoDTO.getCategoryId(), productInfoDTO.getProductId(), 0,3);
-		Iterator<ProductInfoDTO> iterator = productInfoDtoList.iterator();
+		productInfoDTOList = productInfoDAO.getProductInfoListByCategoryId(productInfoDTO.getCategoryId(), productInfoDTO.getProductId(), 0,3);
+		Iterator<ProductInfoDTO> iterator = productInfoDTOList.iterator();
 		if(!(iterator.hasNext())){
 			productCountList = null;
 		}
-		if(!productInfoDtoList.isEmpty() || productCountList == null){
-			session.put("productInfoDtoList", productInfoDtoList);
+		if(!productInfoDTOList.isEmpty() || productCountList == null){
+			session.put("productInfoDTOList", productInfoDTOList);
 			result = SUCCESS;
 		}
 		return result;
@@ -56,20 +56,20 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 		this.productId = productId;
 	}
 
-	public List<MCategoryDTO> getmCategoryDtoList() {
-		return mCategoryDtoList;
+	public List<MCategoryDTO> getmCategoryDTOList() {
+		return mCategoryDTOList;
 	}
 
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
-		this.mCategoryDtoList = mCategoryDtoList;
+	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
+		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
-	public List<ProductInfoDTO> getProductInfoDtoList() {
-		return productInfoDtoList;
+	public List<ProductInfoDTO> getProductInfoDTOList() {
+		return productInfoDTOList;
 	}
 
-	public void setProductInfoDtoList(List<ProductInfoDTO> productInfoDtoList) {
-		this.productInfoDtoList = productInfoDtoList;
+	public void setProductInfoDTOList(List<ProductInfoDTO> productInfoDTOList) {
+		this.productInfoDTOList = productInfoDTOList;
 	}
 
 	public String getCategoryId() {
