@@ -23,8 +23,8 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	private Map<String, Object> session;
 	public String execute() {
 		String result = ERROR;
-		DestinationInfoDAO destinationInfoDao = new DestinationInfoDAO();
-		int count = destinationInfoDao.insert(String.valueOf(session.get("loginId")),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
+		DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
+		int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
 		if(count > 0) {
 			result = SUCCESS;
 		}
