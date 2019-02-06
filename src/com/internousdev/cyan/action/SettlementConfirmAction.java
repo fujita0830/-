@@ -38,21 +38,21 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 		if(session.containsKey("loginId")) {
 			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-			List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<>();
+			List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<>();
 			try {
-				destinationInfoDtoList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
-				Iterator<DestinationInfoDTO> iterator = DestinationInfoDtoList.iterator();
+				destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
+				Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
 				if(!(iterator.hasNext())) {
-					destinationInfoDtoList = null;
+					destinationInfoDTOList = null;
 				}
-				session.put("destinationInfoDtoList", destinationInfoDtoList);
+				session.put("destinationInfoDTOList", destinationInfoDTOList);
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
 		}
 
-		if(!session.containsKey("purchaseHistoryInfoDtoList")) {
-			List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = new ArrayList<PurchaseHistoryInfoDTO>();
+		if(!session.containsKey("purchaseHistoryInfoDTOList")) {
+			List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
 			CommonUtility commonUtility = new CommonUtility();
 			String[] productIdList = commonUtility.parseArrayList(productId);
 			String[] productNameList = commonUtility.parseArrayList(productName);
@@ -85,9 +85,9 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 				purchaseHistoryInfoDTO.setProductCount(Integer.parseInt(String.valueOf(productCountList[i])));
 				purchaseHistoryInfoDTO.setSubtotal(Integer.parseInt(String.valueOf(subtotalList[i])));
-				purchaseHistoryInfoDtoList.add(purchaseHistoryInfoDTO);
+				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDTO);
 			}
-			session.put("purchaseHistoryInfoDtoList", purchaseHistoryInfoDtoList);
+			session.put("purchaseHistoryInfoDTOList", purchaseHistoryInfoDTOList);
 		}
 
 		if(!session.containsKey("loginId")) {
