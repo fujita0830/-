@@ -34,9 +34,9 @@
 			<s:if test="#session.checkListErrorMessageList!=null">
 				<div class="error">
 					<div class="error-message">
-					<s:iterator value="#session.checkListErrorMessageList">
-					<s:property />
-					</s:iterator>
+						<s:iterator value="#session.checkListErrorMessageList">
+							<s:property />
+						</s:iterator>
 					</div>
 				</div>
 			</s:if>
@@ -95,7 +95,6 @@
 							<s:submit value="削除" id="delete_btn" class="submit_btn" onclick="this.form.action='DeleteCartAction';" disabled="true"/>
 						</div>
 					</div>
-
 				</s:form>
 			</s:if>
 			<s:else>
