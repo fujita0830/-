@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +25,7 @@
 
 	<tr>
 		<th scope="row"><s:label value="ふりがな"/></th>
-		<td><s:property value="#session.familyNameKana"/></span>　</span><s:propaty value="#session.firstNameKana"/></td>
+		<td><s:property value="#session.familyNameKana"/><span>　</span><s:property value="#session.firstNameKana"/></td>
 	</tr>
 
 	<tr>
@@ -36,7 +35,7 @@
 
 	<tr>
 		<th scope="row"><s:label value="メールアドレス"/></th>
-		<td><s:property value="#session.email"></td>
+		<td><s:property value="#session.email"/></td>
 	</tr>
 	</table>
 		<div class="submit btn_box">
@@ -44,6 +43,6 @@
 		</div>
 		</s:form>
 </div>
-	<s:include value="footerjsp">
+	<s:include value="footerjsp"/>
 </body>
 </html>
