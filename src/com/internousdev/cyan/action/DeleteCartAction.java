@@ -32,7 +32,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private String releaseDate;
 	private String productCount;
 	private String subtotal;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
+	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -53,13 +53,13 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		if(count <= 0) {
 			return ERROR;
 		}else {
-			List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-			cartInfoDtoList = cartInfoDAO.getCartInfoDTOList(userId);
-			Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
+			List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
+			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+			Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
 			if(!(iterator.hasNext())) {
-				cartInfoDtoList = null;
+				cartInfoDTOList = null;
 			}
-			session.put("cartInfoDtoList", cartInfoDtoList);
+			session.put("cartInfoDTOList", cartInfoDTOList);
 			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 			session.put("totalPrice", totalPrice);
 			sexList.add(MALE);
@@ -69,12 +69,12 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
-	public List<MCategoryDTO> getmCategoryDtoList() {
-		return mCategoryDtoList;
+	public List<MCategoryDTO> getmCategoryDTOList() {
+		return mCategoryDTOList;
 	}
 
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
-		this.mCategoryDtoList = mCategoryDtoList;
+	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
+		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
 	public String getSex() {
