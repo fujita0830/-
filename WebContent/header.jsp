@@ -41,7 +41,7 @@ function goSearchItemAction(){
 <div id="header-menu">
 <ul>
 <s:form id="form" name="form">
-	<s:if test='#session.containsKey("mCategoryDtoList")'>
+	<s:if test='#session.containsKey("mCategoryDTOList")'>
 	<li><s:select name="categoryId" list="#session.mCategoryDTOList" listValue="categoryName" listKey="categoryId" class="cs-div" id="categoryId"/></li>
 	</s:if>
 	<li><s:textfield name="keywords" class="txt-keywords" placeholder="検索ワード" /></li>
