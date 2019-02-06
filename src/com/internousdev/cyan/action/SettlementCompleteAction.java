@@ -8,7 +8,10 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.CartInfoDAO;
+import com.internousdev.cyan.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.cyan.dto.CartInfoDTO;
+import com.internousdev.cyan.dto.DestinationInfoDTO;
+import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
