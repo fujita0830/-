@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="c" uti="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +68,7 @@
 
 	<div class="box">
 	<div class="product-details-recommend-box">
-	<s:iterator value="#session.productInfoDtoList">
+	<s:iterator value="#session.productInfoDTOList">
 		<div class="recommend-box">
 		<a href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="%{productId}"/>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +19,13 @@
 	</div>
 	</div>
 </s:if>
-<s:elseif test="productInfoDtoList == null">
+<s:elseif test="productInfoDTOList == null">
 <div class="info">
 	検索結果がありません。
 </div>
 </s:elseif>
 <div id="product-list">
-<s:iterator value="#session.productInfoDtoList">
+<s:iterator value="#session.productInfoDTOList">
 <div id="product-list-box">
 <ul>
 	<li>
