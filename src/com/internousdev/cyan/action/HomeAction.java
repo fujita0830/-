@@ -17,7 +17,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private Map<String, Object> session;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
+	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 
 
 
@@ -32,10 +32,10 @@ public class HomeAction extends ActionSupport implements SessionAware{
 			session.put("logined", 0);
 		}
 
-		if(!session.containsKey(mCategoryDtoList)){
+		if(!session.containsKey(mCategoryDTOList)){
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			mCategoryDTOList = mCategoryDAO.getMCategoryList();
+			session.put("mCategoryDTOList", mCategoryDTOList);
 		}
 		return SUCCESS;
 	}
@@ -56,12 +56,12 @@ public class HomeAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	public List<MCategoryDTO> getmCategoryDtoList() {
-		return mCategoryDtoList;
+	public List<MCategoryDTO> getmCategoryDTOList() {
+		return mCategoryDTOList;
 	}
 
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
-		this.mCategoryDtoList = mCategoryDtoList;
+	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
+		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
 }

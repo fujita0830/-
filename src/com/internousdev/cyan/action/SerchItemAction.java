@@ -20,7 +20,7 @@ public class SerchItemAction extends ActionSupport {
 	private String keywords;
 	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private List<String> keywordsErrorMessageList = new ArrayList<String>();
-	private List<ProductInfoDTO> productInfoDtoList = new ArrayList<ProductInfoDTO>();
+	private List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 	private Map<String, Object> session;
 	private String tempKeywords;
 
@@ -47,19 +47,19 @@ public class SerchItemAction extends ActionSupport {
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		switch (categoryId) {
 			case "1":
-				productInfoDtoList = productInfoDAO.getProductInfoListAll(tempKeywords.split(" "));
+				productInfoDTOList = productInfoDAO.getProductInfoListAll(tempKeywords.split(" "));
 				result = SUCCESS;
 				break;
 
 			default:
-				productInfoDtoList = productInfoDAO.getProductInfoListByKeywords(tempKeywords.split(" "), categoryId);
+				productInfoDTOList = productInfoDAO.getProductInfoListByKeywords(tempKeywords.split(" "), categoryId);
 				result = SUCCESS;
 				break;
 		}
 
-		Iterator<ProductInfoDTO> iterator = productInfoDtoList.iterator();
+		Iterator<ProductInfoDTO> iterator = productInfoDTOList.iterator();
 		if(!(iterator.hasNext())) {
-			productInfoDtoList = null;
+			productInfoDTOList = null;
 		}
 
 		if(!session.containsKey("mCategoryList")) {
@@ -102,12 +102,12 @@ public class SerchItemAction extends ActionSupport {
 		this.keywordsErrorMessageList = keywordsErrorMessageList;
 	}
 
-	public List<ProductInfoDTO> getProductInfoDtoList() {
-		return productInfoDtoList;
+	public List<ProductInfoDTO> getProductInfoDTOList() {
+		return productInfoDTOList;
 	}
 
-	public void setProductInfoDtoList(List<ProductInfoDTO> productInfoDtoList) {
-		this.productInfoDtoList = productInfoDtoList;
+	public void setProductInfoDTOList(List<ProductInfoDTO> productInfoDTOList) {
+		this.productInfoDTOList = productInfoDTOList;
 	}
 
 	public Map<String, Object> getSession() {
