@@ -2,7 +2,7 @@ package com.internousdev.cyan.dto;
 
 import java.util.Date;
 
-public class purchaseHistoryInfoDTO {
+public class PurchaseHistoryInfoDTO {
 
 	private int id;
 

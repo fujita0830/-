@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.cyan.dto.purchaseHistoryInfoDTO;
+import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.internousdev.cyan.util.DBConnector;
 
 
@@ -57,7 +57,7 @@ public class PurchaseHistoryInfoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while(resultSet.next()){
-				purchaseHistoryInfoDTO purchaseHistoryInfoDto = new PurchaseHistoryInfoDTO();
+				PurchaseHistoryInfoDTO purchaseHistoryInfoDto = new PurchaseHistoryInfoDTO();
 				purchaseHistoryInfoDto.setId(resultSet.getInt("id"));
 				purchaseHistoryInfoDto.setUserId(resultSet.getString("user_id"));
 				purchaseHistoryInfoDto.setProductId(resultSet.getInt("product_id"));
