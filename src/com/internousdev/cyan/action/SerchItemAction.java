@@ -63,8 +63,8 @@ public class SerchItemAction extends ActionSupport {
 		}
 
 		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDTOList = mCategoryDao.getMCategoryList();
+			MCategoryDAO mCategoryDAO = new MCategoryDAO();
+			mCategoryDTOList = mCategoryDAO.getMCategoryList();
 			session.put("mCategoryDTOList", mCategoryDTOList);
 		}
 		return result;
