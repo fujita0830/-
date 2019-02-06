@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.print.attribute.standard.Destination;
-
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.CartInfoDAO;
@@ -44,7 +42,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("loginId", loginId);
 		} else {
 			session.put("savedLoginId", false);
-			session.remove("loginId", loginId);
+			session.remove("logined", loginId);
 		}
 
 		InputChecker inputChecker = new InputChecker();
@@ -91,7 +89,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 					result = SUCCESS;
 				}
 			}
-			session.put("loginId", 1);
+			session.put("logined", 1);
 		}
 		return result;
 	}
