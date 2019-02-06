@@ -13,7 +13,7 @@ import com.internousdev.cyan.dto.CartInfoDTO;
 import com.internousdev.cyan.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AddCartAction extends ActionSupport implements SessionAware{
+public class AddCartAction extends ActionSupport implements SessionAware {
 
 	private int productId;
 	private String productName;
@@ -32,33 +32,25 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		String result=ERROR;
 		String userId = null;
 		String tempUserId = null;
-
 		session.remove("checkListErrorMessageList");
-
 		if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
 			 CommonUtility commonUtility = new CommonUtility();
 			 session.put("tempUserId", commonUtility.getRamdomValue());
 		}
-
 		if(session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
 		} else {
 			userId = String.valueOf(session.get("tempUserId"));
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
-
 		int intProductCount = Integer.parseInt(productCount);
-
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-
 		int count = 0;
-
 		if(cartInfoDAO.isExistsCartInfo(userId, productId)){
 			count = cartInfoDAO.update(userId, productId, intProductCount);
 		}else{
 			count = cartInfoDAO.regist(userId, tempUserId, productId, intProductCount, price);
 		}
-
 		if(count > 0) {
 			result=SUCCESS;
 		}

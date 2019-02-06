@@ -13,19 +13,19 @@ import com.internousdev.cyan.dto.CartInfoDTO;
 import com.internousdev.cyan.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CartAction extends ActionSupport implements SessionAware{
+public class CartAction extends ActionSupport implements SessionAware {
+
 	private String categoryId;
 	private String keywords;
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
-	public String execute(){
+
+	public String execute() {
 		String result = ERROR;
 		String userId = null;
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
 		List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-
 		session.remove("checkListErrorMessageList");
-
 		if(session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
 		}else if (session.containsKey("tempUserId")) {
@@ -37,11 +37,9 @@ public class CartAction extends ActionSupport implements SessionAware{
 			cartInfoDtoList = null;
 		}
 		session.put("cartInfoDtoList", cartInfoDtoList);
-
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		result = SUCCESS;
-
 		if(!session.containsKey("mCategoryList")) {
 			MCategoryDAO mCategoryDao = new MCategoryDAO();
 			mCategoryDtoList = mCategoryDao.getMCategoryList();

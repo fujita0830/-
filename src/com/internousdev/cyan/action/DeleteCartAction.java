@@ -13,7 +13,7 @@ import com.internousdev.cyan.dto.CartInfoDTO;
 import com.internousdev.cyan.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DeleteCartAction extends ActionSupport implements SessionAware{
+public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 	private Collection<String> checkList;
 	private String categoryId;
