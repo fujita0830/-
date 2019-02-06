@@ -4,21 +4,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.print.attribute.standard.RequestingUserName;
-
 import org.apache.struts2.interceptor.SessionAware;
-import org.omg.CORBA.PRIVATE_MEMBER;
 
-import com.internousdev.sampleweb.dao.PurchaseHistoryInfoDAO;
-import com.internousdev.sampleweb.dto.PurchaseHistoryInfoDTO;
+import com.internousdev.cyan.dao.PurchaseHistoryInfoDAO;
+import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class DeletePurchaseHistoryAction exetends ActionSupport implements SessionAware{
+public class DeletePurchaseHistoryAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String sex;
-	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList;
+	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
 
 
@@ -32,12 +29,12 @@ public class DeletePurchaseHistoryAction exetends ActionSupport implements Sessi
 
 		if(count > 0){
 
-			purchaseHistoryInfoDtoList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
+			purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
 
-			Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDtoList.iterator();
+			Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDTOList.iterator();
 
 			if(!(iterator.hasNext())){
-				purchaseHistoryInfoDtoList = null;
+				purchaseHistoryInfoDTOList = null;
 			}
 
 			result=SUCCESS;
@@ -62,12 +59,12 @@ public class DeletePurchaseHistoryAction exetends ActionSupport implements Sessi
 		this.sex = sex;
 	}
 
-	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList() {
-		return purchaseHistoryInfoDtoList;
+	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDTOList() {
+		return purchaseHistoryInfoDTOList;
 	}
 
-	public void setPurchaseHistoryInfoDtoList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList) {
-		this.purchaseHistoryInfoDtoList = purchaseHistoryInfoDtoList;
+	public void setPurchaseHistoryInfoDTOList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList) {
+		this.purchaseHistoryInfoDTOList = purchaseHistoryInfoDTOList;
 	}
 
 	public Map<String, Object> getSession() {

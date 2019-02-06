@@ -57,30 +57,30 @@ public class PurchaseHistoryInfoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while(resultSet.next()){
-				PurchaseHistoryInfoDTO purchaseHistoryInfoDto = new PurchaseHistoryInfoDTO();
-				purchaseHistoryInfoDto.setId(resultSet.getInt("id"));
-				purchaseHistoryInfoDto.setUserId(resultSet.getString("user_id"));
-				purchaseHistoryInfoDto.setProductId(resultSet.getInt("product_id"));
-				purchaseHistoryInfoDto.setProductCount(resultSet.getInt("product_count"));
-				purchaseHistoryInfoDto.setPrice(resultSet.getInt("price"));
-				purchaseHistoryInfoDto.setRegistDate(resultSet.getDate("regist_date"));
-				purchaseHistoryInfoDto.setUpdateDate(resultSet.getDate("update_date"));
-				purchaseHistoryInfoDto.setProductName(resultSet.getString("product_name"));
-				purchaseHistoryInfoDto.setProductNameKana(resultSet.getString("product_name_Kana"));
-				purchaseHistoryInfoDto.setProductDescription(resultSet.getString("product_description"));
-				purchaseHistoryInfoDto.setCategoryId(resultSet.getInt("category_id"));
-				purchaseHistoryInfoDto.setImageFileName(resultSet.getString("image_file_name"));
-				purchaseHistoryInfoDto.setImageFilePath(resultSet.getString("image_file_path"));
-				purchaseHistoryInfoDto.setReleaseCompany(resultSet.getString("release_company"));
-				purchaseHistoryInfoDto.setReleaseDate(resultSet.getDate("release_date"));
-				purchaseHistoryInfoDto.setFamilyName(resultSet.getString("family_name"));
-				purchaseHistoryInfoDto.setFirstName(resultSet.getString("first_name"));
-				purchaseHistoryInfoDto.setFamilyNameKana(resultSet.getString("family_name_Kana"));
-				purchaseHistoryInfoDto.setFirstNameKana(resultSet.getString("first_name_Kana"));
-				purchaseHistoryInfoDto.setEmail(resultSet.getString("email"));
-				purchaseHistoryInfoDto.setTelNumber(resultSet.getString("tel_number"));
-				purchaseHistoryInfoDto.setUserAddress(resultSet.getString("user_address"));
-				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDto);
+				PurchaseHistoryInfoDTO purchaseHistoryInfoDTO = new PurchaseHistoryInfoDTO();
+				purchaseHistoryInfoDTO.setId(resultSet.getInt("id"));
+				purchaseHistoryInfoDTO.setUserId(resultSet.getString("user_id"));
+				purchaseHistoryInfoDTO.setProductId(resultSet.getInt("product_id"));
+				purchaseHistoryInfoDTO.setProductCount(resultSet.getInt("product_count"));
+				purchaseHistoryInfoDTO.setPrice(resultSet.getInt("price"));
+				purchaseHistoryInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
+				purchaseHistoryInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
+				purchaseHistoryInfoDTO.setProductName(resultSet.getString("product_name"));
+				purchaseHistoryInfoDTO.setProductNameKana(resultSet.getString("product_name_Kana"));
+				purchaseHistoryInfoDTO.setProductDescription(resultSet.getString("product_description"));
+				purchaseHistoryInfoDTO.setCategoryId(resultSet.getInt("category_id"));
+				purchaseHistoryInfoDTO.setImageFileName(resultSet.getString("image_file_name"));
+				purchaseHistoryInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
+				purchaseHistoryInfoDTO.setReleaseCompany(resultSet.getString("release_company"));
+				purchaseHistoryInfoDTO.setReleaseDate(resultSet.getDate("release_date"));
+				purchaseHistoryInfoDTO.setFamilyName(resultSet.getString("family_name"));
+				purchaseHistoryInfoDTO.setFirstName(resultSet.getString("first_name"));
+				purchaseHistoryInfoDTO.setFamilyNameKana(resultSet.getString("family_name_Kana"));
+				purchaseHistoryInfoDTO.setFirstNameKana(resultSet.getString("first_name_Kana"));
+				purchaseHistoryInfoDTO.setEmail(resultSet.getString("email"));
+				purchaseHistoryInfoDTO.setTelNumber(resultSet.getString("tel_number"));
+				purchaseHistoryInfoDTO.setUserAddress(resultSet.getString("user_address"));
+				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDTO);
 
 
 		}
@@ -96,7 +96,7 @@ public class PurchaseHistoryInfoDAO {
 	return purchaseHistoryInfoDTOList;
 }
 
-public int regist(String longId,int productId, int productCount, int destinationId, int price){
+public int regist(String loginId,int productId, int productCount, int destinationId, int price){
 
 	com.internousdev.cyan.util.DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
@@ -105,10 +105,10 @@ public int regist(String longId,int productId, int productCount, int destination
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setString(1, loginId);
-		preparedStatement.setint(2, productId);
-		preparedStatement.setint(3, productCount);
-		preparedStatement.setint(4, price);
-		preparedStatement.setint(5, destinationId);
+		preparedStatement.setInt(2, productId);
+		preparedStatement.setInt(3, productCount);
+		preparedStatement.setInt(4, price);
+		preparedStatement.setInt(5, destinationId);
 		count = preparedStatement.executeUpdate();
 
 	} catch (SQLException e){
@@ -116,18 +116,36 @@ public int regist(String longId,int productId, int productCount, int destination
 	}
 	try {
 		connection.close();
-	} catch (SQLExceptionc e){
+	} catch (SQLException e){
 		e.printStackTrace();
 	}
 	return count;
 	}
 
+	public int deleteAll(String loginId) {
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		String sql = "delete from purchase_history_info where user_id=?";
+		int count =0;
+
+		try{
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, loginId);
+			count = preparedStatement.executeUpdate();
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		try {
+			connection.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return count;
+		}
+
+
+
+
+
 	}
-
-
-
-
-
-
-
-

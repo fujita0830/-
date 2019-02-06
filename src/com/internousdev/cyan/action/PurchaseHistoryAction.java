@@ -7,9 +7,11 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dao.PurchaseHistoryInfoDAO;
+import com.internousdev.cyan.dto.MCategoryDTO;
+import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
 
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware{
 
@@ -50,7 +52,6 @@ public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList(){
 
 public void setPurchaseHistoryInfoDtoList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList){
 	this.purchaseHistoryInfoDtoList = purchaseHistoryInfoDtoList;
-
 }
 
 public String getCategoryId() {
@@ -58,7 +59,7 @@ public String getCategoryId() {
 }
 
 public void setCategoryId(String categoryId) {
-	this.categoryId = CategoryId;
+	this.categoryId = categoryId;
 }
 
 public Map<String, Object> getSession() {

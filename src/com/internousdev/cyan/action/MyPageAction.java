@@ -1,53 +1,53 @@
 package com.internousdev.cyan.action;
 
-import java.util.AllayList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.sampleweb.dao.UserInfoDAO;
-import com.internousdev.sampleweb.dto.MCategoryDTO;
-import com.internousdev.sampleweb.dto.UserInfoDTO;
-import com.internousdev.xwork.ActionSupport;
+import com.internousdev.cyan.dao.UserInfoDAO;
+import com.internousdev.cyan.dto.MCategoryDTO;
+import com.internousdev.cyan.dto.UserInfoDTO;
+import com.opensymphony.xwork2.ActionSupport;
 
 
-public MyPageAction extends ActionSuport implements SessionAware{
-	private Stirng categoryId;
+public class MyPageAction extends ActionSupport implements SessionAware{
+	private String categoryId;
 	private String keywords;
-	private List<MCategoryDTO> mCategoryDtoLis = new ArrayList<MCategoryDTO>();
+	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 
-	private Map<String,Object>session;
+	private Map<String,Object> session;
 	public String execute(){
 		String result = ERROR;
 		System.out.println(categoryId);
 		System.out.println(keywords);
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
-		userInfoDTO = userInfoDAO.getUserInfo(Stirng.valueOf(session.get("loginId")));
+		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
 
 		if(userInfoDTO!=null){
 			session.put("familyName",userInfoDTO.getFamilyName());
-			session.put("firstName",userIndoDTO.getFirstName());
-			session.put("familyNameKana",userIndoDTO.getFamilyNameKana());
+			session.put("firstName",userInfoDTO.getFirstName());
+			session.put("familyNameKana",userInfoDTO.getFamilyNameKana());
 			session.put("firstNameKana",userInfoDTO.getFirstNameKana());
 			session.put("sex",userInfoDTO.getSex());
-			session.put("email",userInfoDTO.getEmaik());
+			session.put("email",userInfoDTO.getEmail());
 
-			System.out.println(session.get("familyNmae"));
+			System.out.println(session.get("familyName"));
 
 			result = SUCCESS;
 		}
 			return result;
 		}
 
-		public List<MCategoryDTO> getmCategoryDtoList() {
-			return mCategoryDtoList;
+		public List<MCategoryDTO> getmCategoryDTOList() {
+			return mCategoryDTOList;
 		}
 
 
-		public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
-			this.mCategoryDtoList = mCategoryDtoList;
+		public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
+			this.mCategoryDTOList = mCategoryDTOList;
 		}
 
 		public String getCategoryId() {
