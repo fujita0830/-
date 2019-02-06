@@ -5,10 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.internousdev.cyan.dto.UserInfoDTO;
 import com.internousdev.cyan.util.DBConnector;
 
 public class UserInfoDAO {
-	public int createUser(String familyName, String firstName,String familyNameKana, String firstNameKana,String sex,String email,String loginId,String password) {
+	public int createUser(String familyName, String firstName, String familyNameKana,
+			String firstNameKana, String sex, String email, String loginId, String password) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
@@ -26,38 +28,38 @@ public class UserInfoDAO {
 			preparedStatement.setInt(9, 0);
 			preparedStatement.setInt(10, 1);
 			count = preparedStatement.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		try {
 			connection.close();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return count;
 	}
 
-	public boolean isExistsuserInfo(String loginid, String password) {
-		DBConnector daConnector = new DBConnector();
+	public boolean isExistsUserInfo(String loginId, String password) {
+		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		boolean result = false;
-		String sql = "select count(*) as count from user_info where user_id = ? and password=?";
+		String sql = "select count(*) as count from user_info where user_id=? and password=?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setStrig(1, loginId);
+			preparedStatement.setString(1, loginId);
 			preparedStatement.setString(2, password);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				if(resultSet.getInt("count") > 0) {
+				if (resultSet.getInt("count") > 0) {
 					result = true;
 				}
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		try {
 			connection.close();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
@@ -84,44 +86,10 @@ public class UserInfoDAO {
 				userInfoDTO.setEmail(resultSet.getString("email"));
 				userInfoDTO.setStatus(resultSet.getString("status"));
 				userInfoDTO.setLogined(resultSet.getInt("status"));
-				userInfoDTO.setRegistDate(resultSet.getDate("regist_data"));
-				userInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
-
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		try {
-			connection.close();
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		return userInfoDTO;
-	}
-	public UserInfoDTO getUserInfo(String loginId) {
-		DBConnector dbConnector = new DBConnecotr();
-		Connection connection = dbConnector.getConnection();
-		UserInfoDTO userInfoDTO = new UserInfoDTO();
-		String sql = "select * from user_info where user_id =?";
-		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, loginId);
-			ResultSet resultSet = preparedStatement.executeQuery();
-			while(resultSet.next()) {
-				userInfoDTO.setId(resultSet.getInt("id"));
-				userInfoDTO.setUserId(resultSet.getString("user_id"));
-				userInfoDTO.setPassword(resultSet.getString("password"));
-				userInfoDTO.setFamilyName(resultSet.getString("family_name"));
-				userInfoDTO.setFirstName(resultSet.getString("first_name"));
-				userInfoDTO.setFamilyNameKana(resultSet.getString("family_name_kana"));
-				userInfoDTO.setSex(resultSet.getInt("sex"));
-				userInfoDTO.setEmail(resultSet.getString("email"));
-				userInfoDTO.setStatus(resultSet.getString("status"));
-				userInfoDTO.setLogined(resultSet.getInt("status"));
 				userInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
 				userInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		try {
@@ -240,5 +208,4 @@ public class UserInfoDAO {
 		String concealPassword = stringBuilder.replace(beginIndex, endIndex, password.substring(beginIndex,endIndex)).toString();
 		return concealPassword;
 	}
-
 }
