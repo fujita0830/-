@@ -17,13 +17,13 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 	private String categoryId;
 	private String keywords;
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
+	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
 
 	public String execute() {
 		String result = ERROR;
 		String userId = null;
-		CartInfoDAO cartInfoDao = new CartInfoDAO();
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
 		session.remove("checkListErrorMessageList");
 		if(session.containsKey("loginId")) {
@@ -31,19 +31,19 @@ public class CartAction extends ActionSupport implements SessionAware {
 		}else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
-		cartInfoDTOList = cartInfoDao.getCartInfoDTOList(userId);
+		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
 		Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
 		if(!(iterator.hasNext())) {
 			cartInfoDTOList = null;
 		}
-		session.put("cartInfoDtoList", cartInfoDTOList);
-		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
+		session.put("cartInfoDTOList", cartInfoDTOList);
+		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		result = SUCCESS;
 		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			MCategoryDAO mCategoryDAO = new MCategoryDAO();
+			mCategoryDTOList = mCategoryDAO.getMCategoryList();
+			session.put("mCategoryDTOList", mCategoryDTOList);
 		}
 		return result;
 	}

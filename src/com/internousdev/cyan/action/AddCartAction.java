@@ -60,7 +60,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		if(!(iterator.hasNext())) {
 			cartInfoDTOList = null;
 		}
-		session.put("cartInfoDtoList", cartInfoDTOList);
+		session.put("cartInfoDTOList", cartInfoDTOList);
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		return result;
