@@ -10,7 +10,7 @@ import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateDestinationConfirmAction extends ActionSupport implements SessionAware {
-	
+
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
@@ -23,7 +23,7 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 	private String email;
 	private String telNumber;
 	private String userAddress;
-	
+
 	private List<String> familyNameErrorMessageList = new ArrayList<String>();
 	private List<String> firstNameErrorMessageList = new ArrayList<String>();
 	private List<String> familyNameKanaErrorMessageList = new ArrayList<String>();
@@ -31,10 +31,10 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 	private List<String> emailErrorMessageList = new ArrayList<String>();
 	private List<String> telNumberErrorMessageList = new ArrayList<String>();
 	private List<String> userAddressErrorMessageList = new ArrayList<String>();
-	
+
 	private String categoryId;
 	private Map<String, Object> session;
-	
+
 	public String execute() {
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
@@ -46,7 +46,7 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 		userAddressErrorMessageList = inputChecker.doCheck("住所", userAddress, 15, 50, false, true, true, true, true, true, false, false, false);
 		telNumberErrorMessageList = inputChecker.doCheck("電話番号", telNumber, 10, 13, false, false, false, true, false, false, false, false, false);
 		emailErrorMessageList = inputChecker.doCheck("メールアドレス", email, 18, 32, true, false, false, true, true, false, false, false, false);
-		
+
 		if(familyNameErrorMessageList.size() == 0
 		&& firstNameErrorMessageList.size() == 0
 		&& familyNameKanaErrorMessageList.size() == 0
@@ -65,7 +65,7 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 			session.put("userAddressErrorMessageList", userAddressErrorMessageList);
 			result = ERROR;
 		}
-		
+
 		sexList.add(MALE);
 		sexList.add(FEMALE);
 		return result;
@@ -222,15 +222,5 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-	public static String getMale() {
-		return MALE;
-	}
-
-	public static String getFemale() {
-		return FEMALE;
-	}
-	
-	
 
 }
