@@ -45,6 +45,11 @@ public class CartAction extends ActionSupport implements SessionAware {
 			mCategoryDTOList = mCategoryDAO.getMCategoryList();
 			session.put("mCategoryDTOList", mCategoryDTOList);
 		}
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
+
 		return result;
 	}
 

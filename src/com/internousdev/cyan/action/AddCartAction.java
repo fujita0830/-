@@ -63,6 +63,11 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		session.put("cartInfoDTOList", cartInfoDTOList);
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
+
 		return result;
 	}
 
