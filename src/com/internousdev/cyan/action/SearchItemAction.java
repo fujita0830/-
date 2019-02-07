@@ -8,7 +8,6 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dao.ProductInfoDAO;
 import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.ProductInfoDTO;
@@ -66,10 +65,8 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 		session.put("productInfoDTOList", productInfoDTOList);
 
-		if(!session.containsKey("mCategoryDTOList")) {
-			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDTOList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDTOList", mCategoryDTOList);
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
 		}
 		return result;
 	}
