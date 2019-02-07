@@ -24,6 +24,7 @@
 	検索結果がありません。
 </div>
 </s:elseif>
+<s:else>
 <div id="product-list">
 <s:iterator value="#session.productInfoDTOList">
 <div id="product-list-box">
@@ -40,6 +41,7 @@
 </div>
 </s:iterator>
 </div>
+</s:else>
 </div>
 </body>
 </html>
