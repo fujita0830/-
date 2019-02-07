@@ -43,6 +43,6 @@
 		</div>
 		</s:form>
 </div>
-	<s:include value="footerjsp"/>
+
 </body>
 </html>
