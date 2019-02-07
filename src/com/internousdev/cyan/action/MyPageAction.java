@@ -19,6 +19,9 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 	private Map<String,Object> session;
 	public String execute(){
+
+
+
 		String result = ERROR;
 		System.out.println(categoryId);
 		System.out.println(keywords);
@@ -38,8 +41,17 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 			result = SUCCESS;
 		}
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
+
 			return result;
+
+
+
 		}
+
 
 		public List<MCategoryDTO> getmCategoryDTOList() {
 			return mCategoryDTOList;
