@@ -100,7 +100,7 @@ public int regist(String loginId,int productId, int productCount, int destinatio
 
 	com.internousdev.cyan.util.DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
-	String sql ="insert int purchase_history_info where user_id=?";
+	String sql ="insert into purchase_history_info where user_id=?";
 	int count=0;
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
