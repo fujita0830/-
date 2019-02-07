@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<jsp:include page="header.jsp" />
+
 <h1>ホーム画面</h1>
 
 </body>
