@@ -53,6 +53,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
 				if(!(iterator.hasNext())) {
 					cartInfoDTOList = null;
+
 				}
 				session.put("cartInfoDTOList", cartInfoDTOList);
 
@@ -61,6 +62,9 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				session.remove("purchaseHistoryInfoDTOList");
 				result = SUCCESS;
 			}
+		}
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
 		}
 		return result;
 	}
