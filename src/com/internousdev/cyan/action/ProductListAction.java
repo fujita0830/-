@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dao.ProductInfoDAO;
 import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.ProductInfoDTO;
@@ -36,7 +35,7 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		result = SUCCESS;
 
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout"
+			result="timeout";
 			}
 
 		return result;
