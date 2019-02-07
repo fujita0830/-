@@ -71,6 +71,9 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 			session.put("passwordErrorMessageList",passwordErrorMessageList);
 			result = ERROR;
 		}
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		return result;
 	}
 

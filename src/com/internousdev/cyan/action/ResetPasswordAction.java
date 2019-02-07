@@ -19,6 +19,9 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 		session.remove("newPasswordIncorrectErrorMessageList");
 
 		result = SUCCESS;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		return result;
 	}
 	public String getCategoryId() {
