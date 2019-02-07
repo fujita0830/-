@@ -13,7 +13,7 @@ import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.ProductInfoDTO;
 import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
-public class SerchItemAction extends ActionSupport {
+public class SearchItemAction extends ActionSupport {
 
 
 	private String categoryId;
