@@ -38,7 +38,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("loginId", loginId);
 		} else {
 			session.put("savedLoginId", false);
-			session.remove("logined", loginId);
+			session.remove("loginId", loginId);
 		}
 
 		InputChecker inputChecker = new InputChecker();
@@ -49,7 +49,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		|| passwordErrorMessageList.size()!=0) {
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
-			session.put("loginId", 0);
+			session.put("logined", 0);
 		}
 
 		if(!session.containsKey("mCategoryDTOList")){
