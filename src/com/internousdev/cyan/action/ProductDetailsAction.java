@@ -45,6 +45,11 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 			session.put("productInfoDTOList", productInfoDTOList);
 			result = SUCCESS;
 		}
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout"
+			}
+
 		return result;
 	}
 

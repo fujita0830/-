@@ -40,6 +40,11 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		}
 
 		result = SUCCESS;
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout"
+			}
+
 		return result;
 	}
 
