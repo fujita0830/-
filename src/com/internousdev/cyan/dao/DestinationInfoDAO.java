@@ -20,7 +20,7 @@ public class DestinationInfoDAO {
 		    Connection connection = dbConnector.getConnection();
 		    int count = 0;
 		    String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
-		    		+ "values(?, ?, ?, ?, ?, ?, ?, ?, now(), '0000-01-01')";
+		    		+ " values(?, ?, ?, ?, ?, ?, ?, ?, now(), '0000-01-01')";
 
 		    try{
 		    	PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -30,7 +30,7 @@ public class DestinationInfoDAO {
 		    	preparedStatement.setString(4, familyNameKana);
 		    	preparedStatement.setString(5, firstNameKana);
 		    	preparedStatement.setString(6, email);
-		    	preparedStatement.setString(7,telNumber);
+		    	preparedStatement.setString(7, telNumber);
 		    	preparedStatement.setString(8, userAddress);
 		    	count = preparedStatement.executeUpdate();
 		    }catch(SQLException e){
