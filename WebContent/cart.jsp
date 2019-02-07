@@ -41,7 +41,7 @@
 				</div>
 			</s:if>
 
-			<s:if test="#session.cartInfoDtoList.size()>0">
+			<s:if test="#session.cartInfoDTOList.size()>0">
 				<s:form id="form" action="SettlementConfirmAction">
 					<table class="horizontal-list-table">
 						<thead>
@@ -58,7 +58,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<s:iterator value="#session.cartInfoDtoList">
+							<s:iterator value="#session.cartInfoDTOList">
 								<tr>
 									<td><s:checkbox name="checkList" class="checkList" value="checked" fieldValue="%{productId}"  onchange="checkValue(this)"/></td>
 									<s:hidden name="productId" value="%{productId}"/>
@@ -102,9 +102,6 @@
 					カート情報なし
 				</div>
 			</s:else>
-		</div>
-		<div id="footer">
-			<s:include value="footer.jsp"/>
 		</div>
 	</body>
 </html>
