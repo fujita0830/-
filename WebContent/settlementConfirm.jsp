@@ -12,7 +12,7 @@
 <jsp:include page="header.jsp"/>
 <div id="contents">
 	<h1>決済確認画面</h1>
-	<s:if test="#session.destinationInfoDtoList.size() > 0">
+	<s:if test="#session.destinationInfoDTOList.size() > 0">
 	<div class="info">
 		送り先情報を選択してください
 	</div>
@@ -30,7 +30,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<s:iterator value="#session.destinationInfoDtoList" status="st">
+		<s:iterator value="#session.destinationInfoDTOList" status="st">
 		<tr>
 			<td>
 				<s:if test="#st.index == 0">
