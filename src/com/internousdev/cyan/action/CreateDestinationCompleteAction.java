@@ -28,6 +28,9 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		if(count > 0) {
 			result = SUCCESS;
 		}
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		return result;
 	}
 	public String getFamilyName() {
