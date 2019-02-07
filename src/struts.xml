@@ -11,53 +11,64 @@
 
 	<action name="CreateUserAction" class="com.internousdev.cyan.action.CreateUserAction" method="execute">
 		<result name="success">createUser.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="CreateUserConfirmAction" class="com.internousdev.cyan.action.CreateUserConfirmAction" method="execute">
 		<result name="success">createUserConfirm.jsp</result>
 		<result name="error">createUser.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="CreateUserCompleteAction" class="com.internousdev.cyan.action.CreateUserCompleteAction" method="execute">
 		<result name="success">createUserComplete.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="GoLoginAction" class="com.internousdev.cyan.action.GoLoginAction" method="execute">
 		<result name="success">login.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="LoginAction" class="com.internousdev.cyan.action.LoginAction" method="execute">
 		<result name="success">home.jsp</result>
 		<result name="cart">cart.jsp</result>
 		<result name="error">login.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="ResetPasswordAction" class="com.internousdev.cyan.action.ResetPasswordAction" method="execute">
 		<result name="success">resetPassword.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="ResetPasswordConfirmAction" class="com.internousdev.cyan.action.ResetPasswordConfirmAction" method="execute">
 		<result name="success">resetPasswordConfirm.jsp</result>
 		<result name="error">resetPassword.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="ResetPasswordCompleteAction" class="com.internousdev.cyan.action.ResetPasswordCompleteAction" method="execute">
 		<result name="success">resetPasswordComplete.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="ProductListAction" class="com.internousdev.cyan.action.ProductListAction" method="execute">
 		<result name="success">productList.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="ProductDetailsAction" class="com.internousdev.cyan.action.ProductDetailsAction" method="execute">
 		<result name="success">productDetails.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="SearchItemAction" class="com.internousdev.cyan.action.SearchItemAction" method="execute">
 		<result name="success">productList.jsp</result>
 		<result name="error">productList.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="HomeAction" class="com.internousdev.cyan.action.HomeAction" method="execute">
@@ -67,55 +78,67 @@
 	<action name="AddCartAction" class="com.internousdev.cyan.action.AddCartAction" method="execute">
 		<result name="success">cart.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="CartAction" class="com.internousdev.cyan.action.CartAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="DeleteCartAction" class="com.internousdev.cyan.action.DeleteCartAction" method="execute">
 		<result name="success">cart.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="SettlementConfirmAction" class="com.internousdev.cyan.action.SettlementConfirmAction" method="execute">
 		<result name="success">settlementConfirm.jsp</result>
 		<result name="error">login.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="CreateDestinationAction" class="com.internousdev.cyan.action.CreateDestinationAction" method="execute">
 		<result name="success">createDestination.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="CreateDestinationConfirmAction" class="com.internousdev.cyan.action.CreateDestinationConfirmAction" method="execute">
 		<result name="success">createDestinationConfirm.jsp</result>
 		<result name="error">createDestination.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="CreateDestinationCompleteAction" class="com.internousdev.cyan.action.CreateDestinationCompleteAction" method="execute">
 		<result name="success">createDestinationComplete.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="SettlementCompleteAction" class="com.internousdev.cyan.action.SettlementCompleteAction" method="execute">
 		<result name="success">home.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="MyPageAction" class="com.internousdev.cyan.action.MyPageAction" method="execute">
 		<result name="success">mypage.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="PurchaseHistoryAction" class="com.internousdev.cyan.action.PurchaseHistoryAction" method="execute">
 		<result name="success">purchaseHistory.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="DeletePurchaseHistoryAction" class="com.internousdev.cyan.action.DeletePurchaseHistoryAction" method="execute">
 		<result name="success">purchaseHistory.jsp</result>
 		<result name="error">error.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	<action name="LogoutAction" class="com.internousdev.cyan.action.LogoutAction" method="execute">
 		<result name="success">index.jsp</result>
+		<result name="timeout">error.jsp</result>
 	</action>
 
 	</package>
