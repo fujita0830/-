@@ -33,12 +33,6 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		productInfoDTOList = productInfoDAO.getProductInfoList();
 		session.put("productInfoDTOList", productInfoDTOList);
 
-		if(!session.containsKey("mCategoryList")){
-			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDTOList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDTOList", mCategoryDTOList);
-		}
-
 		result = SUCCESS;
 
 		if(!session.containsKey("mCategoryDTOList")){
