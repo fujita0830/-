@@ -24,7 +24,6 @@
 	検索結果がありません。
 </div>
 </s:elseif>
-<s:else>
 <div id="product-list">
 <s:iterator value="#session.productInfoDTOList">
 <div id="product-list-box">
@@ -32,7 +31,7 @@
 	<li>
 	<a href='<s:url action="ProductDetailsAction">
 	<s:param name="productId" value="%{productId}"/></s:url>'>
-	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-200"/></a><br>
+	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-200"/></a>
 	<s:property value="productName"/>
 	<s:property value="productNameKana"/>
 	<s:property value="price"/>円<br>
@@ -41,7 +40,6 @@
 </div>
 </s:iterator>
 </div>
-</s:else>
 </div>
 </body>
 </html>

@@ -24,7 +24,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 		String result=SUCCESS;
 
-
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
 		Iterator<PurchaseHistoryInfoDTO> iterator=purchaseHistoryInfoDTOList.iterator();
@@ -44,9 +43,7 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			result="timeout";
 			}
 
-
-
-		return SUCCESS;
+		return result;
 		}
 
 public List<MCategoryDTO> getmCategoryDTOList() {
