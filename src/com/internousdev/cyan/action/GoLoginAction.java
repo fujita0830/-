@@ -14,12 +14,13 @@ public class GoLoginAction extends ActionSupport implements SessionAware {
 	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
 	public String execute() {
+		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
-			return "timeout";
+			result="timeout";
 			}
 		session.put("loginIdErrorMessageList", "");
 		session.put("passwordErrorMessageList", "");
-		return SUCCESS;
+		return result;
 	}
 
 	public String getCategoryId() {
