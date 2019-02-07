@@ -50,6 +50,10 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 		session.put("loginId", loginId);
 		session.put("password", password);
 		result = SUCCESS;
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		return result;
 	}
 

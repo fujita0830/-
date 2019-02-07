@@ -70,6 +70,9 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
 			session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
 		}
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		return result;
 	}
 

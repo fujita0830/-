@@ -26,6 +26,9 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 		if(count > 0) {
 			result = SUCCESS;
 		}
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		return result;
 	}
 

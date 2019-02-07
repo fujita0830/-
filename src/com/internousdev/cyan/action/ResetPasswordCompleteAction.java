@@ -22,6 +22,9 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 		}else {
 			result = ERROR;
 		}
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		return result;
 	}
 
