@@ -10,10 +10,8 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.CartInfoDAO;
 import com.internousdev.cyan.dao.DestinationInfoDAO;
-import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dao.UserInfoDAO;
 import com.internousdev.cyan.dto.DestinationInfoDTO;
-import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.UserInfoDTO;
 import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -23,8 +21,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private String loginId;
 	private String password;
 	private boolean savedLoginId;
-
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
@@ -56,11 +52,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("loginId", 0);
 		}
 
-		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDTOList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDTOList", mCategoryDTOList);
-		}
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
 
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		if(userInfoDAO.isExistsUserInfo(loginId, password)) {
