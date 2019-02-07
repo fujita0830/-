@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CreateDestinationAction extends ActionSupport implements SessionAware {
 
 	private String categoryId;
-	private static final String MALE = "’j«";
-	private static final String FEMALE = "—«";
+	private static final String MALE = "ï¿½jï¿½ï¿½";
+	private static final String FEMALE = "ï¿½ï¿½ï¿½ï¿½";
 	private String defaultSexValue = MALE;
 	private String sex;
 	private List<String> sexList = new ArrayList<String>();
@@ -31,6 +31,11 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 		session.remove("telNumberErrorMessageList");
 		session.remove("userAddressErrorMessageList");
 		result = SUCCESS;
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		return result;
 	}
 

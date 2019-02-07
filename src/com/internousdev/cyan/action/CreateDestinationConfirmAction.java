@@ -17,8 +17,8 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 	private String firstNameKana;
 	private List<String> sexList = new ArrayList<String>();
 	private String sex;
-	private static final String MALE = "’j«";
-	private static final String FEMALE = "—«";
+	private static final String MALE = "ï¿½jï¿½ï¿½";
+	private static final String FEMALE = "ï¿½ï¿½ï¿½ï¿½";
 	private String defaultSexValue = MALE;
 	private String email;
 	private String telNumber;
@@ -38,14 +38,14 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 	public String execute() {
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
-//		ƒtƒH[ƒ€‚Ì“ü—Í“à—e‚ğinputChecker‚ğg—p‚µƒ`ƒFƒbƒN‚·‚éB---------------------------------------------
-		familyNameErrorMessageList = inputChecker.doCheck("©", familyName, 1, 16, true, true, true, false, false, false, true, false, false);
-		firstNameErrorMessageList = inputChecker.doCheck("–¼", firstName, 1, 16, true, true, true, false, false, false, true, false, false);
-		familyNameKanaErrorMessageList = inputChecker.doCheck("©‚Ó‚è‚ª‚È", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false);
-		firstNameKanaErrorMessageList = inputChecker.doCheck("–¼‚Ó‚è‚ª‚È", firstNameKana, 1, 16, false, false, true, false, false, false, false, false, false);
-		userAddressErrorMessageList = inputChecker.doCheck("ZŠ", userAddress, 15, 50, false, true, true, true, true, true, false, false, false);
-		telNumberErrorMessageList = inputChecker.doCheck("“d˜b”Ô†", telNumber, 10, 13, false, false, false, true, false, false, false, false, false);
-		emailErrorMessageList = inputChecker.doCheck("ƒ[ƒ‹ƒAƒhƒŒƒX", email, 18, 32, true, false, false, true, true, false, false, false, false);
+//		ï¿½tï¿½Hï¿½[ï¿½ï¿½ï¿½Ì“ï¿½ï¿½Í“ï¿½ï¿½eï¿½ï¿½inputCheckerï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½B---------------------------------------------
+		familyNameErrorMessageList = inputChecker.doCheck("ï¿½ï¿½", familyName, 1, 16, true, true, true, false, false, false, true, false, false);
+		firstNameErrorMessageList = inputChecker.doCheck("ï¿½ï¿½", firstName, 1, 16, true, true, true, false, false, false, true, false, false);
+		familyNameKanaErrorMessageList = inputChecker.doCheck("ï¿½ï¿½ï¿½Ó‚è‚ªï¿½ï¿½", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false);
+		firstNameKanaErrorMessageList = inputChecker.doCheck("ï¿½ï¿½ï¿½Ó‚è‚ªï¿½ï¿½", firstNameKana, 1, 16, false, false, true, false, false, false, false, false, false);
+		userAddressErrorMessageList = inputChecker.doCheck("ï¿½Zï¿½ï¿½", userAddress, 15, 50, false, true, true, true, true, true, false, false, false);
+		telNumberErrorMessageList = inputChecker.doCheck("ï¿½dï¿½bï¿½Ôï¿½", telNumber, 10, 13, false, false, false, true, false, false, false, false, false);
+		emailErrorMessageList = inputChecker.doCheck("ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Aï¿½hï¿½ï¿½ï¿½X", email, 18, 32, true, false, false, true, true, false, false, false, false);
 
 		if(familyNameErrorMessageList.size() == 0
 		&& firstNameErrorMessageList.size() == 0
@@ -68,6 +68,11 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 
 		sexList.add(MALE);
 		sexList.add(FEMALE);
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		return result;
 	}
 
