@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CreateDestinationAction extends ActionSupport implements SessionAware {
 
 	private String categoryId;
-	private static final String MALE = "�j��";
-	private static final String FEMALE = "����";
+	private static final String MALE = "男性";
+	private static final String FEMALE = "女性";
 	private String defaultSexValue = MALE;
 	private String sex;
 	private List<String> sexList = new ArrayList<String>();
