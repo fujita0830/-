@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,11 +14,9 @@ public class GoLoginAction extends ActionSupport implements SessionAware {
 	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
 	public String execute() {
-		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDTOList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDTOList", mCategoryDTOList);
-		}
+		if(!session.containsKey("mCategoryDTOList")){
+			return "timeout";
+			}
 		session.put("loginIdErrorMessageList", "");
 		session.put("passwordErrorMessageList", "");
 		return SUCCESS;
