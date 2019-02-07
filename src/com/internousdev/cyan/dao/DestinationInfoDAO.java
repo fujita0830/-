@@ -30,7 +30,7 @@ public class DestinationInfoDAO {
 		    	preparedStatement.setString(4, familyNameKana);
 		    	preparedStatement.setString(5, firstNameKana);
 		    	preparedStatement.setString(6, email);
-		    	preparedStatement.setString(7, telNumber);
+		    	preparedStatement.setString(7,telNumber);
 		    	preparedStatement.setString(8, userAddress);
 		    	count = preparedStatement.executeUpdate();
 		    }catch(SQLException e){
