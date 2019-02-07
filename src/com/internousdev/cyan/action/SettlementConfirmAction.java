@@ -96,6 +96,10 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 			result = SUCCESS;
 		}
 
+		if(!session.containsKey("mCategoryDTOList")) {
+			result="timeout";
+		}
+
 		return result;
 	}
 
