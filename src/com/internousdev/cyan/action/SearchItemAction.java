@@ -64,6 +64,8 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 			productInfoDTOList = null;
 		}
 
+		session.put("productInfoDTOList", productInfoDTOList);
+
 		if(!session.containsKey("mCategoryDTOList")) {
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
 			mCategoryDTOList = mCategoryDAO.getMCategoryList();
