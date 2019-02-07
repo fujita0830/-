@@ -11,7 +11,7 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
-		String result = null;
+		String result = SUCCESS;
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		String loginId = String.valueOf(session.get("loginId"));
 		boolean savedLoginId = Boolean.valueOf(String.valueOf(session.get("savedLoginId")));
@@ -21,7 +21,6 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 			if(savedLoginId) {
 				session.put("savedLoginId", savedLoginId);
 				session.put("loginId", loginId);
-				result = SUCCESS;
 			}
 		}
 		return result;
