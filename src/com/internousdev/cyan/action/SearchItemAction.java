@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dao.ProductInfoDAO;
@@ -13,7 +14,7 @@ import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.ProductInfoDTO;
 import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
-public class SearchItemAction extends ActionSupport {
+public class SearchItemAction extends ActionSupport implements SessionAware{
 
 
 	private String categoryId;
@@ -27,6 +28,7 @@ public class SearchItemAction extends ActionSupport {
 	public String execute(){
 
 		String result = ERROR;
+		session.remove("keywordsErrorMessageList");
 		InputChecker inputChecker = new InputChecker();
 
 		if (StringUtils.isBlank(keywords)){
@@ -62,7 +64,7 @@ public class SearchItemAction extends ActionSupport {
 			productInfoDTOList = null;
 		}
 
-		if(!session.containsKey("mCategoryList")) {
+		if(!session.containsKey("mCategoryDTOList")) {
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
 			mCategoryDTOList = mCategoryDAO.getMCategoryList();
 			session.put("mCategoryDTOList", mCategoryDTOList);
