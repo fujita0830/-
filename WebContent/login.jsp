@@ -38,6 +38,13 @@ function goResetPasswordAction() {
 			</div>
 		</div>
 	</s:if>
+	<s:if test="!#session.loginIdPasswordErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.loginIdPasswordErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
 <!--
 	SAVED:<s:property value="%{#session.savedLoginId}" />
 	LOGINID:<s:property value="%{#session.loginId}" />
