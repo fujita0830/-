@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<title></title>
+<title>登録内容確認</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -67,9 +67,7 @@
 <s:hidden name="email" value="%{email}"/>
 </s:form>
 </div>
-<div id="footer">
-	<s:include value="footer.jsp"/>
-</div>
+
 
 </body>
 </html>

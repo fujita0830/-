@@ -92,6 +92,6 @@
 	<s:submit value="パスワード再設定" class="submit_btn" />
 	</s:form>
 </div>
-<s:include value="footer.jsp" />
+
 </body>
 </html>

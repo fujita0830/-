@@ -26,8 +26,6 @@
 	<s:hidden name="loginId" value="%{loginId}" />
 	<s:hidden name="password" value="%{password}" />
 </s:form>
-<div id="footer">
-	<s:include value="footer.jsp"/>
-</div>
+
 </body>
 </html>
