@@ -12,6 +12,12 @@
 <jsp:include page="header.jsp"/>
 <div id="contents">
 <h1>商品詳細画面</h1>
+<s:if test="#session.productInfoDTOList.isEmpty()">
+<div class="info">
+	商品の詳細情報がありません。
+</div>
+</s:if>
+<s:elseif test="!#session.productInfoDTOList.isEmpty()">
 	<s:form action="AddCartAction">
 	<div class="box">
 	<div class="2column-container">
@@ -78,7 +84,7 @@
 	</s:iterator>
 	</div>
 	</div>
-
+</s:elseif>
 </div>
 
 </body>
