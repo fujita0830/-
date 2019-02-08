@@ -93,7 +93,7 @@
 </tr>
 <tr>
 	<th scope="row">ユーザーID</th>
-	<td><s:textfield name="loginId" value="%{#session.loginId}" label="ログインID" placeholder="ログインID" class="txt" /></td>
+	<td><s:textfield name="loginId" value="%{#session.loginId}" label="ユーザーID" placeholder="ユーザーID" class="txt" /></td>
 </tr>
 <tr>
 	<th scope="row">パスワード</th>
