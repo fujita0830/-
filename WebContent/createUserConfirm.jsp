@@ -44,7 +44,7 @@ function goLoginAction(){
 	<td><s:property value="email"/></td>
 </tr>
 <tr>
-	<th scope="row"><s:label value="ログインID"/>
+	<th scope="row"><s:label value="ユーザーID"/>
 	<td><s:property value="loginId"/>
 </tr>
 <tr>

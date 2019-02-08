@@ -73,8 +73,8 @@
 	<s:form action="ResetPasswordConfirmAction">
 		<table class="vertical-list-table">
 		<tr>
-			<th scope="row"><s:label value="ログインID"/></th>
-			<td><s:textfield name="loginId" placeholder="ログインID" class="txt" /></td>
+			<th scope="row"><s:label value="ユーザーID"/></th>
+			<td><s:textfield name="loginId" placeholder="ユーザーID" class="txt" /></td>
 		</tr>
 		<tr>
 			<th scope="row"><s:label value="現在のパスワード"/></th>
