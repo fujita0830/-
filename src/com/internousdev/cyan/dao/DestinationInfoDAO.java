@@ -30,7 +30,7 @@ public class DestinationInfoDAO {
 		    	preparedStatement.setString(4, familyNameKana);
 		    	preparedStatement.setString(5, firstNameKana);
 		    	preparedStatement.setString(6, email);
-		    	preparedStatement.setString(7,telNumber);
+		    	preparedStatement.setString(7, telNumber);
 		    	preparedStatement.setString(8, userAddress);
 		    	count = preparedStatement.executeUpdate();
 		    }catch(SQLException e){
@@ -43,6 +43,7 @@ public class DestinationInfoDAO {
 		    }
 		    return count;
 		    }
+
 
 	      public List<DestinationInfoDTO>getDestinationInfo(String loginId) throws SQLException{
 	    	  DBConnector dbConnector = new DBConnector();
@@ -64,7 +65,7 @@ public class DestinationInfoDAO {
 	    			  destinationInfoDTO.setFirstName(rs.getString("first_name"));
 	    			  destinationInfoDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 	    			  destinationInfoDTO.setFirstNameKana(rs.getString("first_name_kana"));
-	    			  destinationInfoDTO.setUserAddress(rs.getString("user_address"));;
+	    			  destinationInfoDTO.setUserAddress(rs.getString("user_address"));
 	    			  destinationInfoDTO.setEmail(rs.getString("email"));
 	    			  destinationInfoDTO.setTelNumber(rs.getString("tel_number"));
 	    			  destinationInfoDTOList.add(destinationInfoDTO);
