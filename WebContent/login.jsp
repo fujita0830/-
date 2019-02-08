@@ -38,18 +38,25 @@ function goResetPasswordAction() {
 			</div>
 		</div>
 	</s:if>
+	<s:if test="!#session.loginIdPasswordErrorMessageList.isEmpty()">
+		<div class="error">
+			<div class="error-message">
+				<s:iterator value="#session.loginIdPasswordErrorMessageList"><s:property /><br></s:iterator>
+			</div>
+		</div>
+	</s:if>
 <!--
 	SAVED:<s:property value="%{#session.savedLoginId}" />
 	LOGINID:<s:property value="%{#session.loginId}" />
  -->
  	<table class="vertical-list-table">
  		<tr>
- 			<th scope="row"><s:label value="ログインID：" /></th>
+ 			<th scope="row"><s:label value="ユーザーID：" /></th>
  			<s:if test="#session.savedLoginId==true">
- 			<td><s:textfield name="loginId" class="txt" placeholder="ログインID" value='%{#session.loginId}' autocomplete="off" /></td>
+ 			<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off" /></td>
  			</s:if>
  			<s:else>
- 			<td><s:textfield name="loginId" class="txt" placeholder="ログインID" autocomplete="off" /></td>
+ 			<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" autocomplete="off" /></td>
  			</s:else>
  		</tr>
  		<tr>
@@ -64,7 +71,7 @@ function goResetPasswordAction() {
  		<s:else>
  			<s:checkbox name="savedLoginId" />
  		</s:else>
- 		<s:label value="ログインID保存" /><br>
+ 		<s:label value="ユーザーID保存" /><br>
  	</div>
  	<div class="submit_btn_box">
  		<s:submit value="ログイン" class="submit_btn" onclick="goLoginAction();" />

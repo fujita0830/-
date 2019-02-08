@@ -24,6 +24,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
+	private List<String> loginIdPasswordErrorMessageList = new ArrayList<String>();
 
 	private Map<String, Object> session;
 
@@ -42,7 +43,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		}
 
 		InputChecker inputChecker = new InputChecker();
-		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
+		loginIdErrorMessageList = inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 
 		if(loginIdErrorMessageList.size()!=0
@@ -84,7 +85,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 				}
 			}
 			session.put("logined", 1);
+		} else {
+			loginIdPasswordErrorMessageList.add("ユーザーIDまたはパスワードが異なります。");
+			session.put("loginIdPasswordErrorMessageList", loginIdPasswordErrorMessageList);
 		}
+
 		return result;
 	}
 
