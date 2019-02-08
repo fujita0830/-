@@ -27,10 +27,10 @@
 		</div>
 	</div>
 </s:if>
-<s:if test="!#session.famimyNameKanaErrorMessageList.isEmpty()">
+<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
 	<div class="error">
 		<div class="error-message">
-			<s:iterator value="#session.famimyNameKanaErrorMessageList"><s:property /><br></s:iterator>
+			<s:iterator value="#session.familyNameKanaErrorMessageList"><s:property /><br></s:iterator>
 		</div>
 	</div>
 </s:if>
