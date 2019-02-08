@@ -17,6 +17,5 @@
 宛先情報の登録が完了しました。
 </div>
 </div>
-<s:include value="footer.jsp"/>
 </body>
 </html>
