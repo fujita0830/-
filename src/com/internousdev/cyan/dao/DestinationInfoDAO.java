@@ -70,6 +70,8 @@ public class DestinationInfoDAO {
 	    			  destinationInfoDTO.setTelNumber(rs.getString("tel_number"));
 	    			  destinationInfoDTOList.add(destinationInfoDTO);
 	    		  }
+
+
 	    	  }catch(SQLException e){
 	    		  e.printStackTrace();
 	    	  }finally{
