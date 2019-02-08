@@ -30,6 +30,7 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 		session.remove("emailErrorMessageList");
 		session.remove("telNumberErrorMessageList");
 		session.remove("userAddressErrorMessageList");
+
 		result = SUCCESS;
 
 		if(!session.containsKey("mCategoryDTOList")){

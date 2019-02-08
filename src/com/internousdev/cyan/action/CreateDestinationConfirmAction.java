@@ -66,6 +66,14 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 			result = ERROR;
 		}
 
+		session.put("familyName", familyName);
+		session.put("firstName", firstName);
+		session.put("familyNameKana", familyNameKana);
+		session.put("firstNameKana", firstNameKana);
+		session.put("email", email);
+		session.put("telNumber", telNumber);
+		session.put("userAddress", userAddress);
+
 		sexList.add(MALE);
 		sexList.add(FEMALE);
 
