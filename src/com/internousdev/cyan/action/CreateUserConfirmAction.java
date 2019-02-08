@@ -65,7 +65,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 			session.put("familyNameErrorMessageList",familyNameErrorMessageList);
 			session.put("firstNameErrorMessageList", firstNameErrorMessageList);
 			session.put("famimyNameKanaErrorMessageList",familyNameKanaErrorMessageList);
-			session.put("firstNamekanaErrorMessageList",firstNameKanaErrorMessageList );
+			session.put("firstNameKanaErrorMessageList",firstNameKanaErrorMessageList );
 			session.put("emailErrorMessageList",emailErrorMessageList);
 			session.put("loginIdErrorMessageList",loginIdErrorMessageList);
 			session.put("passwordErrorMessageList",passwordErrorMessageList);
