@@ -116,7 +116,7 @@
 	</action>
 
 	<action name="SettlementCompleteAction" class="com.internousdev.cyan.action.SettlementCompleteAction" method="execute">
-		<result name="success">home.jsp</result>
+		<result name="success">settlementComplete.jsp</result>
 		<result name="timeout">error.jsp</result>
 	</action>
 
