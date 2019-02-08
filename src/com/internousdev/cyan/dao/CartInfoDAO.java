@@ -139,7 +139,6 @@ public class CartInfoDAO {
         }catch(SQLException e){
             e.printStackTrace();
         }
-
         return result;
     }
 
@@ -216,7 +215,6 @@ public class CartInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
 		String sql = "delete from cart_info where user_id=?";
-
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, userId);
