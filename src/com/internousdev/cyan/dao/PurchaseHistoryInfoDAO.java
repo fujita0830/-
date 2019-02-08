@@ -32,7 +32,7 @@ public class PurchaseHistoryInfoDAO {
 				+ " pi.image_file_name as image_file_name,"/*画像ファイルパス*/
 				+ " pi.image_file_path as image_file_path,"/*画像ファイル名*/
 				+ " pi.release_company," /*発売会社名*/
-				+ " phi.release_date," /*発売年月日*/
+				+ " pi.release_date," /*発売年月日*/
 				+ " phi.price as price,"/*値段*/
 				+ " phi.regist_date as regist_date," /*登録日*/
 				+ " phi.update_date as update_date," /*更新日*/
@@ -42,7 +42,7 @@ public class PurchaseHistoryInfoDAO {
 				+ " di.first_name_kana as first_name_kana," /*名かな*/
 				+ " di.email as email," /*メールアドレス*/
 				+ " di.tel_number as tel_number," /*電話番号*/
-				+ " di user_address as user_address"/*住所*/
+				+ " di.user_address as user_address"/*住所*/
 				+ " FROM purchase_history_info as phi"
 				+ " LEFT JOIN product_info as pi"
 				+ " ON phi.product_id= pi.product_id"
@@ -98,9 +98,9 @@ public class PurchaseHistoryInfoDAO {
 
 public int regist(String loginId,int productId, int productCount, int destinationId, int price){
 
-	com.internousdev.cyan.util.DBConnector dbConnector = new DBConnector();
+	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
-	String sql ="insert into purchase_history_info where user_id=?";
+	String sql ="insert into purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) values (?, ?, ?, ?, ?, now(), '0000-01-01')";
 	int count=0;
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -143,9 +143,4 @@ public int regist(String loginId,int productId, int productCount, int destinatio
 		}
 		return count;
 		}
-
-
-
-
-
 	}
