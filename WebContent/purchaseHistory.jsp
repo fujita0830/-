@@ -26,8 +26,10 @@
 	<th><s:label value="ふりがな"/></th>
 	<th><s:label value="商品画像"/></th>
 	<th><s:label value="値段"/></th>
+	<th><s:label value="個数"/></th>
 	<th><s:label value="発売会社名"/></th>
 	<th><s:label value="発売年月日"/></th>
+	<th><s:label value="合計金額"/></th>
 </tr>
 
 <tbody>
@@ -35,10 +37,12 @@
 <tr>
 	<td><s:property value="productName"/></td>
 	<td><s:property value="productNameKana"/></td>
-	<td><img src='<s:property value="imageFilePath"/><s:property value="imageFileName"/>' width="50px" height="50px"/></td>
+	<td><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="50px" height="50px"/></td>
 	<td><s:property value="price"/>円</td>
+	<td><s:property value="productCount"/>個</td>
 	<td><s:property value="releaseCompany"/></td>
 	<td><s:property value="releaseDate"/></td>
+	<td><s:property value="buyTotalprice"/>円</td>
 </tr>
 </s:iterator>
 </tbody>

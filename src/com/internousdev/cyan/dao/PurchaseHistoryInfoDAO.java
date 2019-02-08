@@ -80,6 +80,7 @@ public class PurchaseHistoryInfoDAO {
 				purchaseHistoryInfoDTO.setEmail(resultSet.getString("email"));
 				purchaseHistoryInfoDTO.setTelNumber(resultSet.getString("tel_number"));
 				purchaseHistoryInfoDTO.setUserAddress(resultSet.getString("user_address"));
+				purchaseHistoryInfoDTO.setBuyTotalprice((resultSet.getInt("price"))*(resultSet.getInt("product_count")));
 				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDTO);
 
 

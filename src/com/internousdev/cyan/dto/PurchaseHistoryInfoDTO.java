@@ -36,6 +36,7 @@ public class PurchaseHistoryInfoDTO {
 
 	/*その他*/
 	private int subtotal;
+	private int buyTotalprice;
 
 
 	public int getId() {
@@ -206,4 +207,10 @@ public class PurchaseHistoryInfoDTO {
 	public void setSubtotal(int subtotal) {
 		this.subtotal = subtotal;
 	}
+	public int getBuyTotalprice() {
+		return buyTotalprice;
+	}
+	public void setBuyTotalprice(int buyTotalprice) {
+		this.buyTotalprice = buyTotalprice;
+}
 }
