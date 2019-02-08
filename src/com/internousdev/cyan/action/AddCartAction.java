@@ -33,11 +33,11 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		String userId = null;
 		String tempUserId = null;
 		session.remove("checkListErrorMessageList");
-		if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
+		if (session.get("logined").equals(0) && !(session.containsKey("tempUserId"))) {
 			 CommonUtility commonUtility = new CommonUtility();
 			 session.put("tempUserId", commonUtility.getRamdomValue());
 		}
-		if(session.containsKey("loginId")) {
+		if(session.get("logined").equals(1)) {
 			userId = String.valueOf(session.get("loginId"));
 		} else {
 			userId = String.valueOf(session.get("tempUserId"));
@@ -63,11 +63,9 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		session.put("cartInfoDTOList", cartInfoDTOList);
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
-
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 			}
-
 		return result;
 	}
 
