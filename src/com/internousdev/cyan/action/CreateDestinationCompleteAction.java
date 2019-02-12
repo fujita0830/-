@@ -24,13 +24,16 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	public String execute() {
 		String result = ERROR;
 		DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-		int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")),familyName,firstName,familyNameKana,firstNameKana,email,telNumber,userAddress);
+		int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")), familyName, firstName, familyNameKana, firstNameKana, email, telNumber, userAddress);
+
 		if(count > 0) {
 			result = SUCCESS;
 		}
+
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 		}
+
 		return result;
 	}
 	public String getFamilyName() {
