@@ -69,7 +69,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 				result = SUCCESS;
 			} else {
 				loginIdIncorrectErrorMessageList.add("使用できないユーザーIDです");
-				session.put("loginIdErrorMessageList",loginIdErrorMessageList);
+				session.put("loginIdIncorrectErrorMessageList",loginIdIncorrectErrorMessageList);
 			}
 
 		}else {
