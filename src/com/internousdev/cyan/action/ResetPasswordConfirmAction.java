@@ -53,6 +53,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		&& newPasswordIncorrectErrorMessageList.size()==0) {
 
 			UserInfoDAO userInfoDAO = new UserInfoDAO();
+
 			if(userInfoDAO.isExistsUserInfo(loginId, password)) {
 				String concealedPassword = userInfoDAO.concealPassword(password);
 				session.put("loginId", loginId);
@@ -60,9 +61,10 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 				session.put("concealedPassword", concealedPassword);
 				result = SUCCESS;
 			} else {
-				passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
+				passwordIncorrectErrorMessageList.add("ユーザーIDまたは現在のパスワードが異なります。");
 				session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
 			}
+
 		} else {
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);

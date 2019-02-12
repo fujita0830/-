@@ -116,7 +116,7 @@ public class InputChecker {
 	public List<String> doPasswordCheck(String password,String reConfirmationPassword){
 		List<String> stringList = new ArrayList<String>();
 		if(!(password.equals(reConfirmationPassword))){
-			stringList.add("新しいパスワードと(再確認)が一致しません");
+			stringList.add("新しいパスワードと(再確認)が一致しません。");
 		}
 		return stringList;
 	}
