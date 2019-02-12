@@ -19,7 +19,7 @@
 <div id="contents">
 <h1>登録完了画面</h1>
 <div class="success">
-ユーザー登録が完了しました。
+ユーザー情報入力が完了しました。
 </div>
 </div>
 <s:form id="form1" action="LoginAction">
