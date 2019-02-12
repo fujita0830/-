@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<title>宛先情報入力確認</title>
+<title>宛先情報入力確認画面</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
