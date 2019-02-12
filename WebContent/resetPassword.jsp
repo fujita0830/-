@@ -12,7 +12,7 @@
 <jsp:include page="header.jsp" />
 <div id="contents">
 <h1>パスワード再設定画面</h1>
-	<s:if test="!#session.oginIdErrorMessageList.isEmpty()">
+	<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
 		<s:iterator value="#session.loginIdErrorMessageList"><s:property />
