@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/style.css">
 		<title>カート</title>
 		<script>
 			function checkValue(check){
