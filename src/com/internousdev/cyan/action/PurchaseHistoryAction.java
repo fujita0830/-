@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
@@ -32,11 +31,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			purchaseHistoryInfoDTOList =null;
 		}
 
-		if(!session.containsKey("mCategoryList")){
-			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDTOList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDTOList", mCategoryDTOList);
-		}
 
 		if(!session.containsKey("mCategoryDTOList")){
 
