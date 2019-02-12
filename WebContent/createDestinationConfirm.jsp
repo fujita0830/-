@@ -73,6 +73,5 @@
 		<s:hidden name="email" value="%{email}" />
 	</s:form>
 </div>
-<s:include value="footer.jsp"/>
 </body>
 </html>
