@@ -74,7 +74,7 @@
 		<table class="vertical-list-table">
 		<tr>
 			<th scope="row"><s:label value="ユーザーID"/></th>
-			<td><s:textfield name="loginId" placeholder="ユーザーID" class="txt" /></td>
+			<td><s:textfield name="loginId" placeholder="ユーザーID" class="txt" value="%{loginId}" /></td>
 		</tr>
 		<tr>
 			<th scope="row"><s:label value="現在のパスワード"/></th>

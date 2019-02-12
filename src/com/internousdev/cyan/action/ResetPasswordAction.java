@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ResetPasswordAction extends ActionSupport implements SessionAware{
 	private String categoryId;
+	private String loginId;
 	private Map<String,Object> session;
 	public String execute() {
 		String result = ERROR;
@@ -36,6 +37,14 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
 
 
 }
