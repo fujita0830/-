@@ -9,14 +9,12 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.CartInfoDAO;
 import com.internousdev.cyan.dto.CartInfoDTO;
-import com.internousdev.cyan.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CartAction extends ActionSupport implements SessionAware {
 
 	private String categoryId;
 	private String keywords;
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -70,12 +68,5 @@ public class CartAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
-	public List<MCategoryDTO> getmCategoryDTOList() {
-		return mCategoryDTOList;
-	}
-
-	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
-		this.mCategoryDTOList = mCategoryDTOList;
-	}
 
 }
