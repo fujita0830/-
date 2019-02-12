@@ -10,7 +10,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.CartInfoDAO;
 import com.internousdev.cyan.dto.CartInfoDTO;
-import com.internousdev.cyan.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteCartAction extends ActionSupport implements SessionAware {
@@ -32,7 +31,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	private String releaseDate;
 	private String productCount;
 	private String subtotal;
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -70,14 +68,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			result="timeout";
 			}
 		return result;
-	}
-
-	public List<MCategoryDTO> getmCategoryDTOList() {
-		return mCategoryDTOList;
-	}
-
-	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
-		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
 	public String getSex() {
@@ -119,7 +109,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
-
 
 	public String getCategoryId() {
 		return categoryId;
