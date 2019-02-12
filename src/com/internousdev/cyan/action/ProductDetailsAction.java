@@ -9,13 +9,11 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.ProductInfoDAO;
-import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware{
 	private int productId;
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 	private String categoryId;
 	private Map<String, Object> session;
@@ -59,14 +57,6 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 
 	public void setProductId(int productId) {
 		this.productId = productId;
-	}
-
-	public List<MCategoryDTO> getmCategoryDTOList() {
-		return mCategoryDTOList;
-	}
-
-	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
-		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
 	public List<ProductInfoDTO> getProductInfoDTOList() {
