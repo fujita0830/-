@@ -23,13 +23,13 @@ public class HomeAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 
+		if(!session.containsKey("logined")) {
+			session.put("logined", 0);
+		}
+
 		if(session.get("logined").equals(0) && !(session.containsKey("tempUserId"))){
 			CommonUtility commonUtility = new CommonUtility();
 			session.put("tempUserId", commonUtility.getRamdomValue());
-		}
-
-		if(!session.containsKey("logined")) {
-			session.put("logined", 0);
 		}
 
 		if(!session.containsKey("mCategoryDTOList")){
