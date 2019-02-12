@@ -69,7 +69,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 				result = SUCCESS;
 			} else {
 				loginIdIncorrectErrorMessageList.add("使用できないユーザーIDです");
-				session.put("loginIdIncorrectErrorMessageList",loginIdIncorrectErrorMessageList);
+				session.put("loginIdErrorMessageList",loginIdErrorMessageList);
 			}
 
 		}else {
@@ -230,6 +230,14 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList) {
 		this.passwordErrorMessageList = passwordErrorMessageList;
+	}
+
+	public List<String> getLoginIdIncorrectErrorMessageList() {
+		return loginIdIncorrectErrorMessageList;
+	}
+
+	public void setLoginIdIncorrectErrorMessageList(List<String> loginIdIncorrectErrorMessageList) {
+		this.loginIdIncorrectErrorMessageList = loginIdIncorrectErrorMessageList;
 	}
 
 	public Map<String, Object> getSession() {
