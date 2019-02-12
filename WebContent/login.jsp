@@ -45,10 +45,6 @@ function goResetPasswordAction() {
 			</div>
 		</div>
 	</s:if>
-<!--
-	SAVED:<s:property value="%{#session.savedLoginId}" />
-	LOGINID:<s:property value="%{#session.loginId}" />
- -->
  	<table class="vertical-list-table">
  		<tr>
  			<th scope="row"><s:label value="ユーザーID：" /></th>
