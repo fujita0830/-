@@ -63,6 +63,13 @@
 	</div>
 	</div>
 </s:if>
+<s:if test="!#session.loginIdIncorrectErrorMessageList.isEmpty()">
+	<div class="error">
+	<div class="error-message">
+		<s:iterator value="#session.loginIdIncorrectErrorMessageList"><s:property /><br></s:iterator>
+	</div>
+	</div>
+</s:if>
 
 <s:form action="CreateUserConfirmAction">
 

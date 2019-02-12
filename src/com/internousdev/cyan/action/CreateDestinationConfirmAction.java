@@ -38,6 +38,15 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 	public String execute() {
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
+
+		session.put("familyName",familyName);
+		session.put("firstName",firstName);
+		session.put("familyNameKana",familyNameKana);
+		session.put("firstNameKana",firstNameKana);
+		session.put("sex",sex);
+		session.put("email",email);
+
+
 //		フォームの入力内容をinputCheckerを使用しチェックする。---------------------------------------------
 		familyNameErrorMessageList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, true, false, false);
 		firstNameErrorMessageList = inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, true, false, false);
@@ -65,14 +74,6 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 			session.put("userAddressErrorMessageList", userAddressErrorMessageList);
 			result = ERROR;
 		}
-
-		session.put("familyName", familyName);
-		session.put("firstName", firstName);
-		session.put("familyNameKana", familyNameKana);
-		session.put("firstNameKana", firstNameKana);
-		session.put("email", email);
-		session.put("telNumber", telNumber);
-		session.put("userAddress", userAddress);
 
 		sexList.add(MALE);
 		sexList.add(FEMALE);

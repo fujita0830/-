@@ -65,6 +65,32 @@ public class UserInfoDAO {
 		return result;
 	}
 
+	public boolean isExistsLoginIdUserInfo(String loginId) {
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		boolean result = false;
+		String sql = "select count(*) as count from user_info where user_id=?";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, loginId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				if (resultSet.getInt("count") > 0) {
+					result = true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
 	public UserInfoDTO getUserInfo(String loginId, String password) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -200,7 +226,9 @@ public class UserInfoDAO {
 	public String concealPassword(String password) {
 		int beginIndex = 0;
 		int endIndex = 1;
-
+		if(password.length() > 1) {
+			endIndex = 2;
+		}
 		StringBuilder stringBuilder = new StringBuilder("****************");
 
 		String concealPassword = stringBuilder.replace(beginIndex, endIndex, password.substring(beginIndex,endIndex)).toString();

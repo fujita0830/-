@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.cyan.dao.UserInfoDAO;
 import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,6 +28,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private List<String> emailErrorMessageList = new ArrayList<String>();
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
+	private List<String> loginIdIncorrectErrorMessageList = new ArrayList<String>();
 
 	private String categoryId;
 	private List<String> sexList = new ArrayList<String>();
@@ -60,7 +62,16 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		&& emailErrorMessageList.size()==0
 		&& loginIdErrorMessageList.size()==0
 		&& passwordErrorMessageList.size()==0) {
-			result = SUCCESS;
+
+			UserInfoDAO userInfoDAO = new UserInfoDAO();
+			if(!(userInfoDAO.isExistsLoginIdUserInfo(loginId))) {
+				session.put("loginId", loginId);
+				result = SUCCESS;
+			} else {
+				loginIdIncorrectErrorMessageList.add("使用できないユーザーIDです");
+				session.put("loginIdIncorrectErrorMessageList",loginIdIncorrectErrorMessageList);
+			}
+
 		}else {
 			session.put("familyNameErrorMessageList",familyNameErrorMessageList);
 			session.put("firstNameErrorMessageList", firstNameErrorMessageList);
