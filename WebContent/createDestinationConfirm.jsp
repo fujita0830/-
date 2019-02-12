@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<title>宛先情報確認</title>
+<title>宛先情報入力確認</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
 <div id="contents">
-	<h1>宛先情報確認画面</h1>
+	<h1>宛先情報入力確認画面</h1>
 	<s:form action="CreateDestinationCompleteAction">
 	<table class="vertical-list-table">
 	<tr>
