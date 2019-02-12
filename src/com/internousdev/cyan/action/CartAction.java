@@ -70,4 +70,12 @@ public class CartAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
+	public List<MCategoryDTO> getmCategoryDTOList() {
+		return mCategoryDTOList;
+	}
+
+	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
+		this.mCategoryDTOList = mCategoryDTOList;
+	}
+
 }
