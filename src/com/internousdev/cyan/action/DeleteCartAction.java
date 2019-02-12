@@ -40,7 +40,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		int count = 0;
 		String userId = null;
-		if(session.containsKey("loginId")) {
+		if(session.get("logined").equals(1)) {
 			userId = String.valueOf(session.get("loginId"));
 		}else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));

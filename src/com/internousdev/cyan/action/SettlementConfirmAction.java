@@ -36,7 +36,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 	public String execute() {
 		String result = ERROR;
 
-		if(session.containsKey("loginId")) {
+		if(session.get("logined").equals(1)) {
 			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
 			List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<>();
 			try {
