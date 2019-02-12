@@ -99,7 +99,7 @@
 			</s:if>
 			<s:else>
 				<div class="info">
-					カート情報なし
+					カート情報がありません。
 				</div>
 			</s:else>
 		</div>
