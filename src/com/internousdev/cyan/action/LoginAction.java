@@ -33,6 +33,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 		session.put("loginIdErrorMessageList", "");
 		session.put("passwordErrorMessageList", "");
+		session.put("loginIdPasswordErrorMessageList", "");
 
 		if(savedLoginId==true) {
 			session.put("savedLoginId", true);
