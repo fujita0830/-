@@ -9,7 +9,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.ProductInfoDAO;
-import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.ProductInfoDTO;
 import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +17,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String keywords;
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private List<String> keywordsErrorMessageList = new ArrayList<String>();
 	private List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 	private Map<String, Object> session;
@@ -85,14 +83,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 	public void setKeywords(String keywords) {
 		this.keywords = keywords;
-	}
-
-	public List<MCategoryDTO> getmCategoryDTOList() {
-		return mCategoryDTOList;
-	}
-
-	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
-		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
 	public List<String> getKeywordsErrorMessageList() {
