@@ -73,7 +73,7 @@
 	</s:if>
 	<s:else>
 	<div class="info">
-		宛先情報はありません
+		宛先情報がありません。
 	</div>
 	</s:else>
 	<div class="submit_btn_box">
