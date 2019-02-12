@@ -8,7 +8,6 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.CartInfoDAO;
-import com.internousdev.cyan.dao.MCategoryDAO;
 import com.internousdev.cyan.dto.CartInfoDTO;
 import com.internousdev.cyan.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -40,12 +39,6 @@ public class CartAction extends ActionSupport implements SessionAware {
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		result = SUCCESS;
-		if(!session.containsKey("mCategoryList")) {
-			MCategoryDAO mCategoryDAO = new MCategoryDAO();
-			mCategoryDTOList = mCategoryDAO.getMCategoryList();
-			session.put("mCategoryDTOList", mCategoryDTOList);
-		}
-
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 			}

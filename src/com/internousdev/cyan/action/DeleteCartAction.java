@@ -66,11 +66,9 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			sexList.add(FEMALE);
 			result=SUCCESS;
 		}
-
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 			}
-
 		return result;
 	}
 
