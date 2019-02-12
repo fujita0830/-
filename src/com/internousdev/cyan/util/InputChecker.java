@@ -50,7 +50,7 @@ public class InputChecker {
 		}
 
 		if(availableKanji){
-			regularExpression +="一-龠";
+			regularExpression +="一-龠々";
 			characterTypeList.add("漢字");
 		}
 
@@ -60,12 +60,12 @@ public class InputChecker {
 		}
 
 		if(availableHalfWidthDigit){
-			regularExpression +="0-9";
+			regularExpression +="0-9-";
 			characterTypeList.add("半角数字");
 		}
 
 		if(availableHalfWidthSymbols){
-			regularExpression +="@.,;:!#$%&'*+-/=?^_`{|}~";
+			regularExpression +="@.,;:!#$%&'*+/=?^_`{|}~";
 			characterTypeList.add("半角記号");
 		}
 
@@ -111,7 +111,6 @@ public class InputChecker {
 
 		return stringList;
 	}
-
 
 	//一度目のパスワードと二度目のパスワードが同じかを検証します。
 	public List<String> doPasswordCheck(String password,String reConfirmationPassword){
