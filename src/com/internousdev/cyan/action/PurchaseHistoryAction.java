@@ -1,6 +1,5 @@
 package com.internousdev.cyan.action;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -8,14 +7,12 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.PurchaseHistoryInfoDAO;
-import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
 
@@ -40,13 +37,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		return result;
 		}
 
-public List<MCategoryDTO> getmCategoryDTOList() {
-	return mCategoryDTOList;
-}
-
-public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
-	this.mCategoryDTOList = mCategoryDTOList;
-}
 
 public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDTOList(){
 	return purchaseHistoryInfoDTOList;

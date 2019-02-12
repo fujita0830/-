@@ -1,13 +1,10 @@
 package com.internousdev.cyan.action;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.UserInfoDAO;
-import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.dto.UserInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MyPageAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 	private String keywords;
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
+
 
 	private Map<String,Object> session;
 	public String execute(){
@@ -53,14 +50,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		}
 
 
-		public List<MCategoryDTO> getmCategoryDTOList() {
-			return mCategoryDTOList;
-		}
 
-
-		public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
-			this.mCategoryDTOList = mCategoryDTOList;
-		}
 
 		public String getCategoryId() {
 			return categoryId;
