@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <title>パスワード再設定完了</title>
+<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 </head>
 <body>
 <jsp:include page="header.jsp" />
