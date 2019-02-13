@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/cyan.css">
+<link rel="stylesheet" href="./css/settlementConfirm.css">
 <title>決済確認</title>
 </head>
 <body>

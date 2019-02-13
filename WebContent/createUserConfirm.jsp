@@ -53,7 +53,11 @@ function goLoginAction(){
 </tr>
 </table>
 <s:form action="CreateUserAction">
+<div class="submit_btn_box">
+<div id=".contents-btn-set">
 <s:submit value="戻る" class="submit_btn" onclick="goLoginAction();"/>
+</div>
+</div>
 <s:hidden name="loginId" value="%{loginId}"/>
 <s:hidden name="password" value="%{password}"/>
 <s:hidden name="familyName" value="%{familyName}"/>

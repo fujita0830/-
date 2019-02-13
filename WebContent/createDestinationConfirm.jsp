@@ -62,7 +62,11 @@
 	</div>
 	</s:form>
 	<s:form action="CreateDestinationAction">
-		<s:submit value="戻る" class="submit_btn"/>
+		<div class="submit_btn_box">
+			<div id=".contents-btn-set">
+				<s:submit value="戻る" class="submit_btn"/>
+			</div>
+		</div>
 		<s:hidden name="familyName" value="%{familyName}" />
 		<s:hidden name="firstName" value="%{firstName}" />
 		<s:hidden name="familyNameKana" value="%{familyNameKana}" />

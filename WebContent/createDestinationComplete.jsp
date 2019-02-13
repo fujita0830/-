@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="3;URL='SettlementConfirmAction'"/>
 <link rel="stylesheet" href="./css/cyan.css">
+<link rel="stylesheet" href="./css/createComplete.css">
 <title>	宛先情報入力完了画面</title>
 </head>
 <body>
