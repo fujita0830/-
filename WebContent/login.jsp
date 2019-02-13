@@ -47,7 +47,7 @@ function goResetPasswordAction() {
 	</s:if>
  	<table class="vertical-list-table">
  		<tr>
- 			<th scope="row"><s:label value="ユーザーID：" /></th>
+ 			<th scope="row"><s:label value="ユーザーID" /></th>
  			<s:if test="#session.savedLoginId==true">
  			<td><s:textfield name="loginId" class="txt-yellow" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off" /></td>
  			</s:if>
@@ -56,7 +56,7 @@ function goResetPasswordAction() {
  			</s:else>
  		</tr>
  		<tr>
- 			<th scope="row"><s:label value="パスワード：" /></th>
+ 			<th scope="row"><s:label value="パスワード" /></th>
  			<td><s:password name="password" class="txt-yellow" placeholder="パスワード" autocomplete="off" /></td>
  		</tr>
  	</table>
