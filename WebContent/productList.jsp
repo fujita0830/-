@@ -15,13 +15,13 @@
 <h1>商品一覧画面</h1>
 <s:if test="!#session.keywordsErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message_error">
 		<s:iterator value="#session.keywordsErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:elseif test="productInfoDTOList == null">
-<div class="info">
+<div class="message_normal">
 	検索結果がありません。
 </div>
 </s:elseif>
