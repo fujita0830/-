@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/cyan.css">
+		<link rel="stylesheet" href="./css/mypage.css">
 		<title>マイページ</title>
 	</head>
 	<body>
@@ -36,9 +37,9 @@
 							<td><s:property value="#session.email"/></td>
 						</tr>
 					</table>
-					<div class="submit btn_box">
+					<div class="btn_box pojishon"><div class="submit_btn_box">
 						<s:submit value="購入履歴" class="submit_btn" />
-					</div>
+					</div></div>
 				</s:form>
 			</s:if>
 			<s:else>
