@@ -75,9 +75,9 @@ img {
 /* -----------------------------------------------------------------*/
 h1 {
 	padding: 10px;
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
-	color: black;
+	border-top: 2px solid #440000;
+	border-bottom: 2px solid #440000;
+	color: #440000;
 	text-align: center;
 }
 
@@ -95,9 +95,9 @@ table {
 
 table th {
 	padding: 10px 2vw;
-	background-color: rgba(200,200,200,0.6);
+	background-color: #440000;
 	border: 1px solid rgba(200,200,200,0.7);
-	color: black;
+	color:white;
 }
 
 table td {
@@ -149,7 +149,7 @@ table td {
 .submit_btn {
 	border-radius: 100px;
 	border-width: 1px;
-	width: 200px;
+	width: 150px;
 	height : 35px;
 	margin-top : -5px;
 	margin-left : 10px;
