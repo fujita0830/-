@@ -32,7 +32,10 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 
 	public String execute() {
 		String result = ERROR;
-		InputChecker inputChecker = new InputChecker();
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 
 		session.put("familyName",familyName);
 		session.put("firstName",firstName);
@@ -42,6 +45,7 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 		session.put("telNumber", telNumber);
 		session.put("email",email);
 
+		InputChecker inputChecker = new InputChecker();
 
 //		フォームの入力内容をinputCheckerを使用しチェックする。---------------------------------------------
 		familyNameErrorMessageList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false);
@@ -69,10 +73,6 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 			session.put("telNumberErrorMessageList", telNumberErrorMessageList);
 			session.put("userAddressErrorMessageList", userAddressErrorMessageList);
 			result = ERROR;
-		}
-
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
 		}
 
 		return result;

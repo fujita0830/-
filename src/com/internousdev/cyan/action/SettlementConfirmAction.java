@@ -36,6 +36,10 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 	public String execute() {
 		String result = ERROR;
 
+		if(!session.containsKey("mCategoryDTOList")) {
+			result="timeout";
+		}
+
 		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
 		session.remove("loginIdPasswordErrorMessageList");
@@ -98,10 +102,6 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 			result = ERROR;
 		} else {
 			result = SUCCESS;
-		}
-
-		if(!session.containsKey("mCategoryDTOList")) {
-			result="timeout";
 		}
 
 		return result;

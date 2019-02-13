@@ -14,6 +14,10 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 	public String execute() {
 		String result = ERROR;
 
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
 		session.remove("familyNameKanaErrorMessageList");
@@ -23,10 +27,6 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 		session.remove("userAddressErrorMessageList");
 
 		result = SUCCESS;
-
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}
 
 		return result;
 	}

@@ -19,6 +19,11 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	private Map<String, Object> session;
 	public String execute() {
 		String result = ERROR;
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
 		int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")), familyName, firstName, familyNameKana, firstNameKana, email, telNumber, userAddress);
 
@@ -33,10 +38,6 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		session.remove("userAddress");
 		session.remove("telNumber");
 		session.remove("email");
-
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}
 
 		return result;
 	}
