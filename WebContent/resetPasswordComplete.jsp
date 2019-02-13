@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/cyan.css">
+<link rel="stylesheet" href="./css/createComplete.css">
 <title>パスワード再設定完了</title>
 <meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 </head>
@@ -13,7 +14,9 @@
 <jsp:include page="header.jsp" />
 <div id="contents">
 <h1>パスワード再設定完了画面</h1>
+<div class="success">
 	パスワード再設定が完了しました。
+</div>
 </div>
 
 </body>
