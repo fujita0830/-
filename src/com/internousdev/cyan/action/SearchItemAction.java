@@ -26,6 +26,8 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 		String result = ERROR;
 		session.remove("keywordsErrorMessageList");
+		session.remove("productInfoDTOList");
+
 		InputChecker inputChecker = new InputChecker();
 
 		if (StringUtils.isBlank(keywords)){
@@ -61,11 +63,16 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 			productInfoDTOList = null;
 		}
 
+		if(keywordsErrorMessageList.size()>0){
+			productInfoDTOList = null;
+		}
+
 		session.put("productInfoDTOList", productInfoDTOList);
 
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 		}
+
 		return result;
 	}
 
