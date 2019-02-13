@@ -32,7 +32,7 @@
 		<td><s:property value="%{#session.productName}"/></td>
 		</tr>
 		<tr>
-		<th scope="row"><s:label value="商品名かな"/></th>
+		<th scope="row"><s:label value="商品名ふりがな"/></th>
 		<td><s:property value="%{#session.productNameKana}"/></td>
 		</tr>
 		<tr>
