@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/cyan.css">
+<link rel="stylesheet" href="./css/login.css">
 <link rel="stylesheet" href="./css/message.css">
 <title>ログイン</title>
 <script>
