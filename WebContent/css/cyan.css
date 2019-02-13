@@ -4,6 +4,47 @@
 	outline: none;
 }
 
+#header{
+	position: fixed;
+	float: left;
+	width: 100%;
+	height:60px;
+	padding: 10px;
+	background-color:#440000;
+}
+
+#header-menu{
+	float : left;
+	width : 80%;
+	margin-left : -30px;
+}
+
+#header-menu ul{
+	float : left;
+	margin-top : 15px;
+	margin-left : 20px;
+	width : 100%;
+}
+
+#header-menu ul li{
+	float : left;
+	list-style : none;
+	padding-left : 1%;
+	color : white;
+	font-size : 12px;
+}
+
+#header-title {
+	float : left;
+	height : 30px;
+	margin-top : 17px;
+	margin-left : 25px;
+	width : 10%;
+	font-family: 'Vidaloka';
+	color:#ffffff;
+	font-size:17px;
+}
+
 body, html {
 	margin : 0; /* 余白の削除 */
 	padding : 0; /* 余白の削除 */
@@ -109,8 +150,8 @@ table td {
 	margin-left : 10px;
 	font-size: 16px;
 	text-align: center;
-	color: black;
-	background-color: rgba(200,200,200,0);
+	color:white;
+	background-color:#880000;
 }
 
 
