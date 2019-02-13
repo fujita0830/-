@@ -5,7 +5,7 @@
 /* -------------------------------------------------------------------- */
 
 #product-list {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     max-width: 1080px;
 }
@@ -23,4 +23,9 @@
 .item-image-box-250 {
 	width: 250px;
 	height: 250px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 10px;
+    background-size: cover;
 }

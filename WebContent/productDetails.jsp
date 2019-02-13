@@ -21,9 +21,9 @@
 <s:elseif test="!#session.productInfoDTOList.isEmpty()">
 	<s:form action="AddCartAction">
 	<div class="box">
-	<div class="2column-container">
+	<div class="two-column-container">
 	<div class="right">
-		<img src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>' class="item-image-box-320"/><br>
+		<img src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>' height="320" class="item-image-box-320"/><br>
 	</div>
 	<div class="left">
 	<table class="vertical-list-table-mini">
@@ -66,10 +66,8 @@
 	<s:hidden name="releaseCompany" value="%{#session.releaseCompany}"/>
 	<s:hidden name="releaseDate" value="%{#session.releaseDate}"/>
 	<s:hidden name="productDescription" value="%{#session.productDescription}"/>
-	<div class="submit_btn_box cart-btn-box">
-	<div class="cart^btn">
+	<div class="submit_btn_box">
 	<s:submit value="カートに追加" class="submit_btn"/>
-	</div>
 	</div>
 	</div>
 	</div>
