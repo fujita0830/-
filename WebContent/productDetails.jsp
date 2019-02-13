@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/productDetails.css">
 <link rel="stylesheet" href="./css/cyan.css">
 <title>商品詳細</title>
 </head>
@@ -56,7 +57,6 @@
 		</tr>
 	</table>
 	</div>
-	</div>
 	<s:hidden name="productId" value="%{#session.productId}"/>
 	<s:hidden name="productName" value="%{#session.productName}"/>
 	<s:hidden name="productNameKana" value="%{#session.productNameKana}"/>
@@ -66,9 +66,12 @@
 	<s:hidden name="releaseCompany" value="%{#session.releaseCompany}"/>
 	<s:hidden name="releaseDate" value="%{#session.releaseDate}"/>
 	<s:hidden name="productDescription" value="%{#session.productDescription}"/>
-	</div>
-	<div class="submit_btn_box">
+	<div class="submit_btn_box cart-btn-box">
+	<div class="cart^btn">
 	<s:submit value="カートに追加" class="submit_btn"/>
+	</div>
+	</div>
+	</div>
 	</div>
 	</s:form>
 
@@ -79,7 +82,7 @@
 		<a href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="%{productId}"/>
 		</s:url>'><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-170"></a>
-		<s:property value="productName"/><br>
+		<div class="product-title"><s:property value="productName"/></div><br>
 		</div>
 	</s:iterator>
 	</div>

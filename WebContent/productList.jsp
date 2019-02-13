@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/productList.css">
 <link rel="stylesheet" href="./css/cyan.css">
 <title>商品一覧</title>
 </head>
@@ -31,10 +32,10 @@
 	<li>
 	<a href='<s:url action="ProductDetailsAction">
 	<s:param name="productId" value="%{productId}"/></s:url>'>
-	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-250"/></a>
-	<s:property value="productName"/>
-	<s:property value="productNameKana"/>
-	<s:property value="price"/>円<br>
+	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-250" /></a>
+	<div class="product-title"><s:property value="productName"/></div>
+	<div class="product-title-kana"><s:property value="productNameKana"/></div>
+	<div class="product-price"><s:property value="price"/>円</div><br>
 	</li>
 </ul>
 </div>

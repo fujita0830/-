@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+/* -------------------------------------------------------------------- */
+/* 		商品一覧画面													*/
+/* -------------------------------------------------------------------- */
+
+#product-list {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1080px;
+}
+
+#product-list ul {
+    list-style-type: none;
+}
+
+#product-list-box {
+    width: 30%;
+    float: left;
+    text-align: center;
+}
+
+.item-image-box-250 {
+	width: 250px;
+	height: 250px;
+}
