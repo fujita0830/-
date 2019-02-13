@@ -2,18 +2,10 @@
 
 h2{
 	text-align:right;
+	margin-right:10%;
 }
 
 /* 削除ボタン非活性(削除チェック入れてない状態の)のボタンの色の変更 */
 :disabled{
 	background-color:black;
-}
-
-.info{
-    width:90%;
-    height:auto;
-    border:1px solid black;
-    background-color:white;
-    text-align:center;
-    margin:0 auto;
 }

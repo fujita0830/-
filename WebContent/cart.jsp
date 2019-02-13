@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/cyan.css">
 		<link rel="stylesheet" href="./css/cart.css">
+		<link rel="stylesheet" href="./css/message.css">
 		<title>カート</title>
 		<script>
 			function checkValue(check){
@@ -91,7 +92,6 @@
 							<s:submit value="決済" class="submit_btn"/>
 						</div>
 					</div>
-
 					<div class="submit_btn_box">
 						<div id=".contents-btn-set">
 							<s:submit value="削除" id="delete_btn" class="submit_btn" onclick="this.form.action='DeleteCartAction';" disabled="true"/>
