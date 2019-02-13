@@ -5,6 +5,11 @@ h2{
 	margin-right:10%;
 }
 
+.submit_btn_box{
+	margin-left:30%;
+	display:inline-block;
+}
+
 /* 削除ボタン非活性(削除チェック入れてない状態の)のボタンの色の変更 */
 :disabled{
 	background-color:black;
