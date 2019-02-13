@@ -21,6 +21,9 @@ public class CartAction extends ActionSupport implements SessionAware {
 		String result = ERROR;
 		String userId = null;
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
 		session.remove("checkListErrorMessageList");
 		if(session.get("logined").equals(1)) {
@@ -37,10 +40,6 @@ public class CartAction extends ActionSupport implements SessionAware {
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		result = SUCCESS;
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-			}
-
 		return result;
 	}
 
