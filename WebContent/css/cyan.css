@@ -247,25 +247,6 @@ table td {
 	height : 50px;
 }
 
-/* 商品詳細のおすすめ商品 */
-.item-image-box-170{
-	width: 100%;
-	height: 170px;
-}
-
-/*商品一覧*/
-.item-image-box-250 {
-	width : 100%;
-	height : 250px;
-}
-
-/*商品詳細*/
-.item-image-box-320 {
-	width : 100%;
-	height : 320px;
-}
-
-
 /* 画像のホバー、アクティブアニメーション */
 .imgAnimation{
 	-webkit-transition: all 0.35s;
