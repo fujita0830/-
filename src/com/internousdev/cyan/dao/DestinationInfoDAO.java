@@ -73,9 +73,11 @@ public class DestinationInfoDAO {
 
 	    	  }catch(SQLException e){
 	    		  e.printStackTrace();
-	    	  }finally{
-	    		  connection.close();
-	    	  }
+	    	  }try {
+	              connection.close();
+	          } catch (SQLException e) {
+	              e.printStackTrace();
+	          }
 	    	  return destinationInfoDTOList;
 
 	    	 }

@@ -22,7 +22,12 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 	private Map<String, Object> session;
 
 	public String execute() {
+
 		String result = SUCCESS;
+
+		if(!session.containsKey("mCategoryDTOList")) {
+			result="timeout";
+		}
 
 		@SuppressWarnings("unchecked")
 		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDTOList");
@@ -62,9 +67,6 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				session.remove("purchaseHistoryInfoDTOList");
 				result = SUCCESS;
 			}
-		}
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
 		}
 		return result;
 	}
