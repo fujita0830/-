@@ -30,6 +30,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	public String execute() {
 		String result = ERROR;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
 
 		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
@@ -53,10 +56,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("logined", 0);
 		}
-
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-			}
 
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		if(userInfoDAO.isExistsUserInfo(loginId, password)) {
