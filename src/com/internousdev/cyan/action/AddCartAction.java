@@ -32,6 +32,9 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		String result=ERROR;
 		String userId = null;
 		String tempUserId = null;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
 		session.remove("checkListErrorMessageList");
 		if (session.get("logined").equals(0) && !(session.containsKey("tempUserId"))) {
 			 CommonUtility commonUtility = new CommonUtility();
@@ -53,19 +56,16 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		}
 		if(count > 0) {
 			result=SUCCESS;
-		}
-		List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
-		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-		Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
-		if(!(iterator.hasNext())) {
-			cartInfoDTOList = null;
-		}
-		session.put("cartInfoDTOList", cartInfoDTOList);
-		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-		session.put("totalPrice", totalPrice);
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
+			List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
+			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+			Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
+			if(!(iterator.hasNext())) {
+				cartInfoDTOList = null;
 			}
+			session.put("cartInfoDTOList", cartInfoDTOList);
+			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+			session.put("totalPrice", totalPrice);
+		}
 		return result;
 	}
 
