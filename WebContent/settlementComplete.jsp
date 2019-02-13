@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel ="stylesheet" href="./css/style.css">
+<link rel ="stylesheet" href="./css/cyan.css">
 <meta http-equiv="refresh" content ="3;URL='HomeAction'"/>
 <title>決済完了</title>
 </head>
