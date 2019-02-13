@@ -49,15 +49,15 @@ function goResetPasswordAction() {
  		<tr>
  			<th scope="row"><s:label value="ユーザーID：" /></th>
  			<s:if test="#session.savedLoginId==true">
- 			<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off" /></td>
+ 			<td><s:textfield name="loginId" class="txt-yellow" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off" /></td>
  			</s:if>
  			<s:else>
- 			<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" autocomplete="off" /></td>
+ 			<td><s:textfield name="loginId" class="txt-yellow" placeholder="ユーザーID" autocomplete="off" /></td>
  			</s:else>
  		</tr>
  		<tr>
  			<th scope="row"><s:label value="パスワード：" /></th>
- 			<td><s:password name="password" class="txt" placeholder="パスワード" autocomplete="off" /></td>
+ 			<td><s:password name="password" class="txt-yellow" placeholder="パスワード" autocomplete="off" /></td>
  		</tr>
  	</table>
  	<div class="box">
