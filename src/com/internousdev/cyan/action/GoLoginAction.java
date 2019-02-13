@@ -14,9 +14,9 @@ public class GoLoginAction extends ActionSupport implements SessionAware {
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 			}
-		session.put("loginIdErrorMessageList", "");
-		session.put("passwordErrorMessageList", "");
-		session.put("loginIdPasswordErrorMessageList", "");
+		session.remove("loginIdErrorMessageList");
+		session.remove("passwordErrorMessageList");
+		session.remove("loginIdPasswordErrorMessageList");
 		return result;
 	}
 
