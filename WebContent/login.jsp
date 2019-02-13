@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/cyan.css">
+<link rel="stylesheet" href="./css/message.css">
 <title>ログイン</title>
 <script>
 function goLoginAction() {
@@ -69,18 +70,18 @@ function goResetPasswordAction() {
  		</s:else>
  		<s:label value="ユーザーID保存" /><br>
  	</div>
- 	<div class="submit_btn_box">
+ 	<div class="submit_btn_box_login">
  		<s:submit value="ログイン" class="submit_btn" onclick="goLoginAction();" />
  	</div>
 </s:form>
-<div class="submit_btn_box">
+<div class="submit_btn_box_login">
  	<div id=".contents-btn-set">
  		<s:form action="CreateUserAction">
  			<s:submit value="新規ユーザー登録" class="submit_btn" />
  		</s:form>
  	</div>
 </div>
-<div class="submit_btn_box">
+<div class="submit_btn_box_login">
 <div id=".contents-btn-set">
 <s:form action="ResetPasswordAction">
  	<s:submit value="パスワード再設定" class="submit_btn" />
