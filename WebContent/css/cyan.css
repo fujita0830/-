@@ -147,6 +147,7 @@ table td {
 	border-radius: 100px;
 	border-width: 1px;
 	width: auto;
+	min-width: 120px;
 	height : 45px;
 	margin-top : -5px;
 	margin-left : 10px;
