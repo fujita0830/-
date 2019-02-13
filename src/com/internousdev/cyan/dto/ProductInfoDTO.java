@@ -130,5 +130,4 @@ public class ProductInfoDTO {
 		this.updateDate = updateDate;
 	}
 
-
 }
