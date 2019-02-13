@@ -1,7 +1,5 @@
 package com.internousdev.cyan.action;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -14,8 +12,6 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String sex;
-	private List<String> sexList = new ArrayList<String>();
 	private String email;
 	private String telNumber;
 	private String userAddress;
@@ -30,31 +26,39 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 			result = SUCCESS;
 		}
 
+		session.remove("familyName");
+		session.remove("firstName");
+		session.remove("familyNameKana");
+		session.remove("firstNameKana");
+		session.remove("userAddress");
+		session.remove("telNumber");
+		session.remove("email");
+
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 		}
 
 		return result;
 	}
+
 	public String getFamilyName() {
 		return familyName;
-
 	}
+
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
-
 	}
+
 	public String getFirstName() {
 		return firstName;
-
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-
 	}
+
 	public String getFamilyNameKana() {
 		return familyNameKana;
-
 	}
 
 	public void setFamilyNameKana(String familyNameKana) {
@@ -67,22 +71,6 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
-	public List<String> getSexList() {
-		return sexList;
-	}
-
-	public void setSexList(List<String> sexList) {
-		this.sexList = sexList;
 	}
 
 	public String getEmail() {
@@ -124,6 +112,5 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 
 }
