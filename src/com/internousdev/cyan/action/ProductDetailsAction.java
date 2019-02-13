@@ -19,6 +19,10 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 	public String execute(){
 		String result = ERROR;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
+
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		ProductInfoDTO productInfoDTO = new ProductInfoDTO();
 		productInfoDTO = productInfoDAO.getProductInfo(productId);
@@ -43,10 +47,6 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 			session.put("productInfoDTOList", productInfoDTOList);
 			result = SUCCESS;
 		}
-
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-			}
 
 		return result;
 	}

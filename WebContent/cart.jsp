@@ -88,14 +88,8 @@
 					</table>
 					<h2><s:label value="カート合計金額 :"/><s:property value="#session.totalPrice"/>円</h2><br>
 					<div class="submit_btn_box">
-						<div id=".contents-btn-set">
 							<s:submit value="決済" class="submit_btn"/>
-						</div>
-					</div>
-					<div class="submit_btn_box">
-						<div id=".contents-btn-set">
 							<s:submit value="削除" id="delete_btn" class="submit_btn" onclick="this.form.action='DeleteCartAction';" disabled="true"/>
-						</div>
 					</div>
 				</s:form>
 			</s:if>
