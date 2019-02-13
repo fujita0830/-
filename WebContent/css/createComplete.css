@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.success {
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	color: green;
+	border: solid 3px green;
+	background-color: lightgreen;
+}

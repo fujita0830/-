@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.info {
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	color: blue;
+	border: solid 3px blue;
+	background-color: aqua;
+}
