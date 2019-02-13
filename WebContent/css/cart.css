@@ -5,9 +5,8 @@ h2{
 	margin-right:10%;
 }
 
-.submit_btn_box{
-	margin-left:35%;
-	display:inline-block;
+.submit_btn{
+	margin-left:30%;
 }
 
 /* 削除ボタン非活性(削除チェック入れてない状態の)のボタンの色の変更 */
