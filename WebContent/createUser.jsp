@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <title>ユーザー情報入力</title>
-<link rel="stylesheet" type="text/css" href=".css/style.css" />
+<link rel="stylesheet" type="text/css" href="./css/cyan.css" />
 </head>
 <body>
 <jsp:include page="header.jsp" />

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/cyan.css">
 <title>パスワード再設定完了</title>
 <meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 </head>
