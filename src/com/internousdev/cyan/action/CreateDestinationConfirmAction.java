@@ -15,11 +15,6 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private List<String> sexList = new ArrayList<String>();
-	private String sex;
-	private static final String MALE = "男性";
-	private static final String FEMALE = "女性";
-	private String defaultSexValue = MALE;
 	private String email;
 	private String telNumber;
 	private String userAddress;
@@ -43,7 +38,6 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 		session.put("firstName",firstName);
 		session.put("familyNameKana",familyNameKana);
 		session.put("firstNameKana",firstNameKana);
-		session.put("sex",sex);
 		session.put("userAddress", userAddress);
 		session.put("telNumber", telNumber);
 		session.put("email",email);
@@ -76,9 +70,6 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 			session.put("userAddressErrorMessageList", userAddressErrorMessageList);
 			result = ERROR;
 		}
-
-		sexList.add(MALE);
-		sexList.add(FEMALE);
 
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
@@ -117,30 +108,6 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
-	}
-
-	public List<String> getSexList() {
-		return sexList;
-	}
-
-	public void setSexList(List<String> sexList) {
-		this.sexList = sexList;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
-	public String getDefaultSexValue() {
-		return defaultSexValue;
-	}
-
-	public void setDefaultSexValue(String defaultSexValue) {
-		this.defaultSexValue = defaultSexValue;
 	}
 
 	public String getEmail() {
