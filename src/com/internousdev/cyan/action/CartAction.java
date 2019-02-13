@@ -25,7 +25,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 		session.remove("checkListErrorMessageList");
 		if(session.get("logined").equals(1)) {
 			userId = String.valueOf(session.get("loginId"));
-		}else if (session.containsKey("tempUserId")) {
+		}else{
 			userId = String.valueOf(session.get("tempUserId"));
 		}
 		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
