@@ -174,7 +174,7 @@ table td {
 /*-------------- ボタン配置------------------------------------------------*/
 /* 縦並び */
 .submit_btn_box{
-	margin: 20px;
+	margin: 10px;
 	text-align: center;
 	clear: both;
 }
