@@ -29,7 +29,7 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 			result="timeout";
 			}
 
-		session.put("keywordsErrorMessageList", "");
+		session.remove("keywordsErrorMessageList");
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		productInfoDTOList = productInfoDAO.getProductInfoList();
