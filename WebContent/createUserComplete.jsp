@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/cyan.css">
-<link rel="stylesheet" href="./css/createComplete.css">
+<link rel="stylesheet" href="./css/message.css">
 <title>登録完了</title>
 <script type="text/javascript">
 	window.onload = function(){
