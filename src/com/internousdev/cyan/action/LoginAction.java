@@ -55,6 +55,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("logined", 0);
+			return result;
 		}
 
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
