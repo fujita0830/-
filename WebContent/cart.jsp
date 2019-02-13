@@ -49,7 +49,7 @@
 					<table class="horizontal-list-table">
 						<thead>
 							<tr>
-								<th><s:label value="削除対象"/></th>
+								<th><s:label value="#"/></th>
 								<th><s:label value="商品名"/></th>
 								<th><s:label value="商品名ふりがな"/></th>
 								<th><s:label value="商品画像"/></th>
