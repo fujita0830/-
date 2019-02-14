@@ -15,7 +15,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	private Map<String,Object> session;
 	public String execute(){
 
-		String result = ERROR;
+		String result = SUCCESS;
 		System.out.println(categoryId);
 		System.out.println(keywords);
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
@@ -34,7 +34,6 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 					session.put("email",userInfoDTO.getEmail());
 
 					System.out.println(session.get("familyName"));
-					result = SUCCESS;
 				}
 			}
 			return result;
