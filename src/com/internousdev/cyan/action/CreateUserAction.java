@@ -27,7 +27,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-		}
+		}else {
 
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
@@ -56,6 +56,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 		session.put("loginId", loginId);
 		session.put("password", password);
 		result = SUCCESS;
+		}
 
 		return result;
 	}
