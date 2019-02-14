@@ -8,16 +8,12 @@ import com.internousdev.cyan.dao.UserInfoDAO;
 import com.internousdev.cyan.dto.UserInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class MyPageAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 	private String keywords;
 
-
 	private Map<String,Object> session;
 	public String execute(){
-
-
 
 		String result = ERROR;
 		System.out.println(categoryId);
@@ -44,13 +40,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 			}
 
 			return result;
-
-
-
 		}
-
-
-
 
 		public String getCategoryId() {
 			return categoryId;

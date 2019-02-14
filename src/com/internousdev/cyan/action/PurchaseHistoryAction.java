@@ -28,7 +28,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			purchaseHistoryInfoDTOList =null;
 		}
 
-
 		if(!session.containsKey("mCategoryDTOList")){
 
 			result="timeout";
@@ -36,7 +35,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 		return result;
 		}
-
 
 public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDTOList(){
 	return purchaseHistoryInfoDTOList;

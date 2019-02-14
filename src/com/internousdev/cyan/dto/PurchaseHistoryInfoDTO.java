@@ -38,7 +38,6 @@ public class PurchaseHistoryInfoDTO {
 	private int subtotal;
 	private int buyTotalprice;
 
-
 	public int getId() {
 		return id;
 	}

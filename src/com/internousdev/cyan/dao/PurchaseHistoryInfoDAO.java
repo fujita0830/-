@@ -10,7 +10,6 @@ import java.util.List;
 import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.internousdev.cyan.util.DBConnector;
 
-
 public class PurchaseHistoryInfoDAO {
 
 	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryList(String loginId) {
@@ -82,8 +81,6 @@ public class PurchaseHistoryInfoDAO {
 				purchaseHistoryInfoDTO.setUserAddress(resultSet.getString("user_address"));
 				purchaseHistoryInfoDTO.setBuyTotalprice((resultSet.getInt("price"))*(resultSet.getInt("product_count")));
 				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDTO);
-
-
 		}
 	} catch (SQLException e){
 		e.printStackTrace();

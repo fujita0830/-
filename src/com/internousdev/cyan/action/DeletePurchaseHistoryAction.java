@@ -10,14 +10,12 @@ import com.internousdev.cyan.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class DeletePurchaseHistoryAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String sex;
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
-
 
 	public String execute(){
 
@@ -75,4 +73,3 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 		this.session = session;
 	}
 }
-
