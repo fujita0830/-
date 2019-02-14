@@ -13,10 +13,11 @@ public class GoLoginAction extends ActionSupport implements SessionAware {
 		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
+			} else {
+				session.remove("loginIdErrorMessageList");
+				session.remove("passwordErrorMessageList");
+				session.remove("loginIdPasswordErrorMessageList");
 			}
-		session.remove("loginIdErrorMessageList");
-		session.remove("passwordErrorMessageList");
-		session.remove("loginIdPasswordErrorMessageList");
 		return result;
 	}
 
