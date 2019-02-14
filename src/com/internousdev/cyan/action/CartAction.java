@@ -67,5 +67,4 @@ public class CartAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
-
 }

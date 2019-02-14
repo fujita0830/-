@@ -29,7 +29,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	public String execute() {
-		String result=ERROR;
+		String result = ERROR;
 		String userId = null;
 		String tempUserId = null;
 		if(!session.containsKey("mCategoryDTOList")){
