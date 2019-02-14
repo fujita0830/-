@@ -1,6 +1,6 @@
 package com.internousdev.cyan.action;
 
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,16 +12,13 @@ import com.internousdev.cyan.dto.MCategoryDTO;
 import com.internousdev.cyan.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class HomeAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private Map<String, Object> session;
 	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 
-
-
-	public String execute() throws SQLException{
+	public String execute() {
 
 		if(!session.containsKey("logined")) {
 			session.put("logined", 0);
