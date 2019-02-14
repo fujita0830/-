@@ -35,14 +35,17 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 	public String execute() {
 		String result=ERROR;
-		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-		int count = 0;
 		String userId = null;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+			}
 		if(session.get("logined").equals(1)) {
 			userId = String.valueOf(session.get("loginId"));
 		}else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		int count = 0;
 		for(String productId:checkList) {
 			System.out.println(productId);
 			System.out.println(userId);
@@ -64,9 +67,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 			sexList.add(FEMALE);
 			result=SUCCESS;
 		}
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-			}
 		return result;
 	}
 

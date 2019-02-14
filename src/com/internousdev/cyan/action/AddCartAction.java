@@ -36,13 +36,13 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 			result="timeout";
 			}
 		session.remove("checkListErrorMessageList");
-		if (session.get("logined").equals(0) && !(session.containsKey("tempUserId"))) {
+		if(session.get("logined").equals(0) && !(session.containsKey("tempUserId"))) {
 			 CommonUtility commonUtility = new CommonUtility();
 			 session.put("tempUserId", commonUtility.getRamdomValue());
 		}
 		if(session.get("logined").equals(1)) {
 			userId = String.valueOf(session.get("loginId"));
-		} else {
+		}else{
 			userId = String.valueOf(session.get("tempUserId"));
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}

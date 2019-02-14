@@ -20,7 +20,6 @@ public class CartAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		String result = ERROR;
 		String userId = null;
-		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 		}
@@ -31,6 +30,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 		}else{
 			userId = String.valueOf(session.get("tempUserId"));
 		}
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
 		Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
 		if(!(iterator.hasNext())) {
