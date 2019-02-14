@@ -98,7 +98,7 @@ public int regist(String loginId,int productId, int productCount, int destinatio
 
 	DBConnector dbConnector = new DBConnector();
 	Connection connection = dbConnector.getConnection();
-	String sql ="insert into purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) values (?, ?, ?, ?, ?, now(), '0000-01-01')";
+	String sql ="insert into purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) values (?, ?, ?, ?, ?, now(), now())";
 	int count=0;
 	try{
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
