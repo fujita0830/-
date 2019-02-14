@@ -24,7 +24,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
-		String result = ERROR;
+		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 		}else{
@@ -54,7 +54,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 			session.put("email", email);
 			session.put("loginId", loginId);
 			session.put("password", password);
-			result = SUCCESS;
 			}
 		return result;
 	}

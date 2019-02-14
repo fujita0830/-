@@ -11,7 +11,7 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 	private String loginId;
 	private Map<String,Object> session;
 	public String execute() {
-		String result = ERROR;
+		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 		}else{
@@ -21,8 +21,6 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 			session.remove("newPasswordErrorMessageList");
 			session.remove("reConfirmationNewPasswordErrorMessageList");
 			session.remove("newPasswordIncorrectErrorMessageList");
-
-			result = SUCCESS;
 		}
 		return result;
 
