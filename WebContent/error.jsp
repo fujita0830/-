@@ -9,6 +9,7 @@
 <meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <div class="error-message">
 エラーが発生しました。
 </div>
