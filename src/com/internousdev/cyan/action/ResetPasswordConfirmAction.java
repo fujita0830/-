@@ -32,7 +32,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-		}
+		}else {
 
 		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
@@ -77,6 +77,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
 			session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
+		}
 		}
 
 		return result;
