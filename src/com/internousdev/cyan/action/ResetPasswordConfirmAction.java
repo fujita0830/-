@@ -30,6 +30,10 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	public String execute() {
 		String result = ERROR;
 
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
 		session.remove("passwordIncorrectErrorMessageList");
@@ -44,22 +48,25 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		newPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 		reConfirmationNewPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 
-		newPasswordIncorrectErrorMessageList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
-
 		if(loginIdErrorMessageList.size()==0
 		&& passwordErrorMessageList.size()==0
 		&& newPasswordErrorMessageList.size()==0
-		&& reConfirmationNewPasswordErrorMessageList.size()==0
-		&& newPasswordIncorrectErrorMessageList.size()==0) {
+		&& reConfirmationNewPasswordErrorMessageList.size()==0) {
 
 			UserInfoDAO userInfoDAO = new UserInfoDAO();
-
 			if(userInfoDAO.isExistsUserInfo(loginId, password)) {
 				String concealedPassword = userInfoDAO.concealPassword(password);
 				session.put("loginId", loginId);
 				session.put("newPassword", newPassword);
 				session.put("concealedPassword", concealedPassword);
-				result = SUCCESS;
+				newPasswordIncorrectErrorMessageList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
+
+				if(newPasswordIncorrectErrorMessageList.size()==0){
+					result = SUCCESS;
+				}else {
+					session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+				}
+
 			} else {
 				passwordIncorrectErrorMessageList.add("ユーザーIDまたは現在のパスワードが異なります。");
 				session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
@@ -70,11 +77,8 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
 			session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
-			session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
 		}
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}
+
 		return result;
 	}
 
@@ -82,11 +86,9 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		return categoryId;
 	}
 
-
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-
 
 	public String getLoginId() {
 		return loginId;
@@ -111,8 +113,6 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
-
-
 
 	public String getReConfirmationPassword() {
 		return reConfirmationPassword;
@@ -177,7 +177,4 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
-
 }

@@ -15,15 +15,16 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 
 	public String execute() {
 		String result = ERROR;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		int count = userInfoDAO.resetPassword(String.valueOf(session.get("loginId")),String.valueOf(session.get("newPassword")));
 		if(count > 0) {
 			result = SUCCESS;
 		}else {
 			result = ERROR;
-		}
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
 		}
 		return result;
 	}
@@ -59,7 +60,4 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
-
 }

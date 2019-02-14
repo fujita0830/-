@@ -12,17 +12,17 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 	private Map<String,Object> session;
 	public String execute() {
 		String result = ERROR;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 		session.remove("loginIdErrorMessageList");
 		session.remove("passwordErrorMessageList");
 		session.remove("passwordIncorrectErrorMessageList");
 		session.remove("newPasswordErrorMessageList");
-		session.remove("reConfirmateionNewPasswordErrorMessageList");
+		session.remove("reConfirmationNewPasswordErrorMessageList");
 		session.remove("newPasswordIncorrectErrorMessageList");
 
 		result = SUCCESS;
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}
 		return result;
 	}
 	public String getCategoryId() {
@@ -44,7 +44,4 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
-
-
-
 }
