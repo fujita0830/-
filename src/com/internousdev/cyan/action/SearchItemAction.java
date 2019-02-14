@@ -45,26 +45,24 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 			}
 		}
 
-		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
-		switch (categoryId) {
-			case "1":
-				productInfoDTOList = productInfoDAO.getProductInfoListAll(tempKeywords.split(" "));
-				result = SUCCESS;
-				break;
+		if(keywordsErrorMessageList.size()==0){
+			ProductInfoDAO productInfoDAO = new ProductInfoDAO();
+			switch (categoryId) {
+				case "1":
+					productInfoDTOList = productInfoDAO.getProductInfoListAll(tempKeywords.split(" "));
+					result = SUCCESS;
+					break;
 
-			default:
-				productInfoDTOList = productInfoDAO.getProductInfoListByKeywords(tempKeywords.split(" "), categoryId);
-				result = SUCCESS;
-				break;
-		}
+				default:
+					productInfoDTOList = productInfoDAO.getProductInfoListByKeywords(tempKeywords.split(" "), categoryId);
+					result = SUCCESS;
+					break;
+			}
 
-		Iterator<ProductInfoDTO> iterator = productInfoDTOList.iterator();
-		if(!(iterator.hasNext())) {
-			productInfoDTOList = null;
-		}
-
-		if(keywordsErrorMessageList.size()>0){
-			productInfoDTOList = null;
+			Iterator<ProductInfoDTO> iterator = productInfoDTOList.iterator();
+			if(!(iterator.hasNext())) {
+				productInfoDTOList = null;
+			}
 		}
 
 		session.put("productInfoDTOList", productInfoDTOList);
