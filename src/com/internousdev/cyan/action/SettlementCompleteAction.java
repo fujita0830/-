@@ -26,7 +26,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 
 		if(!session.containsKey("mCategoryDTOList")) {
 			result="timeout";
-		}
+		}else{
 
 		@SuppressWarnings("unchecked")
 		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDTOList");
@@ -64,9 +64,9 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(String.valueOf(session.get("loginId")))));
 				session.put("totalPrice", totalPrice);
 				session.remove("purchaseHistoryInfoDTOList");
-				result = SUCCESS;
 			}
 		}
+	  }
 		return result;
 	}
 
