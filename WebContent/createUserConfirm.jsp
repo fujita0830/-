@@ -10,14 +10,10 @@
 	</head>
 	<script>
 		function goCreateUserAction(){
-			alert('a');
 			document.getElementById("createUserForm").action="CreateUserAction";
-			alert('b');
 		}
 		function goCreateUserCompleteAction(){
-			alert('c');
 			document.getElementById("createUserForm").action="CreateUserCompleteAction";
-			alert('d');
 		}
 	</script>
 	<body>
