@@ -65,31 +65,31 @@
 		<table class="vertical-list-table">
 			<tr>
 				<th scope="row"><s:label value="姓"/></th>
-				<td><s:textfield name="familyName" value="%{#session.familyName}" class="txt" /></td>
+				<td><s:textfield name="familyName" value="%{#session.familyName}" placeholder="姓" class="txt" /></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="名"/></th>
-				<td><s:textfield name="firstName" value="%{#session.firstName}" class="txt" /></td>
+				<td><s:textfield name="firstName" value="%{#session.firstName}" placeholder="名" class="txt" /></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="姓ふりがな"/></th>
-				<td><s:textfield name="familyNameKana" value="%{#session.familyNameKana}" class="txt" /></td>
+				<td><s:textfield name="familyNameKana" value="%{#session.familyNameKana}" placeholder="姓ふりがな" class="txt" /></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="名ふりがな"/></th>
-				<td><s:textfield name="firstNameKana" value="%{#session.firstNameKana}" class="txt" /></td>
+				<td><s:textfield name="firstNameKana" value="%{#session.firstNameKana}" placeholder="名ふりがな" class="txt" /></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="住所"/></th>
-				<td><s:textfield name="userAddress" value="%{#session.userAddress}" class="txt" /></td>
+				<td><s:textfield name="userAddress" value="%{#session.userAddress}" placeholder="住所" class="txt" /></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="電話番号"/></th>
-				<td><s:textfield name="telNumber" value="%{#session.telNumber}" class="txt" /></td>
+				<td><s:textfield name="telNumber" value="%{#session.telNumber}" placeholder="電話番号" class="txt" /></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="メールアドレス"/></th>
-				<td><s:textfield name="email" value="%{#session.email}" class="txt" /></td>
+				<td><s:textfield name="email" value="%{#session.email}" placeholder="メールアドレス" class="txt" /></td>
 			</tr>
 		</table>
 		<div class="submit_btn_box">
