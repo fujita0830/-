@@ -34,7 +34,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		@SuppressWarnings("unchecked")
 		ArrayList<DestinationInfoDTO> destinationInfoDTOList = (ArrayList<DestinationInfoDTO>)session.get("destinationInfoDTOList");
 		for(int i=0;i<purchaseHistoryInfoDTOList.size();i++) {
-			purchaseHistoryInfoDTOList.get(i).setDestinationId(destinationInfoDTOList.get(0).getId());
+			purchaseHistoryInfoDTOList.get(i).setDestinationId(Integer.parseInt(getId()));
 		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
