@@ -18,7 +18,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	public String execute() {
-		String result = ERROR;
+		String result = SUCCESS;
 		String userId = null;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
@@ -39,7 +39,6 @@ public class CartAction extends ActionSupport implements SessionAware {
 			session.put("cartInfoDTOList", cartInfoDTOList);
 			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 			session.put("totalPrice", totalPrice);
-			result = SUCCESS;
 		}
 		return result;
 	}
