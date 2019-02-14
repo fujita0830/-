@@ -38,34 +38,35 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		String userId = null;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
+		}else{
+			if(session.get("logined").equals(1)) {
+				userId = String.valueOf(session.get("loginId"));
+			}else if (session.containsKey("tempUserId")) {
+				userId = String.valueOf(session.get("tempUserId"));
 			}
-		if(session.get("logined").equals(1)) {
-			userId = String.valueOf(session.get("loginId"));
-		}else if (session.containsKey("tempUserId")) {
-			userId = String.valueOf(session.get("tempUserId"));
-		}
-		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-		int count = 0;
-		for(String productId:checkList) {
-			System.out.println(productId);
-			System.out.println(userId);
-			count += cartInfoDAO.delete(productId, userId);
-		}
-		if(count <= 0) {
-			return ERROR;
-		}else {
-			List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
-			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-			Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
-			if(!(iterator.hasNext())) {
-				cartInfoDTOList = null;
+			CartInfoDAO cartInfoDAO = new CartInfoDAO();
+			int count = 0;
+			for(String productId:checkList) {
+				System.out.println(productId);
+				System.out.println(userId);
+				count += cartInfoDAO.delete(productId, userId);
 			}
-			session.put("cartInfoDTOList", cartInfoDTOList);
-			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-			session.put("totalPrice", totalPrice);
-			sexList.add(MALE);
-			sexList.add(FEMALE);
-			result=SUCCESS;
+			if(count <= 0) {
+				return ERROR;
+			}else {
+				List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
+				cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+				Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
+				if(!(iterator.hasNext())) {
+					cartInfoDTOList = null;
+				}
+				session.put("cartInfoDTOList", cartInfoDTOList);
+				int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+				session.put("totalPrice", totalPrice);
+				sexList.add(MALE);
+				sexList.add(FEMALE);
+				result=SUCCESS;
+			}
 		}
 		return result;
 	}
