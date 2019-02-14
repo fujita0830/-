@@ -12,21 +12,19 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 	private Map<String, Object> session;
 
 	public String execute() {
-		String result = ERROR;
+		String result = SUCCESS;
 
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
+		if(!session.containsKey("mCategoryDTOList")) {
+			result = "timeout";
+		} else {
+			session.remove("familyNameErrorMessageList");
+			session.remove("firstNameErrorMessageList");
+			session.remove("familyNameKanaErrorMessageList");
+			session.remove("firstNameKanaErrorMessageList");
+			session.remove("emailErrorMessageList");
+			session.remove("telNumberErrorMessageList");
+			session.remove("userAddressErrorMessageList");
 		}
-
-		session.remove("familyNameErrorMessageList");
-		session.remove("firstNameErrorMessageList");
-		session.remove("familyNameKanaErrorMessageList");
-		session.remove("firstNameKanaErrorMessageList");
-		session.remove("emailErrorMessageList");
-		session.remove("telNumberErrorMessageList");
-		session.remove("userAddressErrorMessageList");
-
-		result = SUCCESS;
 
 		return result;
 	}
