@@ -1,6 +1,5 @@
 package com.internousdev.cyan.action;
 
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,16 +46,13 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		if(session.get("logined").equals(1)) {
 			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
 			List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<>();
-			try {
-				destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
-				Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
-				if(!(iterator.hasNext())) {
-					destinationInfoDTOList = null;
-				}
-				session.put("destinationInfoDTOList", destinationInfoDTOList);
-			} catch(SQLException e) {
-				e.printStackTrace();
+
+			destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
+			Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
+			if(!(iterator.hasNext())) {
+				destinationInfoDTOList = null;
 			}
+			session.put("destinationInfoDTOList", destinationInfoDTOList);
 		}
 
 		if(!session.containsKey("purchaseHistoryInfoDTOList")) {

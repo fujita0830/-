@@ -43,8 +43,7 @@ public class DestinationInfoDAO {
 		    return count;
 		    }
 
-
-	      public List<DestinationInfoDTO>getDestinationInfo(String loginId) throws SQLException{
+	      public List<DestinationInfoDTO>getDestinationInfo(String loginId){
 	    	  DBConnector dbConnector = new DBConnector();
 	    	  Connection connection = dbConnector.getConnection();
 	    	  List<DestinationInfoDTO>destinationInfoDTOList = new ArrayList<DestinationInfoDTO>();
@@ -70,7 +69,6 @@ public class DestinationInfoDAO {
 	    			  destinationInfoDTOList.add(destinationInfoDTO);
 	    		  }
 
-
 	    	  }catch(SQLException e){
 	    		  e.printStackTrace();
 	    	  }try {
@@ -79,7 +77,6 @@ public class DestinationInfoDAO {
 	              e.printStackTrace();
 	          }
 	    	  return destinationInfoDTOList;
-
 	    	 }
 
 }

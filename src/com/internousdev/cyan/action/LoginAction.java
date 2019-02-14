@@ -1,6 +1,5 @@
 package com.internousdev.cyan.action;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -69,17 +68,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
 				count = cartInfoDAO.linkToLoginId(String.valueOf(session.get("tempUserId")), loginId);
 				if(count > 0) {
 					DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-					try {
-						List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<DestinationInfoDTO>();
-						destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(loginId);
-						Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
-						if(!(iterator.hasNext())) {
-							destinationInfoDTOList = null;
-						}
-						session.put("destinationInfoDTOList", destinationInfoDTOList);
-					} catch (SQLException e) {
-						e.printStackTrace();
+					List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<DestinationInfoDTO>();
+					destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(loginId);
+					Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
+					if(!(iterator.hasNext())) {
+						destinationInfoDTOList = null;
 					}
+					session.put("destinationInfoDTOList", destinationInfoDTOList);
 					result = "cart";
 				} else {
 					result = SUCCESS;
