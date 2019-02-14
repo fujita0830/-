@@ -25,18 +25,23 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 		return result;
 
 	}
+
 	public String getCategoryId() {
 		return categoryId;
 	}
+
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
 	public String getLoginId() {
 		return loginId;
 	}

@@ -79,7 +79,6 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 				session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
 			}
 		}
-
 		return result;
 	}
 
