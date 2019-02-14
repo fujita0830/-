@@ -25,6 +25,11 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 	public String execute(){
 
 		String result = ERROR;
+
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		session.remove("keywordsErrorMessageList");
 		session.remove("productInfoDTOList");
 
@@ -66,10 +71,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		}
 
 		session.put("productInfoDTOList", productInfoDTOList);
-
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}
 
 		return result;
 	}
