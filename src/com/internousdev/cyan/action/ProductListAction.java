@@ -35,7 +35,7 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 			productInfoDTOList = productInfoDAO.getProductInfoList();
 			session.put("productInfoDTOList", productInfoDTOList);
 
-		return "timeout";
+		return result;
 	}
 
 	public String getProductName() {

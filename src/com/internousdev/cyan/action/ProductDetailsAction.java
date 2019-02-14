@@ -48,7 +48,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 				session.put("productInfoDTOList", productInfoDTOList);
 
 			}
-		return "timeout";
+		return result;
 	}
 
 	public int getProductId() {
