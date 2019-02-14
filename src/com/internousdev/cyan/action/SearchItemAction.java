@@ -28,50 +28,50 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-		}
-
-		session.remove("keywordsErrorMessageList");
-		session.remove("productInfoDTOList");
-
-		InputChecker inputChecker = new InputChecker();
-
-		if (StringUtils.isBlank(keywords)){
-			tempKeywords = "";
 		}else{
-			tempKeywords = keywords.replaceAll("　"," ").replaceAll("\\s{2,}"," ");
-		}
 
-		if(!(tempKeywords.equals(""))){
-			keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 50, true, true, true, true, false, true, false, true, true);
-			Iterator<String> iterator = keywordsErrorMessageList.iterator();
-			if(iterator.hasNext()) {
-				session.put("keywordsErrorMessageList", keywordsErrorMessageList);
-				return SUCCESS;
-			}
-		}
+			session.remove("keywordsErrorMessageList");
+			session.remove("productInfoDTOList");
 
-		if(keywordsErrorMessageList.size()==0){
-			ProductInfoDAO productInfoDAO = new ProductInfoDAO();
-			switch (categoryId) {
-				case "1":
-					productInfoDTOList = productInfoDAO.getProductInfoListAll(tempKeywords.split(" "));
-					result = SUCCESS;
-					break;
+			InputChecker inputChecker = new InputChecker();
 
-				default:
-					productInfoDTOList = productInfoDAO.getProductInfoListByKeywords(tempKeywords.split(" "), categoryId);
-					result = SUCCESS;
-					break;
+			if (StringUtils.isBlank(keywords)){
+				tempKeywords = "";
+			}else{
+				tempKeywords = keywords.replaceAll("　"," ").replaceAll("\\s{2,}"," ");
 			}
 
-			Iterator<ProductInfoDTO> iterator = productInfoDTOList.iterator();
-			if(!(iterator.hasNext())) {
-				productInfoDTOList = null;
+			if(!(tempKeywords.equals(""))){
+				keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 50, true, true, true, true, false, true, false, true, true);
+				Iterator<String> iterator = keywordsErrorMessageList.iterator();
+				if(iterator.hasNext()) {
+					session.put("keywordsErrorMessageList", keywordsErrorMessageList);
+					return SUCCESS;
+				}
 			}
+
+			if(keywordsErrorMessageList.size()==0){
+				ProductInfoDAO productInfoDAO = new ProductInfoDAO();
+				switch (categoryId) {
+					case "1":
+						productInfoDTOList = productInfoDAO.getProductInfoListAll(tempKeywords.split(" "));
+						result = SUCCESS;
+						break;
+
+					default:
+						productInfoDTOList = productInfoDAO.getProductInfoListByKeywords(tempKeywords.split(" "), categoryId);
+						result = SUCCESS;
+						break;
+				}
+
+				Iterator<ProductInfoDTO> iterator = productInfoDTOList.iterator();
+				if(!(iterator.hasNext())) {
+					productInfoDTOList = null;
+				}
+			}
+
+			session.put("productInfoDTOList", productInfoDTOList);
 		}
-
-		session.put("productInfoDTOList", productInfoDTOList);
-
 		return result;
 	}
 
