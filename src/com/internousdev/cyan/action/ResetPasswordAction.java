@@ -14,15 +14,15 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-		}else {
-		session.remove("loginIdErrorMessageList");
-		session.remove("passwordErrorMessageList");
-		session.remove("passwordIncorrectErrorMessageList");
-		session.remove("newPasswordErrorMessageList");
-		session.remove("reConfirmationNewPasswordErrorMessageList");
-		session.remove("newPasswordIncorrectErrorMessageList");
+		}else{
+			session.remove("loginIdErrorMessageList");
+			session.remove("passwordErrorMessageList");
+			session.remove("passwordIncorrectErrorMessageList");
+			session.remove("newPasswordErrorMessageList");
+			session.remove("reConfirmationNewPasswordErrorMessageList");
+			session.remove("newPasswordIncorrectErrorMessageList");
 
-		result = SUCCESS;
+			result = SUCCESS;
 		}
 		return result;
 

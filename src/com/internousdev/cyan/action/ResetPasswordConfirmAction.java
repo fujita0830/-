@@ -32,52 +32,51 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-		}else {
+		}else{
+			session.remove("loginIdErrorMessageList");
+			session.remove("passwordErrorMessageList");
+			session.remove("passwordIncorrectErrorMessageList");
+			session.remove("newPasswordErrorMessageList");
+			session.remove("reConfirmationNewPasswordErrorMessageList");
+			session.remove("newPasswordIncorrectErrorMessageList");
 
-		session.remove("loginIdErrorMessageList");
-		session.remove("passwordErrorMessageList");
-		session.remove("passwordIncorrectErrorMessageList");
-		session.remove("newPasswordErrorMessageList");
-		session.remove("reConfirmationNewPasswordErrorMessageList");
-		session.remove("newPasswordIncorrectErrorMessageList");
+			InputChecker inputChecker = new InputChecker();
 
-		InputChecker inputChecker = new InputChecker();
+			loginIdErrorMessageList = inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
+			passwordErrorMessageList = inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
+			newPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+			reConfirmationNewPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 
-		loginIdErrorMessageList = inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
-		passwordErrorMessageList = inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
-		newPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
-		reConfirmationNewPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+			if(loginIdErrorMessageList.size()==0
+			&& passwordErrorMessageList.size()==0
+			&& newPasswordErrorMessageList.size()==0
+			&& reConfirmationNewPasswordErrorMessageList.size()==0) {
 
-		if(loginIdErrorMessageList.size()==0
-		&& passwordErrorMessageList.size()==0
-		&& newPasswordErrorMessageList.size()==0
-		&& reConfirmationNewPasswordErrorMessageList.size()==0) {
+				UserInfoDAO userInfoDAO = new UserInfoDAO();
+				if(userInfoDAO.isExistsUserInfo(loginId, password)) {
+					String concealedPassword = userInfoDAO.concealPassword(password);
+					session.put("loginId", loginId);
+					session.put("newPassword", newPassword);
+					session.put("concealedPassword", concealedPassword);
+					newPasswordIncorrectErrorMessageList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
 
-			UserInfoDAO userInfoDAO = new UserInfoDAO();
-			if(userInfoDAO.isExistsUserInfo(loginId, password)) {
-				String concealedPassword = userInfoDAO.concealPassword(password);
-				session.put("loginId", loginId);
-				session.put("newPassword", newPassword);
-				session.put("concealedPassword", concealedPassword);
-				newPasswordIncorrectErrorMessageList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
+					if(newPasswordIncorrectErrorMessageList.size()==0){
+						result = SUCCESS;
+					}else {
+						session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+					}
 
-				if(newPasswordIncorrectErrorMessageList.size()==0){
-					result = SUCCESS;
-				}else {
-					session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+				} else {
+					passwordIncorrectErrorMessageList.add("ユーザーIDまたは現在のパスワードが異なります。");
+					session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
 				}
 
 			} else {
-				passwordIncorrectErrorMessageList.add("ユーザーIDまたは現在のパスワードが異なります。");
-				session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
+				session.put("loginIdErrorMessageList", loginIdErrorMessageList);
+				session.put("passwordErrorMessageList", passwordErrorMessageList);
+				session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
+				session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
 			}
-
-		} else {
-			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
-			session.put("passwordErrorMessageList", passwordErrorMessageList);
-			session.put("newPasswordErrorMessageList", newPasswordErrorMessageList);
-			session.put("reConfirmationNewPasswordErrorMessageList", reConfirmationNewPasswordErrorMessageList);
-		}
 		}
 
 		return result;

@@ -23,16 +23,14 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-		}else {
-
-		UserInfoDAO UserInfoDAO = new UserInfoDAO();
-		int count = UserInfoDAO.createUser(familyName,firstName,familyNameKana,firstNameKana,sex,email,loginId,password);
-		if(count > 0) {
-			result = SUCCESS;
-		}
+		}else{
+			UserInfoDAO UserInfoDAO = new UserInfoDAO();
+			int count = UserInfoDAO.createUser(familyName,firstName,familyNameKana,firstNameKana,sex,email,loginId,password);
+			if(count > 0) {
+				result = SUCCESS;
+			}
 		}
 		return result;
-
 	}
 
 	public String getFamilyName() {

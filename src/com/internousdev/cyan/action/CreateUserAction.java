@@ -27,37 +27,35 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-		}else {
+		}else{
+			session.remove("familyNameErrorMessageList");
+			session.remove("firstNameErrorMessageList");
+			session.remove("familyNameKanaErrorMessageList");
+			session.remove("firstNameKanaErrorMessageList");
+			session.remove("emailErrorMessageList");
+			session.remove("userIdErrorMessageList");
+			session.remove("passwordErrorMessageList");
+			session.remove("loginIdIncorrectErrorMessageList");
+			session.remove("loginIdPasswordErrorMessageList");
+			session.remove("loginIdErrorMessageList");
 
-		session.remove("familyNameErrorMessageList");
-		session.remove("firstNameErrorMessageList");
-		session.remove("familyNameKanaErrorMessageList");
-		session.remove("firstNameKanaErrorMessageList");
-		session.remove("emailErrorMessageList");
-		session.remove("userIdErrorMessageList");
-		session.remove("passwordErrorMessageList");
-		session.remove("loginIdIncorrectErrorMessageList");
-		session.remove("loginIdPasswordErrorMessageList");
-		session.remove("loginIdErrorMessageList");
-
-		session.put("familyName",familyName);
-		session.put("firstName", firstName);
-		session.put("familyNameKana",familyNameKana);
-		session.put("firstNameKana",firstNameKana);
-		if(sex == null) {
-			session.put("sex", MALE);
-		}else {
-			session.put("sex",String.valueOf(session.get("sex")));
-		}
-		sexList.add(MALE);
-		sexList.add(FEMALE);
-		session.put("sexList", sexList);
-		session.put("email", email);
-		session.put("loginId", loginId);
-		session.put("password", password);
-		result = SUCCESS;
-		}
-
+			session.put("familyName",familyName);
+			session.put("firstName", firstName);
+			session.put("familyNameKana",familyNameKana);
+			session.put("firstNameKana",firstNameKana);
+			if(sex == null) {
+				session.put("sex", MALE);
+			}else {
+				session.put("sex",String.valueOf(session.get("sex")));
+			}
+			sexList.add(MALE);
+			sexList.add(FEMALE);
+			session.put("sexList", sexList);
+			session.put("email", email);
+			session.put("loginId", loginId);
+			session.put("password", password);
+			result = SUCCESS;
+			}
 		return result;
 	}
 
