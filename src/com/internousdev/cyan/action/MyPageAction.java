@@ -22,23 +22,21 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
 
-		if(userInfoDTO!=null){
-			session.put("familyName",userInfoDTO.getFamilyName());
-			session.put("firstName",userInfoDTO.getFirstName());
-			session.put("familyNameKana",userInfoDTO.getFamilyNameKana());
-			session.put("firstNameKana",userInfoDTO.getFirstNameKana());
-			session.put("sex",userInfoDTO.getSex());
-			session.put("email",userInfoDTO.getEmail());
-
-			System.out.println(session.get("familyName"));
-
-			result = SUCCESS;
-		}
-
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-			}
+			}else{
+				if(userInfoDTO!=null){
+					session.put("familyName",userInfoDTO.getFamilyName());
+					session.put("firstName",userInfoDTO.getFirstName());
+					session.put("familyNameKana",userInfoDTO.getFamilyNameKana());
+					session.put("firstNameKana",userInfoDTO.getFirstNameKana());
+					session.put("sex",userInfoDTO.getSex());
+					session.put("email",userInfoDTO.getEmail());
 
+					System.out.println(session.get("familyName"));
+					result = SUCCESS;
+				}
+			}
 			return result;
 		}
 

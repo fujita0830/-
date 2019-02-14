@@ -17,24 +17,21 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 	private Map<String, Object> session;
 
 	public String execute(){
-
 		String result=SUCCESS;
 
-		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
-		purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
-		Iterator<PurchaseHistoryInfoDTO> iterator=purchaseHistoryInfoDTOList.iterator();
-
-		if(!(iterator.hasNext())){
-			purchaseHistoryInfoDTOList =null;
-		}
-
 		if(!session.containsKey("mCategoryDTOList")){
-
 			result="timeout";
-			}
+			}else{
+				PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
+				purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
+				Iterator<PurchaseHistoryInfoDTO> iterator=purchaseHistoryInfoDTOList.iterator();
 
+				if(!(iterator.hasNext())){
+					purchaseHistoryInfoDTOList =null;
+				}
+			}
 		return result;
-		}
+	}
 
 public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDTOList(){
 	return purchaseHistoryInfoDTOList;
