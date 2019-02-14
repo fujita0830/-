@@ -10,8 +10,11 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
+<div id="contents">
+<h1>error</h1>
 <div class="error-message">
 エラーが発生しました。
+</div>
 </div>
 </body>
 </html>
