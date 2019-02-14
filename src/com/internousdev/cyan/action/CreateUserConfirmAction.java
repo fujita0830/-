@@ -36,6 +36,10 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 	public String execute() {
 		String result = ERROR;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
+
 		InputChecker inputChecker = new InputChecker();
 
 		session.put("familyName",familyName);
@@ -45,15 +49,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		session.put("sex",sex);
 		session.put("email",email);
 		session.put("loginId",loginId);
-
-		UserInfoDAO userInfoDAO = new UserInfoDAO();
-		if(!(userInfoDAO.isExistsLoginIdUserInfo(loginId))) {
-			session.put("loginId", loginId);
-			result = SUCCESS;
-		} else {
-			loginIdIncorrectErrorMessageList.add("使用できないユーザーIDです。");
-			session.put("loginIdIncorrectErrorMessageList",loginIdIncorrectErrorMessageList);
-		}
 
 		familyNameErrorMessageList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false);
 		firstNameErrorMessageList = inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, false, false, false);
@@ -71,6 +66,14 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		&& loginIdErrorMessageList.size()==0
 		&& passwordErrorMessageList.size()==0) {
 
+			UserInfoDAO userInfoDAO = new UserInfoDAO();
+			if(!(userInfoDAO.isExistsLoginIdUserInfo(loginId))) {
+				session.put("loginId", loginId);
+				result = SUCCESS;
+			} else {
+				loginIdIncorrectErrorMessageList.add("使用できないユーザーIDです。");
+				session.put("loginIdIncorrectErrorMessageList",loginIdIncorrectErrorMessageList);
+			}
 
 		}else {
 			session.put("familyNameErrorMessageList",familyNameErrorMessageList);
@@ -82,9 +85,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 			session.put("passwordErrorMessageList",passwordErrorMessageList);
 			result = ERROR;
 		}
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}
+
 		return result;
 	}
 
@@ -248,6 +249,4 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
 }

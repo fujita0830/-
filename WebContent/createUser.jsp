@@ -16,56 +16,56 @@
 
 <s:if test="!#session.familyNameErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.familyNameErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:if test="!#session.firstNameErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.familyNameKanaErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.firstNameKanaErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:if test="!#session.emailErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.emailErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.loginIdErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:if test="!#session.passwordErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.passwordErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>
 </s:if>
 <s:if test="!#session.loginIdIncorrectErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="error-message">
+	<div class="message message_error">
 		<s:iterator value="#session.loginIdIncorrectErrorMessageList"><s:property /><br></s:iterator>
 	</div>
 	</div>

@@ -25,6 +25,9 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 	public String execute() {
 		String result = ERROR;
+		if(!session.containsKey("mCategoryDTOList")){
+			result="timeout";
+		}
 
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
@@ -39,7 +42,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 
 		session.put("familyName",familyName);
 		session.put("firstName", firstName);
-		session.put("familyNameKane",familyNameKana);
+		session.put("familyNameKana",familyNameKana);
 		session.put("firstNameKana",firstNameKana);
 		if(sex == null) {
 			session.put("sex", MALE);
@@ -54,9 +57,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 		session.put("password", password);
 		result = SUCCESS;
 
-		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}
 		return result;
 	}
 

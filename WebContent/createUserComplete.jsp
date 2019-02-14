@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +19,7 @@
 <jsp:include page="header.jsp" />
 <div id="contents">
 <h1>登録完了画面</h1>
-<div class="success">
+<div class="message message_success">
 ユーザー情報入力が完了しました。
 </div>
 </div>
