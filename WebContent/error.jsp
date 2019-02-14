@@ -9,7 +9,7 @@
 <meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 </head>
 <body>
-<div class="message message_error">
+<div class="error-message">
 エラーが発生しました。
 </div>
 </body>

@@ -19,7 +19,7 @@
 <jsp:include page="header.jsp" />
 <div id="contents">
 <h1>登録完了画面</h1>
-<div class="message message_success">
+<div class="success">
 ユーザー情報入力が完了しました。
 </div>
 </div>

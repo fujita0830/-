@@ -14,7 +14,7 @@
 <div id="contents">
 <h1>商品詳細画面</h1>
 <s:if test="#session.productInfoDTOList.isEmpty()">
-<div class="message message_nomal">
+<div class="info">
 	商品の詳細情報がありません。
 </div>
 </s:if>

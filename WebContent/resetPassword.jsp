@@ -14,7 +14,7 @@
 <h1>パスワード再設定画面</h1>
 	<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="message message_error">
+	<div class="error-message">
 		<s:iterator value="#session.loginIdErrorMessageList"><s:property />
 		<br>
 		</s:iterator>
@@ -24,7 +24,7 @@
 
 	<s:if test="!#session.passwordErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="message message_error">
+	<div class="error-message">
 		<s:iterator value="#session.passwordErrorMessageList"><s:property />
 		<br>
 		</s:iterator>
@@ -33,7 +33,7 @@
 	</s:if>
 	<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="message message_error">
+	<div class="error-message">
 		<s:iterator value="#session.passwordIncorrectErrorMessageList"><s:property />
 		<br>
 		</s:iterator>
@@ -43,7 +43,7 @@
 
 	<s:if test="!#session.newPasswordErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="message message_error">
+	<div class="error-message">
 		<s:iterator value="#session.newPasswordErrorMessageList"><s:property />
 		<br>
 		</s:iterator>
@@ -53,7 +53,7 @@
 
 	<s:if test="!#session.reConfirmationNewPasswordErrorMessageList.isEmpty()">
 	<div class="error">
-	<div class="message message_error">
+	<div class="error-message">
 		<s:iterator value="#session.reConfirmationNewPasswordErrorMessageList"><s:property />
 		<br>
 		</s:iterator>
@@ -62,7 +62,7 @@
 	</s:if>
 	<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
 	<div class="error">
-		<div class="message message_error">
+		<div class="error-message">
 		<s:iterator value="#session.newPasswordIncorrectErrorMessageList"><s:property />
 		<br>
 		</s:iterator>
