@@ -20,7 +20,7 @@
 	</div>
 	</div>
 </s:if>
-<s:elseif test="productInfoDTOList == null">
+<s:elseif test="#session.productInfoDTOList == null">
 <div class="info">
 	検索結果がありません。
 </div>

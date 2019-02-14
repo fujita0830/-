@@ -19,7 +19,6 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String keywords;
-	private List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 
 	private Map<String, Object> session;
 
@@ -27,13 +26,15 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
-			}else{
-				session.remove("keywordsErrorMessageList");
-
-				ProductInfoDAO productInfoDAO = new ProductInfoDAO();
-				productInfoDTOList = productInfoDAO.getProductInfoList();
-				session.put("productInfoDTOList", productInfoDTOList);
 			}
+
+			session.remove("keywordsErrorMessageList");
+
+			ProductInfoDAO productInfoDAO = new ProductInfoDAO();
+			List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
+			productInfoDTOList = productInfoDAO.getProductInfoList();
+			session.put("productInfoDTOList", productInfoDTOList);
+
 		return result;
 	}
 
@@ -91,14 +92,6 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 
 	public void setKeywords(String keywords) {
 		this.keywords = keywords;
-	}
-
-	public List<ProductInfoDTO> getProductInfoDTOList() {
-		return productInfoDTOList;
-	}
-
-	public void setProductInfoDTOList(List<ProductInfoDTO> productInfoDTOList) {
-		this.productInfoDTOList = productInfoDTOList;
 	}
 
 	public Map<String, Object> getSession() {
