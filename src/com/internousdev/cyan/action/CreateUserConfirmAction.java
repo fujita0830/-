@@ -40,6 +40,15 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 			result="timeout";
 		}
 
+		session.remove("familyNameErrorMessageList");
+		session.remove("firstNameErrorMessageList");
+		session.remove("familyNameKanaErrorMessageList");
+		session.remove("firstNameKanaErrorMessageList");
+		session.remove("emailErrorMessageList");
+		session.remove("loginIdErrorMessageList");
+		session.remove("passwordErrorMessageList");
+		session.remove("loginIdIncorrectErrorMessageList");
+
 		InputChecker inputChecker = new InputChecker();
 
 		session.put("familyName",familyName);
