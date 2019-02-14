@@ -18,7 +18,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 	private Map<String, Object> session;
 	public String execute(){
-		String result = ERROR;
+		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
 			result="timeout";
 			}else{
@@ -44,7 +44,6 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 				}
 				if(!productInfoDTOList.isEmpty() || productCountList == null){
 					session.put("productInfoDTOList", productInfoDTOList);
-					result = SUCCESS;
 				}
 			}
 		return result;
