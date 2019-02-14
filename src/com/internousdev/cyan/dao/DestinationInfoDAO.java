@@ -10,8 +10,6 @@ import java.util.List;
 import com.internousdev.cyan.dto.DestinationInfoDTO;
 import com.internousdev.cyan.util.DBConnector;
 
-
-
 public class DestinationInfoDAO {
 
 	public int insert(String userId, String familyName, String firstName, String familyNameKana, String firstNameKana,

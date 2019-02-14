@@ -16,7 +16,6 @@ public class DestinationInfoDTO {
 	private Date registDate;
 	private Date updateDate;
 
-
 	public int getId() {
 		return id;
 	}
@@ -105,7 +104,4 @@ public class DestinationInfoDTO {
 		this.updateDate = updateDate;
 	}
 
-
 }
-
-

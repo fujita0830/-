@@ -14,7 +14,6 @@ import com.internousdev.cyan.dto.DestinationInfoDTO;
 import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class SettlementCompleteAction extends ActionSupport implements SessionAware{
 
 	private String id;
@@ -94,6 +93,5 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 
 }
