@@ -33,7 +33,6 @@ function goSearchItemAction(){
 
 </head>
 <body>
-
 <header>
 <div id="header">
 <div id="header-title">
@@ -63,7 +62,5 @@ function goSearchItemAction(){
 </div>
 </div>
 </header>
-
-
 </body>
 </html>

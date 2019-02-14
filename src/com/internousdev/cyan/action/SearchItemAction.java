@@ -14,7 +14,6 @@ import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 public class SearchItemAction extends ActionSupport implements SessionAware{
 
-
 	private String categoryId;
 	private String keywords;
 	private List<String> keywordsErrorMessageList = new ArrayList<String>();
