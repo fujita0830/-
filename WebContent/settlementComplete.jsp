@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/cyan.css">
-<link rel="stylesheet" href="./css/message.css">
 <meta http-equiv="refresh" content ="3;URL='HomeAction'"/>
 <title>決済完了画面</title>
 </head>
