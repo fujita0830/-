@@ -21,7 +21,7 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 	public String execute() {
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
-			return"timeout";
+			return "timeout";
 		}
 			UserInfoDAO UserInfoDAO = new UserInfoDAO();
 			int count = UserInfoDAO.createUser(familyName,firstName,familyNameKana,firstNameKana,sex,email,loginId,password);

@@ -15,7 +15,7 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware{
 		String result = SUCCESS;
 
 		if(!session.containsKey("mCategoryDTOList")){
-			return"timeout";
+			return "timeout";
 		}
 			session.remove("loginIdErrorMessageList");
 			session.remove("passwordErrorMessageList");

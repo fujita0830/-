@@ -21,7 +21,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String loginId;
 	private String password;
 
-
 	private List<String> sexList = new ArrayList<String>();
 	private Map<String,Object> session;
 
@@ -93,8 +92,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 				session.put("passwordErrorMessageList",passwordErrorMessageList);
 				result = ERROR;
 			}
-
-
 		return result;
 	}
 

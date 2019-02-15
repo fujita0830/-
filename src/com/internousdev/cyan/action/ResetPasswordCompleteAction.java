@@ -14,7 +14,7 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 	public String execute() {
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
-			return"timeout";
+			return "timeout";
 		}
 			UserInfoDAO userInfoDAO = new UserInfoDAO();
 			int count = userInfoDAO.resetPassword(String.valueOf(session.get("loginId")),String.valueOf(session.get("newPassword")));

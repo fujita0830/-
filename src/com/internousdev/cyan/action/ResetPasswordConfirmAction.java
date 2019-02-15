@@ -23,7 +23,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		String result = ERROR;
 
 		if(!session.containsKey("mCategoryDTOList")){
-			return"timeout";
+			return "timeout";
 		}
 			session.remove("loginIdErrorMessageList");
 			session.remove("passwordErrorMessageList");
