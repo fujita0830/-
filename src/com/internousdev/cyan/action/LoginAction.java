@@ -22,6 +22,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	private Map<String, Object> session;
 
+	@SuppressWarnings("unchecked")
 	public String execute() {
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
