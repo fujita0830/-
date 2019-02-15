@@ -16,7 +16,6 @@ import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware {
-	private String categoryId;
 	private String loginId;
 	private String password;
 	private boolean savedLoginId;
@@ -85,14 +84,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("loginIdPasswordErrorMessageList", loginIdPasswordErrorMessageList);
 		}
 		return result;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public String getLoginId() {

@@ -8,7 +8,6 @@ import com.internousdev.cyan.dao.UserInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LogoutAction extends ActionSupport implements SessionAware {
-	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
 		String result = SUCCESS;
@@ -24,14 +23,6 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 			}
 		}
 		return result;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public Map<String, Object> getSession() {
