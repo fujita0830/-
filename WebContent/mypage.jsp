@@ -15,7 +15,7 @@
 			<h1>マイページ画面</h1>
 			<s:if test="#session.containsKey('familyName')">
 				<s:form action="PurchaseHistoryAction">
-					<table class="verticallist-table">
+					<table class="vertical-list-table">
 						<tr>
 							<th scope="row"><s:label value="姓"/></th>
 							<td><s:property value="#session.familyName"/><td>

@@ -26,7 +26,7 @@
 		<img src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>' height="320" class="item-image-box-320"/><br>
 	</div>
 	<div class="left">
-	<table class="vertical-list-table-mini">
+	<table class="vertical-list-table">
 		<tr>
 		<th scope="row"><s:label value="商品名"/></th>
 		<td><s:property value="%{#session.productName}"/></td>
