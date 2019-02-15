@@ -15,13 +15,10 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 	private Collection<String> checkList;
-	private String categoryId;
 	private String productId;
-	private String sex;
 	private List<String> sexList = new ArrayList<String>();
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
-	private String defaultSexValue = MALE;
 	private String productName;
 	private String productNameKana;
 	private String imageFilePath;
@@ -68,28 +65,12 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
 	public List<String> getSexList() {
 		return sexList;
 	}
 
 	public void setSexList(List<String> sexList) {
 		this.sexList = sexList;
-	}
-
-	public String getDefaultSexValue() {
-		return defaultSexValue;
-	}
-
-	public void setDefaultSexValue(String defaultSexValue) {
-		this.defaultSexValue = defaultSexValue;
 	}
 
 	public Collection<String> getCheckList() {
@@ -106,14 +87,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 
 	public void setProductId(String productId) {
 		this.productId = productId;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public Map<String, Object> getSession() {

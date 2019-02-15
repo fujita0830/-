@@ -13,8 +13,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CartAction extends ActionSupport implements SessionAware {
 
-	private String categoryId;
-	private String keywords;
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -40,22 +38,6 @@ public class CartAction extends ActionSupport implements SessionAware {
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
 		session.put("totalPrice", totalPrice);
 		return result;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
 	}
 
 	public Map<String, Object> getSession() {

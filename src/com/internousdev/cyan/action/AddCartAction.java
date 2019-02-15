@@ -24,8 +24,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 	private String productCount;
 	private String releaseCompany;
 	private Date releaseDate;
-	private String productDescription;
-	private String categoryId;
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -139,22 +137,6 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 
 	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
-	}
-
-	public String getProductDescription() {
-		return productDescription;
-	}
-
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public Map<String, Object> getSession() {
