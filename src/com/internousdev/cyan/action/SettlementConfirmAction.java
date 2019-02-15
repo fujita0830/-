@@ -18,7 +18,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementConfirmAction extends ActionSupport implements SessionAware {
 
-	private String categoryId;
 	private Collection<String> checkList;
 	private String productId;
 	private String productName;
@@ -36,75 +35,71 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		String result = ERROR;
 
 		if(!session.containsKey("mCategoryDTOList")) {
-			return "timeout";
+			return  "timeout";
 		}
-		session.remove("loginIdErrorMessageList");
-		session.remove("passwordErrorMessageList");
-		session.remove("loginIdPasswordErrorMessageList");
+			session.remove("loginIdErrorMessageList");
+			session.remove("passwordErrorMessageList");
+			session.remove("loginIdPasswordErrorMessageList");
 
-		if(session.get("logined").equals(1)) {
-			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-			List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<>();
-			destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
-			Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
-			if(!(iterator.hasNext())) {
-				destinationInfoDTOList = null;
-			}
-			session.put("destinationInfoDTOList", destinationInfoDTOList);
-		}
+			if(session.get("logined").equals(1)) {
+				DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
+				List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<>();
 
-		if(!session.containsKey("purchaseHistoryInfoDTOList")) {
-			List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
-			CommonUtility commonUtility = new CommonUtility();
-			String[] productIdList = commonUtility.parseArrayList(productId);
-			String[] productNameList = commonUtility.parseArrayList(productName);
-			String[] productNameKanaList = commonUtility.parseArrayList(productNameKana);
-			String[] imageFilePathList = commonUtility.parseArrayList(imageFilePath);
-			String[] imageFileNameList = commonUtility.parseArrayList(imageFileName);
-			String[] priceList = commonUtility.parseArrayList(price);
-			String[] releaseCompanyList = commonUtility.parseArrayList(releaseCompany);
-			String[] releaseDateList = commonUtility.parseArrayList(releaseDate);
-			String[] productCountList = commonUtility.parseArrayList(productCount);
-			String[] subtotalList = commonUtility.parseArrayList(subtotal);
-
-			for(int i = 0; i < productIdList.length; i++) {
-				PurchaseHistoryInfoDTO purchaseHistoryInfoDTO = new PurchaseHistoryInfoDTO();
-				purchaseHistoryInfoDTO.setUserId(String.valueOf(session.get("loginId")));
-				purchaseHistoryInfoDTO.setProductId(Integer.parseInt(String.valueOf(productIdList[i])));
-				purchaseHistoryInfoDTO.setProductName(String.valueOf(productNameList[i]));
-				purchaseHistoryInfoDTO.setProductNameKana(String.valueOf(productNameKanaList[i]));
-				purchaseHistoryInfoDTO.setImageFilePath(String.valueOf(imageFilePathList[i]));
-				purchaseHistoryInfoDTO.setImageFileName(String.valueOf(imageFileNameList[i]));
-				purchaseHistoryInfoDTO.setPrice(Integer.parseInt(String.valueOf(priceList[i])));
-				purchaseHistoryInfoDTO.setReleaseCompany(String.valueOf(releaseCompanyList[i]));
-				try {
-				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-				purchaseHistoryInfoDTO.setReleaseDate(simpleDateFormat.parse(String.valueOf(releaseDateList[i])));
-				} catch(ParseException e) {
-					e.printStackTrace();
+				destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
+				Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
+				if(!(iterator.hasNext())) {
+					destinationInfoDTOList = null;
 				}
-				purchaseHistoryInfoDTO.setProductCount(Integer.parseInt(String.valueOf(productCountList[i])));
-				purchaseHistoryInfoDTO.setSubtotal(Integer.parseInt(String.valueOf(subtotalList[i])));
-				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDTO);
+				session.put("destinationInfoDTOList", destinationInfoDTOList);
 			}
-			session.put("purchaseHistoryInfoDTOList", purchaseHistoryInfoDTOList);
-		}
 
-		if(session.get("logined").equals(0)) {
-			result = ERROR;
-		} else {
-			result = SUCCESS;
-		}
+			if(!session.containsKey("purchaseHistoryInfoDTOList")) {
+				List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
+				CommonUtility commonUtility = new CommonUtility();
+				String[] productIdList = commonUtility.parseArrayList(productId);
+				String[] productNameList = commonUtility.parseArrayList(productName);
+				String[] productNameKanaList = commonUtility.parseArrayList(productNameKana);
+				String[] imageFilePathList = commonUtility.parseArrayList(imageFilePath);
+				String[] imageFileNameList = commonUtility.parseArrayList(imageFileName);
+				String[] priceList = commonUtility.parseArrayList(price);
+				String[] releaseCompanyList = commonUtility.parseArrayList(releaseCompany);
+				String[] releaseDateList = commonUtility.parseArrayList(releaseDate);
+				String[] productCountList = commonUtility.parseArrayList(productCount);
+				String[] subtotalList = commonUtility.parseArrayList(subtotal);
+
+				for(int i = 0; i < productIdList.length; i++) {
+					PurchaseHistoryInfoDTO purchaseHistoryInfoDTO = new PurchaseHistoryInfoDTO();
+					purchaseHistoryInfoDTO.setUserId(String.valueOf(session.get("loginId")));
+					purchaseHistoryInfoDTO.setProductId(Integer.parseInt(String.valueOf(productIdList[i])));
+					purchaseHistoryInfoDTO.setProductName(String.valueOf(productNameList[i]));
+					purchaseHistoryInfoDTO.setProductNameKana(String.valueOf(productNameKanaList[i]));
+					purchaseHistoryInfoDTO.setImageFilePath(String.valueOf(imageFilePathList[i]));
+					purchaseHistoryInfoDTO.setImageFileName(String.valueOf(imageFileNameList[i]));
+					purchaseHistoryInfoDTO.setPrice(Integer.parseInt(String.valueOf(priceList[i])));
+					purchaseHistoryInfoDTO.setReleaseCompany(String.valueOf(releaseCompanyList[i]));
+
+					try {
+						SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+						purchaseHistoryInfoDTO.setReleaseDate(simpleDateFormat.parse(String.valueOf(releaseDateList[i])));
+					} catch(ParseException e) {
+						e.printStackTrace();
+					}
+
+					purchaseHistoryInfoDTO.setProductCount(Integer.parseInt(String.valueOf(productCountList[i])));
+					purchaseHistoryInfoDTO.setSubtotal(Integer.parseInt(String.valueOf(subtotalList[i])));
+					purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDTO);
+				}
+				session.put("purchaseHistoryInfoDTOList", purchaseHistoryInfoDTOList);
+			}
+
+			if(session.get("logined").equals(0)) {
+				result = ERROR;
+			} else {
+				result = SUCCESS;
+			}
+
 
 		return result;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public Collection<String> getCheckList() {
