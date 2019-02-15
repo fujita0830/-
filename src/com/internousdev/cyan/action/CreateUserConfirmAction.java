@@ -37,8 +37,8 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	public String execute() {
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}else{
+			return"timeout";
+		}
 			session.remove("familyNameErrorMessageList");
 			session.remove("firstNameErrorMessageList");
 			session.remove("familyNameKanaErrorMessageList");
@@ -93,7 +93,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 				session.put("passwordErrorMessageList",passwordErrorMessageList);
 				result = ERROR;
 			}
-		}
+
 
 		return result;
 	}
