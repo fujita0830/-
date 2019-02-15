@@ -20,8 +20,8 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		String result=SUCCESS;
 
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-			}else{
+			return "timeout";
+		}
 				PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 				purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
 				Iterator<PurchaseHistoryInfoDTO> iterator=purchaseHistoryInfoDTOList.iterator();
@@ -29,7 +29,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 				if(!(iterator.hasNext())){
 					purchaseHistoryInfoDTOList =null;
 				}
-			}
 		return result;
 	}
 

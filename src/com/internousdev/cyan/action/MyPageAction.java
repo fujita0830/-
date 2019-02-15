@@ -23,8 +23,8 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
 
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-			}else{
+					return "timeout";
+				}
 				if(userInfoDTO!=null){
 					session.put("familyName",userInfoDTO.getFamilyName());
 					session.put("firstName",userInfoDTO.getFirstName());
@@ -32,10 +32,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 					session.put("firstNameKana",userInfoDTO.getFirstNameKana());
 					session.put("sex",userInfoDTO.getSex());
 					session.put("email",userInfoDTO.getEmail());
-
-					System.out.println(session.get("familyName"));
 				}
-			}
 			return result;
 		}
 
