@@ -90,7 +90,6 @@ public class UserInfoDAO {
 		return result;
 	}
 
-
 	public UserInfoDTO getUserInfo(String loginId, String password) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
