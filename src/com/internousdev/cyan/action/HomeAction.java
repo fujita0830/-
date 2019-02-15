@@ -13,9 +13,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class HomeAction extends ActionSupport implements SessionAware{
 
-	private String categoryId;
+
 	private Map<String, Object> session;
-	private List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 
 	public String execute() {
 
@@ -28,6 +27,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 			session.put("tempUserId", commonUtility.getRamdomValue());
 		}
 
+		List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 		if(!session.containsKey("mCategoryDTOList")){
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
 			mCategoryDTOList = mCategoryDAO.getMCategoryList();
@@ -36,28 +36,12 @@ public class HomeAction extends ActionSupport implements SessionAware{
 		return SUCCESS;
 	}
 
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
-	}
-
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-	}
-
-	public List<MCategoryDTO> getmCategoryDTOList() {
-		return mCategoryDTOList;
-	}
-
-	public void setmCategoryDTOList(List<MCategoryDTO> mCategoryDTOList) {
-		this.mCategoryDTOList = mCategoryDTOList;
 	}
 
 }

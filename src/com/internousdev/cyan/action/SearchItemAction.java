@@ -16,10 +16,7 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 	private String categoryId;
 	private String keywords;
-	private List<String> keywordsErrorMessageList = new ArrayList<String>();
-	private List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 	private Map<String, Object> session;
-	private String tempKeywords;
 
 	public String execute(){
 
@@ -33,12 +30,14 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 			InputChecker inputChecker = new InputChecker();
 
+			String tempKeywords;
 			if (StringUtils.isBlank(keywords)){
 				tempKeywords = "";
 			}else{
 				tempKeywords = keywords.replaceAll("　"," ").replaceAll("\\s{2,}"," ");
 			}
 
+			List<String> keywordsErrorMessageList = new ArrayList<String>();
 			if(!(tempKeywords.equals(""))){
 				keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 50, true, true, true, true, false, true, false, true, true);
 				Iterator<String> iterator = keywordsErrorMessageList.iterator();
@@ -48,6 +47,7 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 				}
 			}
 
+			List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 			if(keywordsErrorMessageList.size()==0){
 				ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 				switch (categoryId) {
@@ -88,36 +88,12 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		this.keywords = keywords;
 	}
 
-	public List<String> getKeywordsErrorMessageList() {
-		return keywordsErrorMessageList;
-	}
-
-	public void setKeywordsErrorMessageList(List<String> keywordsErrorMessageList) {
-		this.keywordsErrorMessageList = keywordsErrorMessageList;
-	}
-
-	public List<ProductInfoDTO> getProductInfoDTOList() {
-		return productInfoDTOList;
-	}
-
-	public void setProductInfoDTOList(List<ProductInfoDTO> productInfoDTOList) {
-		this.productInfoDTOList = productInfoDTOList;
-	}
-
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-	}
-
-	public String getTempKeywords() {
-		return tempKeywords;
-	}
-
-	public void setTempKeywords(String tempKeywords) {
-		this.tempKeywords = tempKeywords;
 	}
 
 }
