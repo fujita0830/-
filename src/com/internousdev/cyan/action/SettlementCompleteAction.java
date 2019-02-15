@@ -24,8 +24,8 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		String result = SUCCESS;
 
 		if(!session.containsKey("mCategoryDTOList")) {
-			result="timeout";
-		}else{
+			return "timeout";
+		}
 
 		@SuppressWarnings("unchecked")
 		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDTOList");
@@ -63,7 +63,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				session.remove("purchaseHistoryInfoDTOList");
 			}
 		}
-	  }
+
 		return result;
 	}
 
