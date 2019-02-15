@@ -21,70 +21,69 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private String password;
 	private boolean savedLoginId;
 
-	private List<String> loginIdErrorMessageList = new ArrayList<String>();
-	private List<String> passwordErrorMessageList = new ArrayList<String>();
-	private List<String> loginIdPasswordErrorMessageList = new ArrayList<String>();
-
 	private Map<String, Object> session;
 
 	public String execute() {
 		String result = ERROR;
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-			} else {
-				session.remove("loginIdErrorMessageList");
-				session.remove("passwordErrorMessageList");
-				session.remove("loginIdPasswordErrorMessageList");
+			return "timeout";
+			}
+		session.remove("loginIdErrorMessageList");
+		session.remove("passwordErrorMessageList");
+		session.remove("loginIdPasswordErrorMessageList");
 
-				if(savedLoginId==true) {
-					session.put("savedLoginId", true);
-					session.put("loginId", loginId);
-				} else {
-					session.put("savedLoginId", false);
-					session.remove("loginId", loginId);
-				}
+		if(savedLoginId==true) {
+			session.put("savedLoginId", true);
+			session.put("loginId", loginId);
+		} else {
+			session.put("savedLoginId", false);
+			session.remove("loginId", loginId);
+		}
 
-				InputChecker inputChecker = new InputChecker();
-				loginIdErrorMessageList = inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
-				passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
+		List<String> loginIdErrorMessageList = new ArrayList<String>();
+		List<String> passwordErrorMessageList = new ArrayList<String>();
+		List<String> loginIdPasswordErrorMessageList = new ArrayList<String>();
 
-				if(loginIdErrorMessageList.size()!=0
-				|| passwordErrorMessageList.size()!=0) {
-					session.put("loginIdErrorMessageList", loginIdErrorMessageList);
-					session.put("passwordErrorMessageList", passwordErrorMessageList);
-					session.put("logined", 0);
-					return result;
-				}
+		InputChecker inputChecker = new InputChecker();
+		loginIdErrorMessageList = inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
+		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 
-				UserInfoDAO userInfoDAO = new UserInfoDAO();
-				if(userInfoDAO.isExistsUserInfo(loginId, password)) {
-					if(userInfoDAO.login(loginId, password) > 0) {
-						UserInfoDTO userInfoDTO = userInfoDAO.getUserInfo(loginId, password);
-						session.put("loginId", userInfoDTO.getUserId());
-						int count=0;
-						CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		if(loginIdErrorMessageList.size()!=0
+		|| passwordErrorMessageList.size()!=0) {
+			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
+			session.put("passwordErrorMessageList", passwordErrorMessageList);
+			session.put("logined", 0);
+			return result;
+		}
 
-						count = cartInfoDAO.linkToLoginId(String.valueOf(session.get("tempUserId")), loginId);
-						if(count > 0) {
-							DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-							List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<DestinationInfoDTO>();
-							destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(loginId);
-							Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
-							if(!(iterator.hasNext())) {
-								destinationInfoDTOList = null;
-							}
-							session.put("destinationInfoDTOList", destinationInfoDTOList);
-							result = "cart";
-						} else {
-							result = SUCCESS;
-						}
+		UserInfoDAO userInfoDAO = new UserInfoDAO();
+		if(userInfoDAO.isExistsUserInfo(loginId, password)) {
+			if(userInfoDAO.login(loginId, password) > 0) {
+				UserInfoDTO userInfoDTO = userInfoDAO.getUserInfo(loginId, password);
+				session.put("loginId", userInfoDTO.getUserId());
+				int count=0;
+				CartInfoDAO cartInfoDAO = new CartInfoDAO();
+
+				count = cartInfoDAO.linkToLoginId(String.valueOf(session.get("tempUserId")), loginId);
+				if(count > 0) {
+					DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
+					List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<DestinationInfoDTO>();
+					destinationInfoDTOList = destinationInfoDAO.getDestinationInfo(loginId);
+					Iterator<DestinationInfoDTO> iterator = destinationInfoDTOList.iterator();
+					if(!(iterator.hasNext())) {
+						destinationInfoDTOList = null;
 					}
-					session.put("logined", 1);
+					session.put("destinationInfoDTOList", destinationInfoDTOList);
+					result = "cart";
 				} else {
-					loginIdPasswordErrorMessageList.add("ユーザーIDまたはパスワードが異なります。");
-					session.put("loginIdPasswordErrorMessageList", loginIdPasswordErrorMessageList);
+					result = SUCCESS;
 				}
 			}
+			session.put("logined", 1);
+		} else {
+			loginIdPasswordErrorMessageList.add("ユーザーIDまたはパスワードが異なります。");
+			session.put("loginIdPasswordErrorMessageList", loginIdPasswordErrorMessageList);
+		}
 		return result;
 	}
 
@@ -118,22 +117,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	public void setSavedLoginId(boolean savedLoginId) {
 		this.savedLoginId = savedLoginId;
-	}
-
-	public List<String> getLoginIdErrorMessageList() {
-		return loginIdErrorMessageList;
-	}
-
-	public void setLoginIdErrorMessageList(List<String> loginIdErrorMessageList) {
-		this.loginIdErrorMessageList = loginIdErrorMessageList;
-	}
-
-	public List<String> getPasswordErrorMessageList() {
-		return passwordErrorMessageList;
-	}
-
-	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList) {
-		this.passwordErrorMessageList = passwordErrorMessageList;
 	}
 
 	public Map<String, Object> getSession() {
