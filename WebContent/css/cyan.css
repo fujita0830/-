@@ -187,7 +187,7 @@ table td {
 /* 		メッセージ														*/
 /* -------------------------------------------------------------------- */
 
-.message {
+.info, .success, .error{
 	font-size: 15px;
 	border: 1px solid;
 	margin: 10px 20px;
@@ -195,19 +195,19 @@ table td {
 	text-align: center;
 }
 
-.message_nomal {
+.info {
 	border-color: blue;
 	color: blue;
 	background-color: #A9D0F5;
 }
 
-.message_error {
+.error{
 	border-color: red;
 	color: red;
 	background-color: #F5A9BC;
 }
 
-.message_success {
+.success {
 	border-color: green;
 	color: green;
 	background-color: #A9F5BC;

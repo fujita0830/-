@@ -7,7 +7,6 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/cyan.css">
 		<link rel="stylesheet" href="./css/cart.css">
-		<link rel="stylesheet" href="./css/message.css">
 		<title>カート</title>
 		<script>
 			function checkValue(check){
