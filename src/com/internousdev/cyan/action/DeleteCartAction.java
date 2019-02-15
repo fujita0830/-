@@ -38,7 +38,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		}
 		if(session.get("logined").equals(1)) {
 			userId = String.valueOf(session.get("loginId"));
-		}else if (session.containsKey("tempUserId")) {
+		} else {
 			userId = String.valueOf(session.get("tempUserId"));
 		}
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
@@ -48,7 +48,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 		}
 		if(count <= 0) {
 			return ERROR;
-		}else {
+		} else {
 			List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
 			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
 			Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
