@@ -16,17 +16,19 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 	private Map<String, Object> session;
 
 	public String execute(){
-
 		String result = ERROR;
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		int count = purchaseHistoryInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 
-		if(count > 0){
-			purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
-			Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDTOList.iterator();
-			if(!(iterator.hasNext())){
-				purchaseHistoryInfoDTOList = null;
-			}
+		if(!session.containsKey("mCategoryDTOList")){
+			return "timeout";
+		}
+			if(count > 0){
+				purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
+				Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDTOList.iterator();
+				if(!(iterator.hasNext())){
+					purchaseHistoryInfoDTOList = null;
+				}
 			result=SUCCESS;
 			}
 		return result;
