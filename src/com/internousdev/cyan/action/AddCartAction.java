@@ -48,7 +48,7 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		int count = 0;
 		if(cartInfoDAO.isExistsCartInfo(userId, productId)){
-			count = cartInfoDAO.update(userId, productId, intProductCount);
+			count = cartInfoDAO.updateProductCount(userId, productId, intProductCount);
 		}else{
 			count = cartInfoDAO.regist(userId, tempUserId, productId, intProductCount, price);
 		}

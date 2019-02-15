@@ -119,7 +119,7 @@ public class CartInfoDAO {
         return count;
     }
 
-    public int update(String userId, int productId, int productCount){
+    public int updateProductCount(String userId, int productId, int productCount){
         DBConnector db = new DBConnector();
         Connection con = db.getConnection();
         String sql = "UPDATE cart_info SET product_count=(product_count + ?), update_date = now() WHERE user_id=? AND product_id=?";

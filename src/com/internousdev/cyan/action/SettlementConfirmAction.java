@@ -94,6 +94,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 			if(session.get("logined").equals(0)) {
 				result = ERROR;
+				session.put("cartFlag", "1");
 			} else {
 				result = SUCCESS;
 			}
