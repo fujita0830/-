@@ -8,9 +8,7 @@ import com.internousdev.cyan.dao.UserInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ResetPasswordCompleteAction extends ActionSupport implements SessionAware{
-	private String categoryId;
-	private String loginId;
-	private String password;
+
 	private Map<String,Object> session;
 
 	public String execute() {
@@ -25,32 +23,7 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 			}else {
 				result = ERROR;
 			}
-
 		return result;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getLoginId() {
-		return loginId;
-	}
-
-	public void setLoginId(String loginId) {
-		this.loginId = loginId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public Map<String, Object> getSession() {
