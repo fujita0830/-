@@ -15,16 +15,6 @@
     width: 40%;
 }
 
-.item-image-box-320{
-    width: 320px;
-    height: 320px;
-    display: inline-block;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin: 5px;
-    background-size: cover;
-}
-
 .left{
     float: left;
     width: 60%;
@@ -47,13 +37,39 @@
     text-align: center;
 }
 
-.item-image-box-170{
-    width: 170px;
-    height: 170px;
-    display: inline-block;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin: 5px;
-    background-size: cover;
+.item-image-box-320 {
+	overflow: hidden;
+    width: 320px;/* トリミングしたい枠の幅 */
+    height: 320px;/* トリミングしたい枠の高さ */
+    position: relative;
+}
+
+.item-image-box-320 img{
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 50%;
+ 	-webkit-transform: translate(-50%, -50%);
+ 	-ms-transform: translate(-50%, -50%);
+ 	transform: translate(-50%, -50%);
+ 	width: auto;
+ 	height: 100%;
+}
+
+.item-image-box-170 {
+	overflow: hidden;
+    width: 170px;/* トリミングしたい枠の幅 */
+    height: 170px;/* トリミングしたい枠の高さ */
+    position: relative;
+}
+
+.item-image-box-170 img{
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 50%;
+ 	-webkit-transform: translate(-50%, -50%);
+ 	-ms-transform: translate(-50%, -50%);
+ 	transform: translate(-50%, -50%);
+ 	width: auto;
+ 	height: 100%;
 }
 

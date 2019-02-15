@@ -23,7 +23,7 @@
 	<div class="box">
 	<div class="two-column-container">
 	<div class="right">
-		<img src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>' height="320" class="item-image-box-320"/><br>
+		<div class="item-image-box-320"><img src='<s:property value="%{#session.imageFilePath}"/>/<s:property value="%{#session.imageFileName}"/>'/></div><br>
 	</div>
 	<div class="left">
 	<table class="vertical-list-table">
@@ -77,9 +77,10 @@
 	<div class="product-details-recommend-box">
 	<s:iterator value="#session.productInfoDTOList">
 		<div class="recommend-box">
+		<div class="item-image-box-170">
 		<a href='<s:url action="ProductDetailsAction">
 		<s:param name="productId" value="%{productId}"/>
-		</s:url>'><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-170"></a>
+		</s:url>'><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' ></a></div>
 		<div class="product-title"><s:property value="productName"/></div><br>
 		</div>
 	</s:iterator>
