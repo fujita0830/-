@@ -20,8 +20,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 	private String password;
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
-	private String defaultSexValue = MALE;
-	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
 		String result = SUCCESS;
@@ -57,15 +55,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 
 		return result;
 	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
-	}
-
 	public String getFamilyName() {
 		return familyName;
 	}
@@ -136,14 +125,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getDefaultSexValue() {
-		return defaultSexValue;
-	}
-
-	public void setDefaultSexValue(String defaultSexValue) {
-		this.defaultSexValue = defaultSexValue;
 	}
 
 	public Map<String, Object> getSession() {
