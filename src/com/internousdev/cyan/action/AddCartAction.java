@@ -33,39 +33,38 @@ public class AddCartAction extends ActionSupport implements SessionAware {
 		String userId = null;
 		String tempUserId = null;
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
+			return "timeout";
+		}
+		session.remove("checkListErrorMessageList");
+		if(session.get("logined").equals(0) && !(session.containsKey("tempUserId"))) {
+			 CommonUtility commonUtility = new CommonUtility();
+			 session.put("tempUserId", commonUtility.getRamdomValue());
+		}
+		if(session.get("logined").equals(1)) {
+			userId = String.valueOf(session.get("loginId"));
 		}else{
-			session.remove("checkListErrorMessageList");
-			if(session.get("logined").equals(0) && !(session.containsKey("tempUserId"))) {
-				 CommonUtility commonUtility = new CommonUtility();
-				 session.put("tempUserId", commonUtility.getRamdomValue());
+			userId = String.valueOf(session.get("tempUserId"));
+			tempUserId = String.valueOf(session.get("tempUserId"));
+		}
+		int intProductCount = Integer.parseInt(productCount);
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		int count = 0;
+		if(cartInfoDAO.isExistsCartInfo(userId, productId)){
+			count = cartInfoDAO.update(userId, productId, intProductCount);
+		}else{
+			count = cartInfoDAO.regist(userId, tempUserId, productId, intProductCount, price);
+		}
+		if(count > 0) {
+			result=SUCCESS;
+			List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
+			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+			Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
+			if(!(iterator.hasNext())) {
+				cartInfoDTOList = null;
 			}
-			if(session.get("logined").equals(1)) {
-				userId = String.valueOf(session.get("loginId"));
-			}else{
-				userId = String.valueOf(session.get("tempUserId"));
-				tempUserId = String.valueOf(session.get("tempUserId"));
-			}
-			int intProductCount = Integer.parseInt(productCount);
-			CartInfoDAO cartInfoDAO = new CartInfoDAO();
-			int count = 0;
-			if(cartInfoDAO.isExistsCartInfo(userId, productId)){
-				count = cartInfoDAO.update(userId, productId, intProductCount);
-			}else{
-				count = cartInfoDAO.regist(userId, tempUserId, productId, intProductCount, price);
-			}
-			if(count > 0) {
-				result=SUCCESS;
-				List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
-				cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-				Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
-				if(!(iterator.hasNext())) {
-					cartInfoDTOList = null;
-				}
-				session.put("cartInfoDTOList", cartInfoDTOList);
-				int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-				session.put("totalPrice", totalPrice);
-			}
+			session.put("cartInfoDTOList", cartInfoDTOList);
+			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+			session.put("totalPrice", totalPrice);
 		}
 		return result;
 	}

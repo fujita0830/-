@@ -40,7 +40,6 @@ public class CartInfoDAO {
                 + " order by update_date desc, regist_date desc";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            System.out.println("cartinfodao-getcartinfodtolist:"+loginId);
             preparedStatement.setString(1, loginId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {

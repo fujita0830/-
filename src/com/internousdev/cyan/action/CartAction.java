@@ -21,25 +21,24 @@ public class CartAction extends ActionSupport implements SessionAware {
 		String result = SUCCESS;
 		String userId = null;
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
-		}else{
-			List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
-			session.remove("checkListErrorMessageList");
-			if(session.get("logined").equals(1)) {
-				userId = String.valueOf(session.get("loginId"));
-			}else{
-				userId = String.valueOf(session.get("tempUserId"));
-			}
-			CartInfoDAO cartInfoDAO = new CartInfoDAO();
-			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-			Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
-			if(!(iterator.hasNext())) {
-				cartInfoDTOList = null;
-			}
-			session.put("cartInfoDTOList", cartInfoDTOList);
-			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-			session.put("totalPrice", totalPrice);
+			return "timeout";
 		}
+		List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
+		session.remove("checkListErrorMessageList");
+		if(session.get("logined").equals(1)) {
+			userId = String.valueOf(session.get("loginId"));
+		}else{
+			userId = String.valueOf(session.get("tempUserId"));
+		}
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+		Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
+		if(!(iterator.hasNext())) {
+			cartInfoDTOList = null;
+		}
+		session.put("cartInfoDTOList", cartInfoDTOList);
+		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+		session.put("totalPrice", totalPrice);
 		return result;
 	}
 
