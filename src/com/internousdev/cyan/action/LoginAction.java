@@ -14,7 +14,6 @@ import com.internousdev.cyan.dto.UserInfoDTO;
 import com.internousdev.cyan.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class LoginAction extends ActionSupport implements SessionAware {
 	private String loginId;
 	private String password;
@@ -59,7 +58,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		if(userInfoDAO.isExistsUserInfo(loginId, password)) {
 			if(userInfoDAO.login(loginId, password) > 0) {
-
 
 				// カートの情報をユーザーに紐づける。
 				List<CartInfoDTO> cartInfoDTOList  = new ArrayList<CartInfoDTO>();
@@ -110,7 +108,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("cartInfoDTOList", newCartInfoDTOList);
 		}
 	}
-
 
 	public String getLoginId() {
 		return loginId;

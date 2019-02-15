@@ -92,6 +92,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

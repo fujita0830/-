@@ -99,7 +99,6 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 				result = SUCCESS;
 			}
 
-
 		return result;
 	}
 
