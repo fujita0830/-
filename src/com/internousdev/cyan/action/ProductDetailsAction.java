@@ -14,7 +14,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware{
 	private int productId;
-	private String categoryId;
 	private Map<String, Object> session;
 	public String execute(){
 		String result = SUCCESS;
@@ -46,8 +45,8 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 			}
 			if(!productInfoDTOList.isEmpty() || productCountList == null){
 				session.put("productInfoDTOList", productInfoDTOList);
-
 			}
+
 		return result;
 	}
 
@@ -57,14 +56,6 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 
 	public void setProductId(int productId) {
 		this.productId = productId;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public Map<String, Object> getSession() {

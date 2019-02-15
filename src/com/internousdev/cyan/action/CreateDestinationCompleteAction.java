@@ -15,7 +15,6 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	private String email;
 	private String telNumber;
 	private String userAddress;
-	private String categoryId;
 	private Map<String, Object> session;
 	public String execute() {
 		String result = ERROR;
@@ -95,14 +94,6 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 
 	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public Map<String, Object> getSession() {

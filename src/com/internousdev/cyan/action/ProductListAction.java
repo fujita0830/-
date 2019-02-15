@@ -16,10 +16,6 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 	private String imageFilePath;
 	private String imageFileName;
 	private int price;
-
-	private String categoryId;
-	private String keywords;
-
 	private Map<String, Object> session;
 
 	public String execute(){
@@ -76,22 +72,6 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 
 	public void setPrice(int price) {
 		this.price = price;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
 	}
 
 	public Map<String, Object> getSession() {
