@@ -21,23 +21,22 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		String result = ERROR;
 
 		if(!session.containsKey("mCategoryDTOList")) {
-			result = "timeout";
-		} else {
-			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-			int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")), familyName, firstName, familyNameKana, firstNameKana, email, telNumber, userAddress);
-
-			if(count > 0) {
-				result = SUCCESS;
-			}
-
-			session.remove("familyName");
-			session.remove("firstName");
-			session.remove("familyNameKana");
-			session.remove("firstNameKana");
-			session.remove("userAddress");
-			session.remove("telNumber");
-			session.remove("email");
+			return "timeout";
 		}
+		DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
+		int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")), familyName, firstName, familyNameKana, firstNameKana, email, telNumber, userAddress);
+
+		if(count > 0) {
+			result = SUCCESS;
+		}
+
+		session.remove("familyName");
+		session.remove("firstName");
+		session.remove("familyNameKana");
+		session.remove("firstNameKana");
+		session.remove("userAddress");
+		session.remove("telNumber");
+		session.remove("email");
 
 		return result;
 	}

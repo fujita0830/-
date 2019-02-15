@@ -15,18 +15,17 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 		String result = SUCCESS;
 
 		if(!session.containsKey("mCategoryDTOList")) {
-			result = "timeout";
-		} else {
-			session.remove("familyNameErrorMessageList");
-			session.remove("firstNameErrorMessageList");
-			session.remove("familyNameKanaErrorMessageList");
-			session.remove("firstNameKanaErrorMessageList");
-			session.remove("emailErrorMessageList");
-			session.remove("telNumberErrorMessageList");
-			session.remove("userAddressErrorMessageList");
+			return "timeout";
 		}
+		session.remove("familyNameErrorMessageList");
+		session.remove("firstNameErrorMessageList");
+		session.remove("familyNameKanaErrorMessageList");
+		session.remove("firstNameKanaErrorMessageList");
+		session.remove("emailErrorMessageList");
+		session.remove("telNumberErrorMessageList");
+		session.remove("userAddressErrorMessageList");
 
-		return result;
+	return result;
 	}
 
 	public String getCategoryId() {
