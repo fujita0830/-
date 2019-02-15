@@ -26,13 +26,13 @@ public class CreateDestinationConfirmAction extends ActionSupport implements Ses
 		if(!session.containsKey("mCategoryDTOList")) {
 			return "timeout";
 		}
-		session.put("familyName", familyName);
-		session.put("firstName", firstName);
-		session.put("familyNameKana", familyNameKana);
-		session.put("firstNameKana", firstNameKana);
-		session.put("userAddress", userAddress);
-		session.put("telNumber", telNumber);
-		session.put("email", email);
+		session.put("createDestinationFamilyName", familyName);
+		session.put("createDestinationFirstName", firstName);
+		session.put("createDestinationFamilyNameKana", familyNameKana);
+		session.put("createDestinationFirstNameKana", firstNameKana);
+		session.put("createDestinationUserAddress", userAddress);
+		session.put("createDestinationTelNumber", telNumber);
+		session.put("createDestinationEmail", email);
 
 		InputChecker inputChecker = new InputChecker();
 		List<String> familyNameErrorMessageList = new ArrayList<String>();

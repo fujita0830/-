@@ -29,13 +29,13 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 			result = SUCCESS;
 		}
 
-		session.remove("familyName");
-		session.remove("firstName");
-		session.remove("familyNameKana");
-		session.remove("firstNameKana");
-		session.remove("userAddress");
-		session.remove("telNumber");
-		session.remove("email");
+		session.remove("createDestinationFamilyName");
+		session.remove("createDestinationFirstName");
+		session.remove("createDestinationFamilyNameKana");
+		session.remove("createDestinationFirstNameKana");
+		session.remove("createDestinationUserAddress");
+		session.remove("createDestinationTelNumber");
+		session.remove("createDestinationEmail");
 
 		return result;
 	}
