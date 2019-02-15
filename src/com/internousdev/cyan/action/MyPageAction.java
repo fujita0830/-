@@ -9,15 +9,13 @@ import com.internousdev.cyan.dto.UserInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware{
-	private String categoryId;
-	private String keywords;
+
 
 	private Map<String,Object> session;
 	public String execute(){
 
 		String result = SUCCESS;
-		System.out.println(categoryId);
-		System.out.println(keywords);
+
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
@@ -34,22 +32,6 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 					session.put("email",userInfoDTO.getEmail());
 				}
 			return result;
-		}
-
-		public String getCategoryId() {
-			return categoryId;
-		}
-
-		public void setCategoryId(String categoryId) {
-			this.categoryId = categoryId;
-		}
-
-		public String getKeywords(){
-			return keywords;
-		}
-
-		public void setKeywords(String keywords){
-			this.keywords = keywords;
 		}
 
 		public Map<String,Object> getSession(){
