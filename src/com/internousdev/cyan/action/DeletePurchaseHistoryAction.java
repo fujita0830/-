@@ -12,36 +12,25 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DeletePurchaseHistoryAction extends ActionSupport implements SessionAware{
 
-
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
 
 	public String execute(){
 
 		String result = ERROR;
-
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
-
 		int count = purchaseHistoryInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 
 		if(count > 0){
-
 			purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
-
 			Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDTOList.iterator();
-
 			if(!(iterator.hasNext())){
 				purchaseHistoryInfoDTOList = null;
 			}
-
 			result=SUCCESS;
 			}
-
 		return result;
 		}
-
-
-
 
 	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDTOList() {
 		return purchaseHistoryInfoDTOList;
