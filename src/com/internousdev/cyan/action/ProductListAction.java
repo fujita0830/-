@@ -25,7 +25,7 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
+			return "timeout";
 			}
 
 			session.remove("keywordsErrorMessageList");

@@ -19,7 +19,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
-			result="timeout";
+			return "timeout";
 			}
 
 			ProductInfoDAO productInfoDAO = new ProductInfoDAO();
