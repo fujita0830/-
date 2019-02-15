@@ -12,4 +12,5 @@ h2{
 /* 削除ボタン非活性(削除チェック入れてない状態の)のボタンの色の変更 */
 :disabled{
 	background-color:black;
+	pointer-events: none;
 }
