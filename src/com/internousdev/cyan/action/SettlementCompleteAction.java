@@ -2,7 +2,6 @@ package com.internousdev.cyan.action;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -43,13 +42,14 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 					cartInfoDTOList.get(i).getSubtotal()
 					);
 		}
+
 		if(count > 0) {
 			CartInfoDAO cartInfoDAO = new CartInfoDAO();
 			count = cartInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 			if(count > 0) {
-				List<CartInfoDTO> cartInfoDTOLists = new ArrayList<CartInfoDTO>();
-				cartInfoDTOLists = cartInfoDAO.getCartInfoDTOList(String.valueOf(session.get("loginId")));
-				Iterator<CartInfoDTO> iterator = cartInfoDTOLists.iterator();
+				cartInfoDTOList = new ArrayList<CartInfoDTO>();
+				cartInfoDTOList = (ArrayList<CartInfoDTO>) cartInfoDAO.getCartInfoDTOList(String.valueOf(session.get("loginId")));
+				Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
 				if(!(iterator.hasNext())) {
 					cartInfoDTOList = null;
 

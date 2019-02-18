@@ -18,6 +18,7 @@ public class CartInfoDTO {
  	private String releaseCompany;
  	private String status;
  	private int subtotal;
+ 	private int destinationId;
 
  	public int getId() {
  		return id;
@@ -131,15 +132,12 @@ public class CartInfoDTO {
  		this.subtotal = subtotal;
  	}
 
-	public void setDestinationId(int parseInt) {
-		// TODO 自動生成されたメソッド・スタブ
-
+	public int getDestinationId() {
+		return destinationId;
 	}
 
-
-	public int getDestinationId() {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
+	public void setDestinationId(int destinationId) {
+		this.destinationId = destinationId;
 	}
 
 }
