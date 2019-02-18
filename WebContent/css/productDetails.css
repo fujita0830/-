@@ -73,3 +73,26 @@
  	height: 100%;
 }
 
+
+@media (max-width: 900px) {
+    #content {
+        width: auto;
+    }
+
+	.item-image-box-320 {
+			overflow: hidden;
+		    width: 200px;/* トリミングしたい枠の幅 */
+		    height: 200px;/* トリミングしたい枠の高さ */
+		    position: relative;
+		}
+	.item-image-box-170 {
+			overflow: hidden;
+		    width: 100px;/* トリミングしたい枠の幅 */
+		    height: 100px;/* トリミングしたい枠の高さ */
+		    position: relative;
+		}
+	.vertical-list-table {
+			max-width: 300px;
+			font-size: 14px;
+		}
+}

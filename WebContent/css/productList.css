@@ -22,8 +22,8 @@
 
 .item-image-box-250 {
 	overflow: hidden;
-    width: 250px;/* トリミングしたい枠の幅 */
-    height: 250px;/* トリミングしたい枠の高さ */
+    width: 200px;/* トリミングしたい枠の幅 */
+    height: 200px;/* トリミングしたい枠の高さ */
     position: relative;
 }
 
@@ -38,3 +38,15 @@
  	height: 100%;
 }
 
+@media (max-width: 700px) {
+    #content {
+        width: auto;
+    }
+
+	.item-image-box-250 {
+		overflow: hidden;
+	    width: 150px;/* トリミングしたい枠の幅 */
+	    height: 150px;/* トリミングしたい枠の高さ */
+	    position: relative;
+	}
+}
