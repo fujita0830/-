@@ -57,12 +57,12 @@
 			<s:form id="createUserForm" name="form">
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="戻る" class="submit_btn" onclick="goCreateUserAction();"/>
+						<s:submit value="登録" class="submit_btn" onclick="goCreateUserAction();"/>
 					</div>
 				</div>
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="登録" class="submit_btn" onclick="goCreateUserCompleteAction();"/>
+						<s:submit value="戻る" class="submit_btn" onclick="goCreateUserCompleteAction();"/>
 					</div>
 				</div>
 				<s:hidden name="loginId" value="%{loginId}"/>
