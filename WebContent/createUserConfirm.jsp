@@ -58,6 +58,10 @@
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
 						<s:submit value="戻る" class="submit_btn" onclick="goCreateUserAction();"/>
+					</div>
+				</div>
+				<div class="submit_btn_box">
+					<div id=".contents-btn-set">
 						<s:submit value="登録" class="submit_btn" onclick="goCreateUserCompleteAction();"/>
 					</div>
 				</div>
