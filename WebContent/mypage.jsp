@@ -18,11 +18,11 @@
 					<table class="vertical-list-table">
 						<tr>
 							<th scope="row"><s:label value="姓"/></th>
-							<td><s:property value="#session.familyName"/><td>
+							<td><s:property value="#session.familyName"/></td>
 						</tr>
 						<tr>
 							<th scope="row"><s:label value="名"/></th>
-							<td><s:property value="#session.firstName"/><td>
+							<td><s:property value="#session.firstName"/></td>
 						</tr>
 						<tr>
 							<th scope="row"><s:label value="ふりがな"/></th>
