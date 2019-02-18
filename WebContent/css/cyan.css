@@ -221,7 +221,7 @@ table td {
 /* login.jspのチェックボックス用 */
 .box, .checkList {
 	padding: 30px;
-	padding-left: 100px;
+	padding-left: 40px;
 }
 
 /* チェックボックスのフォーカス、ホバー処理 */
