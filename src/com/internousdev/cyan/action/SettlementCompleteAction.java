@@ -10,7 +10,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.cyan.dao.CartInfoDAO;
 import com.internousdev.cyan.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.cyan.dto.CartInfoDTO;
-import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementCompleteAction extends ActionSupport implements SessionAware{
@@ -27,30 +26,30 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		}
 
 		@SuppressWarnings("unchecked")
-		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDTOList");
+		ArrayList<CartInfoDTO> cartInfoDTOList = (ArrayList<CartInfoDTO>)session.get("cartInfoDTOList");
 
-		for(int i=0;i<purchaseHistoryInfoDTOList.size();i++) {
-			purchaseHistoryInfoDTOList.get(i).setDestinationId(Integer.parseInt(getId()));
+		for(int i=0;i<cartInfoDTOList.size();i++) {
+			cartInfoDTOList.get(i).setDestinationId(Integer.parseInt(getId()));
 		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		int count = 0;
-		for(int i=0; i<purchaseHistoryInfoDTOList.size();i++) {
+		for(int i=0; i<cartInfoDTOList.size();i++) {
 			count += purchaseHistoryInfoDAO.regist(
 					String.valueOf(session.get("loginId")),
-					purchaseHistoryInfoDTOList.get(i).getProductId(),
-					purchaseHistoryInfoDTOList.get(i).getProductCount(),
-					purchaseHistoryInfoDTOList.get(i).getDestinationId(),
-					purchaseHistoryInfoDTOList.get(i).getSubtotal()
+					cartInfoDTOList.get(i).getProductId(),
+					cartInfoDTOList.get(i).getProductCount(),
+					cartInfoDTOList.get(i).getDestinationId(),
+					cartInfoDTOList.get(i).getSubtotal()
 					);
 		}
 		if(count > 0) {
 			CartInfoDAO cartInfoDAO = new CartInfoDAO();
 			count = cartInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 			if(count > 0) {
-				List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
-				cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(String.valueOf(session.get("loginId")));
-				Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
+				List<CartInfoDTO> cartInfoDTOLists = new ArrayList<CartInfoDTO>();
+				cartInfoDTOLists = cartInfoDAO.getCartInfoDTOList(String.valueOf(session.get("loginId")));
+				Iterator<CartInfoDTO> iterator = cartInfoDTOLists.iterator();
 				if(!(iterator.hasNext())) {
 					cartInfoDTOList = null;
 

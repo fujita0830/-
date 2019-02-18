@@ -131,4 +131,15 @@ public class CartInfoDTO {
  		this.subtotal = subtotal;
  	}
 
+	public void setDestinationId(int parseInt) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+
+	public int getDestinationId() {
+		// TODO 自動生成されたメソッド・スタブ
+		return 0;
+	}
+
 }

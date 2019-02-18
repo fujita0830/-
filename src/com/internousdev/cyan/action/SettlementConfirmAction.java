@@ -1,7 +1,5 @@
 package com.internousdev.cyan.action;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -12,8 +10,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.cyan.dao.DestinationInfoDAO;
 import com.internousdev.cyan.dto.DestinationInfoDTO;
-import com.internousdev.cyan.dto.PurchaseHistoryInfoDTO;
-import com.internousdev.cyan.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementConfirmAction extends ActionSupport implements SessionAware {
@@ -53,7 +49,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 				session.put("destinationInfoDTOList", destinationInfoDTOList);
 			}
 
-			if(!session.containsKey("purchaseHistoryInfoDTOList")) {
+			/*if(!session.containsKey("purchaseHistoryInfoDTOList")) {
 				List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
 				CommonUtility commonUtility = new CommonUtility();
 				String[] productIdList = commonUtility.parseArrayList(productId);
@@ -90,7 +86,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 					purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDTO);
 				}
 				session.put("purchaseHistoryInfoDTOList", purchaseHistoryInfoDTOList);
-			}
+			}*/
 
 			if(session.get("logined").equals(0)) {
 				result = ERROR;
