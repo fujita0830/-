@@ -99,9 +99,14 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			}
 		}
 
+		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(loginId);
+		Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
+		session.put("cartInfoDTOList", cartInfoDTOList);
+
+
 		if (count == cartInfoDTOList.size()) {
 			List<CartInfoDTO> newCartInfoDTOList = cartInfoDAO.getCartInfoDTOList(loginId);
-			Iterator<CartInfoDTO> iterator = newCartInfoDTOList.iterator();
+			iterator = newCartInfoDTOList.iterator();
 			if(!(iterator.hasNext())) {
 				newCartInfoDTOList = null;
 			}
