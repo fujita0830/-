@@ -135,7 +135,7 @@ table td {
 	height : 30px;
 	border: 0.5px solid #999;
 	font-size : 24px;
-	background-color: white;
+	background-color: #F4C4AD;
 }
 
 
@@ -235,7 +235,7 @@ table td {
 
 /* login.jspの入力フォーム背景 */
 .txt-yellow {
-	background-color:#fffacd;
+	background-color:#F4C4AD;
 }
 
 .txt-yellow:focus {
