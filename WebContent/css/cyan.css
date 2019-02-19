@@ -6,7 +6,6 @@ body, html {
 	height : 100%;
 	font-family: sans-serif;
 	background-color:#f3ecd8;
-	overflow-x: hidden;
 }
 
 *:focus{
@@ -20,6 +19,7 @@ body, html {
 	background-color:#440000;
 	overflow: hidden;
 	font-family: sans-serif;
+	box-sizing: border-box;
 }
 
 #header-menu{
