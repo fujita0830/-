@@ -18,7 +18,6 @@ public class CartInfoDTO {
  	private String releaseCompany;
  	private String status;
  	private int subtotal;
- 	private int destinationId;
 
  	public int getId() {
  		return id;
@@ -131,13 +130,5 @@ public class CartInfoDTO {
  	public void setSubtotal(int subtotal) {
  		this.subtotal = subtotal;
  	}
-
-	public int getDestinationId() {
-		return destinationId;
-	}
-
-	public void setDestinationId(int destinationId) {
-		this.destinationId = destinationId;
-	}
 
 }
