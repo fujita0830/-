@@ -38,6 +38,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 			session.remove("loginIdPasswordErrorMessageList");
 
 			if(session.get("logined").equals(1)) {
+
 				DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
 				List<DestinationInfoDTO> destinationInfoDTOList = new ArrayList<>();
 
@@ -47,15 +48,11 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 					destinationInfoDTOList = null;
 				}
 				session.put("destinationInfoDTOList", destinationInfoDTOList);
-			}
-
-			if(session.get("logined").equals(0)) {
+				result = SUCCESS;
+			}else{
 				result = ERROR;
 				session.put("cartFlag", "1");
-			} else {
-				result = SUCCESS;
 			}
-
 		return result;
 	}
 
