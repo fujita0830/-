@@ -188,15 +188,16 @@ public class CartInfoDAO {
         return result;
     }
 
-    public int linkToLoginId(String tempUserId, String loginId) {
+    public int linkToLoginId(String tempUserId, String loginId, int productId) {
         DBConnector dbConnector = new DBConnector();
         Connection connection = dbConnector.getConnection();
         int count = 0;
-        String sql = "UPDATE cart_info SET user_id=?, temp_user_id = null WHERE temp_user_id=?";
+        String sql = "UPDATE cart_info SET user_id=?, temp_user_id = null WHERE temp_user_id=? AND product_id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, loginId);
             preparedStatement.setString(2, tempUserId);
+            preparedStatement.setInt(3, productId);
             count = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

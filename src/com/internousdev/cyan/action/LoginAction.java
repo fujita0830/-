@@ -95,20 +95,18 @@ public class LoginAction extends ActionSupport implements SessionAware {
 				count += cartInfoDAO.updateProductCount(loginId, dto.getProductId(), dto.getProductCount());
 				cartInfoDAO.delete(String.valueOf(dto.getProductId()), tempUserId);
 			} else {
-				count += cartInfoDAO.linkToLoginId(tempUserId,loginId);
+				count += cartInfoDAO.linkToLoginId(tempUserId,loginId,dto.getProductId());
 			}
 		}
 
-		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(loginId);
-		Iterator<CartInfoDTO> iterator = cartInfoDTOList.iterator();
-		session.put("cartInfoDTOList", cartInfoDTOList);
-
 		if (count == cartInfoDTOList.size()) {
 			List<CartInfoDTO> newCartInfoDTOList = cartInfoDAO.getCartInfoDTOList(loginId);
-			iterator = newCartInfoDTOList.iterator();
+			Iterator<CartInfoDTO> iterator = newCartInfoDTOList.iterator();
 			if(!(iterator.hasNext())) {
 				newCartInfoDTOList = null;
 			}
+			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(loginId)));
+			session.put("totalPrice", totalPrice);
 			session.put("cartInfoDTOList", newCartInfoDTOList);
 		}
 	}
