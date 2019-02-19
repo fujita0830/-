@@ -16,28 +16,28 @@ public class CartInfoDAO {
         DBConnector dbConnector = new DBConnector();
         Connection connection = dbConnector.getConnection();
         List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
-        String sql="select"
-                + " ci.id as id,"
-                + " ci.user_id as user_id,"
-                + " ci.temp_user_id as temp_user_id,"
-                + " ci.product_id as product_id,"
-                + " ci.product_count as product_count,"
-                + " pi.price as price,"
-                + " pi.product_name as product_name,"
-                + " pi.product_name_kana as product_name_kana,"
-                + " pi.image_file_path as image_file_path, "
-                + " pi.image_file_name as image_file_name, "
-                + " pi.release_date as release_date,"
-                + " pi.release_company as release_company,"
-                + " pi.status as status,"
-                + " (ci.product_count * ci.price) as subtotal,"
-                + " ci.regist_date as regist_date,"
-                + " ci.update_date as update_date"
-                + " FROM cart_info as ci"
-                + " LEFT JOIN product_info as pi"
+        String sql="SELECT"
+                + " ci.id AS id,"
+                + " ci.user_id AS user_id,"
+                + " ci.temp_user_id AS temp_user_id,"
+                + " ci.product_id AS product_id,"
+                + " ci.product_count AS product_count,"
+                + " pi.price AS price,"
+                + " pi.product_name AS product_name,"
+                + " pi.product_name_kana AS product_name_kana,"
+                + " pi.image_file_path AS image_file_path, "
+                + " pi.image_file_name AS image_file_name, "
+                + " pi.release_date AS release_date,"
+                + " pi.release_company AS release_company,"
+                + " pi.status AS status,"
+                + " (ci.product_count * ci.price) AS subtotal,"
+                + " ci.regist_date AS regist_date,"
+                + " ci.update_date AS update_date"
+                + " FROM cart_info AS ci"
+                + " LEFT JOIN product_info AS pi"
                 + " ON ci.product_id = pi.product_id"
                 + " WHERE ci.user_id = ?"
-                + " order by update_date desc, regist_date desc";
+                + " ORDER BY update_date DESC, regist_date DESC";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, loginId);
@@ -75,7 +75,7 @@ public class CartInfoDAO {
         int totalPrice = 0;
         DBConnector dbConnector = new DBConnector();
         Connection connection = dbConnector.getConnection();
-        String sql = "select sum(product_count * price) as total_price from cart_info where user_id=? group by user_id";
+        String sql = "SELECT SUM(product_count * price) AS total_price FROM cart_info WHERE user_id=? GROUP BY user_id";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, userId);
@@ -98,8 +98,8 @@ public class CartInfoDAO {
         DBConnector dbConnector = new DBConnector();
         Connection connection = dbConnector.getConnection();
         int count = 0;
-        String sql = "insert into cart_info(user_id, temp_user_id, product_id, product_count, price, regist_date, update_date)"
-                + " values (?, ?, ?, ?, ?, now(), now())";
+        String sql = "INSERT INTO cart_info(user_id, temp_user_id, product_id, product_count, price, regist_date, update_date)"
+                + " VALUES (?, ?, ?, ?, ?, now(), now())";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, userId);
@@ -145,7 +145,7 @@ public class CartInfoDAO {
         DBConnector dbConnector = new DBConnector();
         Connection connection = dbConnector.getConnection();
         int count = 0;
-        String sql = "delete from cart_info where product_id=? and user_id=?";
+        String sql = "DELETE FROM cart_info WHERE product_id=? AND user_id=?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, productId);
@@ -165,7 +165,7 @@ public class CartInfoDAO {
     public boolean isExistsCartInfo (String loginId, int productId) {
         DBConnector db = new DBConnector();
         Connection con = db.getConnection();
-        String sql = "SELECT COUNT(id) AS COUNT FROM cart_info WHERE user_id = ? and product_id=?";
+        String sql = "SELECT COUNT(id) AS COUNT FROM cart_info WHERE user_id = ? AND product_id=?";
         boolean result = false;
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -192,7 +192,7 @@ public class CartInfoDAO {
         DBConnector dbConnector = new DBConnector();
         Connection connection = dbConnector.getConnection();
         int count = 0;
-        String sql = "update cart_info set user_id=?, temp_user_id = null where temp_user_id=?";
+        String sql = "UPDATE cart_info SET user_id=?, temp_user_id = null WHERE temp_user_id=?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, loginId);
@@ -213,7 +213,7 @@ public class CartInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "delete from cart_info where user_id=?";
+		String sql = "DELETE FROM cart_info WHERE user_id=?";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, userId);
