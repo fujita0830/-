@@ -50,7 +50,8 @@ body, html {
 	margin-left : 25px;
 	width : 12%;
 	color:#ffffff;
-	font-size:19px;
+	font-size: 1.5vw;
+	white-space: nowrap;
 
 }
 
