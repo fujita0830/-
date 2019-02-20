@@ -17,10 +17,9 @@
 }
 
 .product-list-box {
-	float: left;
+	display: inline-block;
     width: 30%;
     text-align: center;
-
 }
 
 .item-image-box-250 {
