@@ -17,9 +17,10 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 			return "timeout";
 		}
 			UserInfoDAO userInfoDAO = new UserInfoDAO();
-			int count = userInfoDAO.resetPassword(String.valueOf(session.get("loginId")),String.valueOf(session.get("newPassword")));
+			int count = userInfoDAO.resetPassword(String.valueOf(session.get("resetPasswordLoginId")),String.valueOf(session.get("newPassword")));
 			if(count > 0) {
 				result = SUCCESS;
+				session.remove("resetPasswordLoginId");
 			}else {
 				result = ERROR;
 			}

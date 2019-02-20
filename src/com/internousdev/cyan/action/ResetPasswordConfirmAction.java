@@ -54,7 +54,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 					StringBuilder stringBuilder = new StringBuilder("****************");
 					String concealedPassword = stringBuilder.replace(beginIndex, endIndex, newPassword.substring(beginIndex,endIndex)).toString();
-					session.put("loginId", loginId);
+					session.put("resetPasswordLoginId", loginId);
 					session.put("newPassword", newPassword);
 					session.put("concealedPassword", concealedPassword);
 					newPasswordIncorrectErrorMessageList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);

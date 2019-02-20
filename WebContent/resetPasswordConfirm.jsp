@@ -18,7 +18,7 @@
 	<table class="vertical-list-table">
 		<tr>
 		<th scope="row"><s:label value="ユーザーID"/></th>
-			<td><s:property value="#session.loginId" /></td>
+			<td><s:property value="#session.resetPasswordLoginId" /></td>
 		</tr>
 		<tr>
 			<th scope="row"><s:label value="新しいパスワード"/></th>
@@ -28,7 +28,7 @@
 </s:form>
 <s:form action="ResetPasswordAction">
 <div class="submit_btn_box"><s:submit value="戻る" class="submit_btn"/></div>
-<s:hidden name="loginId"/>
+<s:hidden name="loginId" value="resetPasswordLoginId"/>
 </s:form>
 </div>
 
