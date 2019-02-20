@@ -14,7 +14,7 @@
 	<h1>決済確認画面</h1>
 	<s:if test="#session.destinationInfoDTOList.size() > 0">
 		<div class="info">
-			送り先情報を選択してください
+			宛先情報を選択してください。
 		</div>
 		<s:form id="form" action="SettlementCompleteAction">
 			<table class="horizontal-list-table">
