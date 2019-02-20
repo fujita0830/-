@@ -146,7 +146,7 @@ table td {
 /* -----------------------------------------------------------------------------*/
 /* ------------ボタン自体のデザイン-------------------------------------------- */
 
-.submit_btn , .header_btn {
+.submit_btn {
 	border-radius: 100px;
 	border-width: 1px;
 	width: auto;
@@ -163,11 +163,27 @@ table td {
 }
 
 .header_btn{
+	width: auto;
+	min-width: 120px;
 	border-width: 0px;
 	border-color:#440000;
 	background-color:#440000;
 	font-size: 1.3vw;
 	min-width: 100px;
+	margin-left : 10px;
+	height:auto;
+	text-align: center;
+	color:white;
+}
+
+
+.header_btn:focus {
+	box-shadow: 0 0 10px white ;
+}
+
+.header_btn:hover {
+	cursor: pointer;
+    box-shadow: 0 0 20px white ;
 }
 
 .submit_btn:active {
