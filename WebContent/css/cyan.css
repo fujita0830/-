@@ -50,7 +50,7 @@ body, html {
 	margin-left : 25px;
 	width : 12%;
 	color:#ffffff;
-	font-size: 1.5vw;
+	font-size: 1.3vw;
 	white-space: nowrap;
 
 }
@@ -146,7 +146,7 @@ table td {
 /* -----------------------------------------------------------------------------*/
 /* ------------ボタン自体のデザイン-------------------------------------------- */
 
-.submit_btn {
+.submit_btn , .header_btn {
 	border-radius: 100px;
 	border-width: 1px;
 	width: auto;
@@ -162,6 +162,13 @@ table td {
 	padding-right: 30px;
 }
 
+.header_btn{
+	border-width: 0px;
+	border-color:#440000;
+	background-color:#440000;
+	font-size: 1.3vw;
+	min-width: 100px;
+}
 
 .submit_btn:active {
 	position: relative;
