@@ -4,10 +4,13 @@
 /* 		商品詳細画面													*/
 /* -------------------------------------------------------------------- */
 
+.box{
+	width: 100%;
+}
+
 .two-column-container{
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
-    max-width: 1080px;
 }
 
 .right{

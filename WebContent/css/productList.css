@@ -4,20 +4,23 @@
 /* 		商品一覧画面													*/
 /* -------------------------------------------------------------------- */
 
-#product-list {
-    width: 100%;
-    margin: 0 auto;
-    max-width: 1080px;
+
+.box{
+	width: 100%;
 }
 
-#product-list ul {
+.product-list {
+    margin: 0 auto;
+}
+.product-list ul {
     list-style-type: none;
 }
 
-#product-list-box {
+.product-list-box {
+	display: inline-block;
     width: 30%;
-    float: left;
     text-align: center;
+
 }
 
 .item-image-box-250 {
@@ -25,6 +28,7 @@
     width: 250px;/* トリミングしたい枠の幅 */
     height: 250px;/* トリミングしたい枠の高さ */
     position: relative;
+    margin: 0 auto;
 }
 
 .item-image-box-250 img{
@@ -36,6 +40,10 @@
  	transform: translate(-50%, -50%);
  	width: auto;
  	height: 100%;
+}
+
+.product-info{
+	text-align: center;
 }
 
 @media (max-width: 900px) {

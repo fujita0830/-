@@ -25,22 +25,24 @@
 	検索結果がありません。
 </div>
 </s:elseif>
-<div id="product-list">
+<div class="box">
+<div class="product-list">
 <s:iterator value="#session.productInfoDTOList">
-<div id="product-list-box">
+<div class="product-list-box">
 <ul>
 	<li>
 	<div class="item-image-box-250">
 	<a href='<s:url action="ProductDetailsAction">
 	<s:param name="productId" value="%{productId}"/></s:url>'>
 	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' height="250px" width="250px"/></a></div>
-	<div class="product-title"><s:property value="productName"/></div>
-	<div class="product-title-kana"><s:property value="productNameKana"/></div>
-	<div class="product-price"><s:property value="price"/>円</div><br>
+	<div class="product-info"><s:property value="productName"/><br>
+	<s:property value="productNameKana"/><br>
+	<s:property value="price"/>円</div><br>
 	</li>
 </ul>
 </div>
 </s:iterator>
+</div>
 </div>
 </div>
 </body>
