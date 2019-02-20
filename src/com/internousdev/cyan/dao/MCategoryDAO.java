@@ -22,8 +22,8 @@ public class MCategoryDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 				MCategoryDTO mCategoryDTO = new MCategoryDTO();
-				mCategoryDTO.setId(resultSet.getString("id"));
-				mCategoryDTO.setCategoryId(resultSet.getString("category_id"));
+				mCategoryDTO.setId(resultSet.getInt("id"));
+				mCategoryDTO.setCategoryId(resultSet.getInt("category_id"));
 				mCategoryDTO.setCategoryName(resultSet.getString("category_name"));
 				mCategoryDTOList.add(mCategoryDTO);
 			}

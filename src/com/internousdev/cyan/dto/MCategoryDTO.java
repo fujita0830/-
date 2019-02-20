@@ -1,27 +1,29 @@
 package com.internousdev.cyan.dto;
 
+import java.util.Date;
+
 public class MCategoryDTO {
 
-	private String id;
-	private String categoryId;
+	private int id;
+	private int categoryId;
 	private String categoryName;
 	private String description;
-	private String insertDate;
-	private String updateDate;
+	private Date insertDate;
+	private Date updateDate;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getCategoryId() {
+	public int getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -41,19 +43,19 @@ public class MCategoryDTO {
 		this.description = description;
 	}
 
-	public String getInsertDate() {
+	public Date getInsertDate() {
 		return insertDate;
 	}
 
-	public void setInsertDate(String insertDate) {
+	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 
