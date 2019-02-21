@@ -21,7 +21,7 @@
 				<thead>
 					<tr>
 						<th><s:label value="#"/></th>
-						<th><s:label value="性"/></th>
+						<th><s:label value="姓"/></th>
 						<th><s:label value="名"/></th>
 						<th><s:label value="ふりがな"/></th>
 						<th><s:label value="住所"/></th>
