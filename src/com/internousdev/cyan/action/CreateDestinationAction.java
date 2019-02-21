@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CreateDestinationAction extends ActionSupport implements SessionAware {
 
 	private Map<String, Object> session;
+	int createDestinationFlg;
 
 	public String execute() {
 		String result = SUCCESS;
@@ -16,6 +17,19 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 		if(!session.containsKey("mCategoryDTOList")) {
 			return "timeout";
 		}
+
+		if(createDestinationFlg==0){
+
+			session.remove("createDestinationFamilyName");
+			session.remove("createDestinationFirstName");
+			session.remove("createDestinationFamilyNameKana");
+			session.remove("createDestinationFirstNameKana");
+			session.remove("createDestinationUserAddress");
+			session.remove("createDestinationTelNumber");
+			session.remove("createDestinationEmail");
+
+		}
+
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
 		session.remove("familyNameKanaErrorMessageList");
@@ -33,6 +47,14 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public int getCreateDestinationFlg() {
+		return createDestinationFlg;
+	}
+
+	public void setCreateDestinationFlg(int createDestinationFlg) {
+		this.createDestinationFlg = createDestinationFlg;
 	}
 
 }

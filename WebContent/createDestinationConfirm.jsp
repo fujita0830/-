@@ -62,6 +62,7 @@
 		<s:hidden name="userAddress" value="%{userAddress}" />
 		<s:hidden name="telNumber" value="%{telNumber}" />
 		<s:hidden name="email" value="%{email}" />
+		<s:hidden name="createDestinationFlg" value="1" />
 	</s:form>
 </div>
 </body>

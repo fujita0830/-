@@ -78,6 +78,7 @@
 		<div id=".contents-btn-set">
 			<s:form action="CreateDestinationAction">
 				<s:submit value="新規宛先登録" class="submit_btn"/>
+				<s:hidden name="createDestinationFlg" value="0" />
 			</s:form>
 		</div>
 	</div>
