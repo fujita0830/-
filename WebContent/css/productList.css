@@ -12,6 +12,9 @@
 
 .product-list {
     margin: 0 auto;
+    padding-top: 30px;
+    background-color: white;
+    border-radius: 10px;
 }
 .product-list ul {
     list-style-type: none;
@@ -25,10 +28,12 @@
 
 .item-image-box-250 {
 	overflow: hidden;
-    width: 250px;/* トリミングしたい枠の幅 */
-    height: 250px;/* トリミングしたい枠の高さ */
+	width: 60%;
+	height: 60%;
+	padding: 60% 0 0;
     position: relative;
     margin: 0 auto;
+    border-radius: 5px;
 }
 
 .item-image-box-250 img{
@@ -44,17 +49,17 @@
 
 .product-info{
 	text-align: center;
+	padding-top:10px;
+	padding-bottom: 20px;
+}
+
+.product-info span{
+	display: block;
+	font-size: 14px;
+	color: #848484;
+	padding-top: 3px;
 }
 
 @media (max-width: 900px) {
-    #content {
-        width: auto;
-    }
 
-	.item-image-box-250 {
-		overflow: hidden;
-	    width: 150px;/* トリミングしたい枠の幅 */
-	    height: 150px;/* トリミングしたい枠の高さ */
-	    position: relative;
-	}
 }

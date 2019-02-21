@@ -34,10 +34,12 @@
 	<div class="item-image-box-250">
 	<a href='<s:url action="ProductDetailsAction">
 	<s:param name="productId" value="%{productId}"/></s:url>'>
-	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' height="250px" width="250px"/></a></div>
-	<div class="product-info"><s:property value="productName"/><br>
-	<s:property value="productNameKana"/><br>
-	<s:property value="price"/>円</div><br>
+	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'/></a></div>
+	<div class="product-info">
+	<span><s:property value="productName"/></span>
+	<span><s:property value="productNameKana"/></span>
+	<span class="price"><s:property value="price"/>円</span>
+	</div>
 	</li>
 </ul>
 </div>

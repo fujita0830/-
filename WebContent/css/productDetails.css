@@ -10,18 +10,18 @@
 }
 
 .two-column-container{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .right{
     float: left;
-    width: 40%;
+    width: 30%;
 }
 
 .left{
     float: left;
-    width: 60%;
+    width: 70%;
 }
 
 .submit_btn_box{
@@ -41,33 +41,22 @@
     text-align: center;
 }
 
-.item-image-box-320 {
-	overflow: hidden;
-    width: 320px;/* トリミングしたい枠の幅 */
-    height: 320px;/* トリミングしたい枠の高さ */
-    position: relative;
-}
-
 .item-image-box-320 img{
- 	position: absolute;
- 	top: 50%;
- 	left: 50%;
- 	-webkit-transform: translate(-50%, -50%);
- 	-ms-transform: translate(-50%, -50%);
- 	transform: translate(-50%, -50%);
- 	width: auto;
- 	height: 100%;
+	width: 100%;
+	height: auto;
 }
 
-.item-image-box-170 {
+.item-image-box-170{
 	overflow: hidden;
-    width: 170px;/* トリミングしたい枠の幅 */
-    height: 170px;/* トリミングしたい枠の高さ */
+	width: 40%;
+	height: 40%;
+	padding: 40% 0 0;
     position: relative;
+    margin: 0 auto;
+    border-radius: 5px;
 }
-
 .item-image-box-170 img{
- 	position: absolute;
+	position: absolute;
  	top: 50%;
  	left: 50%;
  	-webkit-transform: translate(-50%, -50%);
@@ -77,26 +66,16 @@
  	height: 100%;
 }
 
-
-@media (max-width: 900px) {
-    #content {
-        width: auto;
-    }
-
-	.item-image-box-320 {
-			overflow: hidden;
-		    width: 200px;/* トリミングしたい枠の幅 */
-		    height: 200px;/* トリミングしたい枠の高さ */
-		    position: relative;
-		}
-	.item-image-box-170 {
-			overflow: hidden;
-		    width: 100px;/* トリミングしたい枠の幅 */
-		    height: 100px;/* トリミングしたい枠の高さ */
-		    position: relative;
-		}
-	.vertical-list-table {
-			max-width: 300px;
-			font-size: 14px;
-		}
+.product-vertical-list-table tr{
+	background-color: white;
 }
+.product-vertical-list-table tr th {
+	text-align: left;
+	width: 35%;
+}
+
+.product-vertical-list-table tr td {
+	width: 70%;
+}
+
+
