@@ -7,6 +7,7 @@
 
 .box{
 	width: 100%;
+	box-sizing: border-box;
 }
 
 .product-list {
@@ -18,7 +19,7 @@
 
 .product-list-box {
 	display: inline-block;
-    width: 30%;
+    width: 32%;
     text-align: center;
 }
 
