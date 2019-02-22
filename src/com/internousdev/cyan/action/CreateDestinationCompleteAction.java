@@ -23,7 +23,14 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 			return "timeout";
 		}
 		DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-		int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")), familyName, firstName, familyNameKana, firstNameKana, email, telNumber, userAddress);
+		int count = destinationInfoDAO.insert(String.valueOf(session.get("loginId")),
+				String.valueOf(session.get("createDestinationFamilyName")),
+				String.valueOf(session.get("createDestinationFirstName")),
+				String.valueOf(session.get("createDestinationFamilyNameKana")),
+				String.valueOf(session.get("createDestinationFirstNameKana")),
+				String.valueOf(session.get("createDestinationUserAddress")),
+				String.valueOf(session.get("createDestinationTelNumber")),
+				String.valueOf(session.get("createDestinationEmail")));
 
 		if(count > 0) {
 			result = SUCCESS;
