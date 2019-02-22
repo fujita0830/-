@@ -16,31 +16,31 @@
 		<table class="vertical-list-table">
 			<tr>
 				<th scope="row"><s:label value="姓"/></th>
-				<td><s:property value="familyName"/></td>
+				<td><s:property value="#session.createDestinationFamilyName"/></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="名"/></th>
-				<td><s:property value="firstName"/></td>
+				<td><s:property value="#session.createDestinationFirstName"/></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="姓ふりがな"/></th>
-				<td><s:property value="familyNameKana"/></td>
+				<td><s:property value="#session.createDestinationFamilyNameKana"/></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="名ふりがな"/></th>
-				<td><s:property value="firstNameKana"/></td>
+				<td><s:property value="#session.createDestinationFirstNameKana"/></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="住所"/></th>
-				<td><s:property value="userAddress"/></td>
+				<td><s:property value="#session.createDestinationUserAddress"/></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="電話番号"/></th>
-				<td><s:property value="telNumber"/></td>
+				<td><s:property value="#session.createDestinationTelNumber"/></td>
 			</tr>
 			<tr>
 				<th scope="row"><s:label value="メールアドレス"/></th>
-				<td><s:property value="email"/></td>
+				<td><s:property value="#session.createDestinationEmail"/></td>
 			</tr>
 		</table>
 		<div class="submit_btn_box">

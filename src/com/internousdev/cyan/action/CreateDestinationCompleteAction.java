@@ -28,9 +28,9 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 				String.valueOf(session.get("createDestinationFirstName")),
 				String.valueOf(session.get("createDestinationFamilyNameKana")),
 				String.valueOf(session.get("createDestinationFirstNameKana")),
-				String.valueOf(session.get("createDestinationUserAddress")),
+				String.valueOf(session.get("createDestinationEmail")),
 				String.valueOf(session.get("createDestinationTelNumber")),
-				String.valueOf(session.get("createDestinationEmail")));
+				String.valueOf(session.get("createDestinationUserAddress")));
 
 		if(count > 0) {
 			result = SUCCESS;
