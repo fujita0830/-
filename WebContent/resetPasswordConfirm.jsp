@@ -29,6 +29,7 @@
 <s:form action="ResetPasswordAction">
 <div class="submit_btn_box"><s:submit value="戻る" class="submit_btn"/></div>
 <s:hidden name="loginId" value="resetPasswordLoginId"/>
+<s:hidden name="resetPasswordFlg" value="1" />
 </s:form>
 </div>
 

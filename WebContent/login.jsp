@@ -83,6 +83,7 @@ function goResetPasswordAction() {
 <div id=".contents-btn-set">
 <s:form action="ResetPasswordAction">
  	<s:submit value="パスワード再設定" class="submit_btn" />
+ 	<s:hidden name="resetPasswordFlg" value="0" />
 </s:form>
 </div>
 </div>
