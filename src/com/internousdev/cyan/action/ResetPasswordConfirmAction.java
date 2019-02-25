@@ -39,6 +39,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			List<String> newPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 			List<String> reConfirmationNewPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 
+			session.put("resetPasswordLoginId", loginId);
 			if(loginIdErrorMessageList.size()==0
 			&& passwordErrorMessageList.size()==0
 			&& newPasswordErrorMessageList.size()==0
@@ -62,6 +63,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 					if(newPasswordIncorrectErrorMessageList.size()==0){
 						result = SUCCESS;
 					}else {
+
 						session.put("newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
 					}
 				} else {
