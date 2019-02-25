@@ -34,15 +34,16 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 
 		if(count > 0) {
 			result = SUCCESS;
-		}
 
-		session.remove("createDestinationFamilyName");
-		session.remove("createDestinationFirstName");
-		session.remove("createDestinationFamilyNameKana");
-		session.remove("createDestinationFirstNameKana");
-		session.remove("createDestinationUserAddress");
-		session.remove("createDestinationTelNumber");
-		session.remove("createDestinationEmail");
+			session.remove("createDestinationFamilyName");
+			session.remove("createDestinationFirstName");
+			session.remove("createDestinationFamilyNameKana");
+			session.remove("createDestinationFirstNameKana");
+			session.remove("createDestinationUserAddress");
+			session.remove("createDestinationTelNumber");
+			session.remove("createDestinationEmail");
+
+		}
 
 		return result;
 	}

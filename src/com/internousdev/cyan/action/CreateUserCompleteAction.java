@@ -24,12 +24,11 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 			return "timeout";
 		}
 			UserInfoDAO UserInfoDAO = new UserInfoDAO();
-			int count = UserInfoDAO.createUser(
-					String.valueOf(session.get("familyName")),
+			int count = UserInfoDAO.createUser(String.valueOf(session.get("familyName")),
 					String.valueOf(session.get("firstName")),
 					String.valueOf(session.get("familyNameKana")),
 					String.valueOf(session.get("firstNameKana")),
-					String.valueOf(session.get("sex")),
+					String.valueOf(session.get("sexValue")),
 					String.valueOf(session.get("email")),
 					String.valueOf(session.get("loginId")),
 					String.valueOf(session.get("password")));

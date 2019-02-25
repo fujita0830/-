@@ -21,6 +21,14 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
 	private Map<String, Object> session;
+	private int createUserFlg;
+
+	public int getCreateUserFlg() {
+		return createUserFlg;
+	}
+	public void setCreateUserFlg(int createUserFlg) {
+		this.createUserFlg = createUserFlg;
+	}
 	public String execute() {
 		String result = SUCCESS;
 		if(!session.containsKey("mCategoryDTOList")){
@@ -37,11 +45,18 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 			session.remove("loginIdPasswordErrorMessageList");
 			session.remove("loginIdErrorMessageList");
 
-			session.put("familyName",familyName);
-			session.put("firstName", firstName);
-			session.put("familyNameKana",familyNameKana);
-			session.put("firstNameKana",firstNameKana);
-			if(sex == null) {
+			if(createUserFlg==0){
+				session.remove("familyName");
+				session.remove("firstName");
+				session.remove("familyNameKana");
+				session.remove("firstNameKana");
+				session.remove("sex");
+				session.remove("email");
+				session.remove("loginId");
+				session.remove("password");
+			}
+
+			if(session.get("sex") == null) {
 				session.put("sex", MALE);
 			}else{
 				session.put("sex",String.valueOf(session.get("sex")));
@@ -49,9 +64,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 			sexList.add(MALE);
 			sexList.add(FEMALE);
 			session.put("sexList", sexList);
-			session.put("email", email);
-			session.put("loginId", loginId);
-			session.put("password", password);
 
 		return result;
 	}

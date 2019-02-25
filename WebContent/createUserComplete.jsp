@@ -23,8 +23,8 @@
 </div>
 </div>
 <s:form id="form1" action="LoginAction">
-	<s:hidden name="loginId" value="%{loginId}" />
-	<s:hidden name="password" value="%{password}" />
+	<s:hidden name="loginId" value="%{#session.loginId}" />
+	<s:hidden name="password" value="%{#session.password}" />
 </s:form>
 
 </body>

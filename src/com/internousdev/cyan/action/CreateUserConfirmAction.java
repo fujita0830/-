@@ -44,7 +44,14 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 			session.put("firstName",firstName);
 			session.put("familyNameKana",familyNameKana);
 			session.put("firstNameKana",firstNameKana);
-			session.put("sex",sex);
+
+			session.put("sex", sex);
+			if(session.get("sex")=="男性"){
+				session.put("sexValue","0");
+			}else{
+				session.put("sexValue","1");
+			}
+
 			session.put("email",email);
 			session.put("loginId",loginId);
 			session.put("password",password);
