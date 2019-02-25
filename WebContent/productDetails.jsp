@@ -57,15 +57,6 @@
 		</tr>
 	</table>
 	</div>
-	<s:hidden name="productId" value="%{#session.productId}"/>
-	<s:hidden name="productName" value="%{#session.productName}"/>
-	<s:hidden name="productNameKana" value="%{#session.productNameKana}"/>
-	<s:hidden name="imageFilePath" value="%{#session.imageFilePath}"/>
-	<s:hidden name="imageFileName" value="%{#session.imageFileName}"/>
-	<s:hidden name="price" value="%{#session.price}"/>
-	<s:hidden name="releaseCompany" value="%{#session.releaseCompany}"/>
-	<s:hidden name="releaseDate" value="%{#session.releaseDate}"/>
-	<s:hidden name="productDescription" value="%{#session.productDescription}"/>
 	<div class="submit_btn_box">
 	<s:submit value="カートに追加" class="submit_btn"/>
 	</div>
