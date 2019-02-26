@@ -40,21 +40,21 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 			InputChecker inputChecker = new InputChecker();
 
-			session.put("familyName",familyName);
-			session.put("firstName",firstName);
-			session.put("familyNameKana",familyNameKana);
-			session.put("firstNameKana",firstNameKana);
+			session.put("createUserFamilyName",familyName);
+			session.put("createUserFirstName",firstName);
+			session.put("createUserFamilyNameKana",familyNameKana);
+			session.put("createUserFirstNameKana",firstNameKana);
 
-			session.put("sex", sex);
-			if(session.get("sex")=="男性"){
-				session.put("sexValue","0");
+			session.put("createUserSex", sex);
+			if(session.get("createUserSex")=="男性"){
+				session.put("createUserSexValue","0");
 			}else{
-				session.put("sexValue","1");
+				session.put("createUserSexValue","1");
 			}
 
-			session.put("email",email);
-			session.put("loginId",loginId);
-			session.put("password",password);
+			session.put("createUserEmail",email);
+			session.put("createUserLoginId",loginId);
+			session.put("createUserPassword",password);
 
 			List<String> familyNameErrorMessageList = new ArrayList<String>();
 			List<String> firstNameErrorMessageList = new ArrayList<String>();
@@ -83,7 +83,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 				UserInfoDAO userInfoDAO = new UserInfoDAO();
 				if(!(userInfoDAO.isExistsLoginIdUserInfo(loginId))) {
-					session.put("loginId", loginId);
+					session.put("createUserLoginId", loginId);
 					result = SUCCESS;
 				} else {
 					loginIdIncorrectErrorMessageList.add("使用できないユーザーIDです。");

@@ -75,35 +75,35 @@
 <table class="vertical-list-table">
 <tr>
 	<th scope="row">姓</th>
-	<td><s:textfield name="familyName" value="%{#session.familyName}" label="姓" placeholder="姓" class="txt" /></td>
+	<td><s:textfield name="familyName" value="%{#session.createUserFamilyName}" label="姓" placeholder="姓" class="txt" /></td>
 </tr>
 <tr>
 	<th scope="row">名</th>
-	<td><s:textfield name="firstName" value="%{#session.firstName}" label="名" placeholder="名" class="txt" /></td>
+	<td><s:textfield name="firstName" value="%{#session.createUserFirstName}" label="名" placeholder="名" class="txt" /></td>
 </tr>
 <tr>
 	<th scope="row">姓ふりがな</th>
-	<td><s:textfield name="familyNameKana" value="%{#session.familyNameKana}" label="姓ふりがな" placeholder="姓ふりがな" class="txt" /></td>
+	<td><s:textfield name="familyNameKana" value="%{#session.createUserFamilyNameKana}" label="姓ふりがな" placeholder="姓ふりがな" class="txt" /></td>
 </tr>
 <tr>
 	<th scope="row">名ふりがな</th>
-	<td><s:textfield name="firstNameKana" value="%{#session.firstNameKana}" label="名ふりがな" placeholder="名ふりがな" class="txt" /></td>
+	<td><s:textfield name="firstNameKana" value="%{#session.createUserFirstNameKana}" label="名ふりがな" placeholder="名ふりがな" class="txt" /></td>
 </tr>
 <tr>
 	<th scope="row">性別</th>
-	<td><s:radio name="sex" list="%{#session.sexList}" value="%{#session.sex}" label="性別" placeholder="性別" /></td>
+	<td><s:radio name="sex" list="%{#session.sexList}" value="%{#session.createUserSex}" label="性別" placeholder="性別" /></td>
 </tr>
 <tr>
 	<th scope="row">メールアドレス</th>
-	<td><s:textfield name="email" value="%{#session.email}" label="メールアドレス" placeholder="メールアドレス" class="txt" /></td>
+	<td><s:textfield name="email" value="%{#session.createUserEmail}" label="メールアドレス" placeholder="メールアドレス" class="txt" /></td>
 </tr>
 <tr>
 	<th scope="row">ユーザーID</th>
-	<td><s:textfield name="loginId" value="%{#session.loginId}" label="ユーザーID" placeholder="ユーザーID" class="txt" /></td>
+	<td><s:textfield name="loginId" value="%{#session.createUserLoginId}" label="ユーザーID" placeholder="ユーザーID" class="txt" /></td>
 </tr>
 <tr>
 	<th scope="row">パスワード</th>
-	<td><s:password name="password" value="" label="パスワード" placeholder="パスワード" class="txt" /></td>
+	<td><s:password name="password" value="%{#session.createUserPassword}" label="パスワード" placeholder="パスワード" class="txt" /></td>
 </tr>
 </table>
 <div class="submit_btn_box">

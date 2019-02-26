@@ -24,17 +24,26 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 			return "timeout";
 		}
 			UserInfoDAO UserInfoDAO = new UserInfoDAO();
-			int count = UserInfoDAO.createUser(String.valueOf(session.get("familyName")),
-					String.valueOf(session.get("firstName")),
-					String.valueOf(session.get("familyNameKana")),
-					String.valueOf(session.get("firstNameKana")),
-					String.valueOf(session.get("sexValue")),
-					String.valueOf(session.get("email")),
-					String.valueOf(session.get("loginId")),
-					String.valueOf(session.get("password")));
+			int count = UserInfoDAO.createUser(String.valueOf(session.get("createUserFamilyName")),
+					String.valueOf(session.get("createUserFirstName")),
+					String.valueOf(session.get("createUserFamilyNameKana")),
+					String.valueOf(session.get("createUserFirstNameKana")),
+					String.valueOf(session.get("createUserSexValue")),
+					String.valueOf(session.get("createUserEmail")),
+					String.valueOf(session.get("createUserLoginId")),
+					String.valueOf(session.get("createUserPassword")));
 			if(count > 0) {
 				result = SUCCESS;
-
+				session.put("loginId", session.get("createUserLoginId"));
+				session.put("password", session.get("createUserPassword"));
+				session.remove("createUserFamilyName");
+				session.remove("createUserFirstName");
+				session.remove("createUserFamilyNameKana");
+				session.remove("createUserFirstNameKana");
+				session.remove("createUserSexValue");
+				session.remove("createUserEmail");
+				session.remove("createUserLoginId");
+				session.remove("createUserPassword");
 		}
 		return result;
 	}

@@ -23,35 +23,35 @@
 			<table class="vertical-list-table">
 				<tr>
 					<th scope="row"><s:label value="姓"/></th>
-					<td><s:property value="familyName"/></td>
+					<td><s:property value="#session.createUserFamilyName"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="名"/></th>
-					<td><s:property value="firstName"/></td>
+					<td><s:property value="#session.createUserFirstName"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="姓ふりがな"/></th>
-					<td><s:property value="familyNameKana"/></td>
+					<td><s:property value="#session.createUserFamilyNameKana"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="名ふりがな"/></th>
-					<td><s:property value="firstNameKana"/></td>
+					<td><s:property value="#session.createUserFirstNameKana"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="性別"/></th>
-					<td><s:property value="sex"/></td>
+					<td><s:property value="#session.createUserSex"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="メールアドレス"/></th>
-					<td><s:property value="email"/></td>
+					<td><s:property value="#session.createUserEmail"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="ユーザーID"/>
-					<td><s:property value="loginId"/>
+					<td><s:property value="#session.createUserLoginId"/>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="パスワード"/>
-					<td><s:property value="password"/>
+					<td><s:property value="#session.createUserPassword"/>
 				</tr>
 			</table>
 			<s:form id="createUserForm" name="form">

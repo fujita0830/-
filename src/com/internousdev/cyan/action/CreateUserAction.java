@@ -46,20 +46,20 @@ public class CreateUserAction extends ActionSupport implements SessionAware{
 			session.remove("loginIdErrorMessageList");
 
 			if(createUserFlg==0){
-				session.remove("familyName");
-				session.remove("firstName");
-				session.remove("familyNameKana");
-				session.remove("firstNameKana");
-				session.remove("sex");
-				session.remove("email");
-				session.remove("loginId");
-				session.remove("password");
+				session.remove("createUserFamilyName");
+				session.remove("createUserFirstName");
+				session.remove("createUserFamilyNameKana");
+				session.remove("createUserFirstNameKana");
+				session.remove("createUserSex");
+				session.remove("createUserEmail");
+				session.remove("createUserLoginId");
+				session.remove("createUserPassword");
 			}
 
-			if(session.get("sex") == null) {
-				session.put("sex", MALE);
+			if(session.get("createUserSex") == null) {
+				session.put("createUserSex", MALE);
 			}else{
-				session.put("sex",String.valueOf(session.get("sex")));
+				session.put("createUserSex",String.valueOf(session.get("createUserSex")));
 			}
 			sexList.add(MALE);
 			sexList.add(FEMALE);
