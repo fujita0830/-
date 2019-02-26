@@ -1,4 +1,4 @@
-package com.internousdev.cyan.dto;
+package com.internousdev.cyan.dto.test;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.Test;
+
+import com.internousdev.cyan.dto.DestinationInfoDTO;
 
 public class DestinationInfoDTOTest {
 
