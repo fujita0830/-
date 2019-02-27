@@ -47,12 +47,15 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		loginIdErrorMessageList = inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 
+		if(loginIdErrorMessageList.size()!=0){
+			session.remove("savedLoginId");
+		}
+
 		if(loginIdErrorMessageList.size()!=0
 		|| passwordErrorMessageList.size()!=0) {
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("logined", 0);
-			session.remove("savedLoginId");
 			return result;
 		}
 
